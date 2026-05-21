@@ -88,8 +88,8 @@ input {
   max-width: 358px;
   margin: 0 auto;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  /* align-items: start; */
+  justify-content: center;
 }
 
 .layout--mobile .m-logo {
@@ -260,9 +260,10 @@ input {
 }
 
 .layout--mobile .m-btn--primary {
-  padding: 16px 0;
+  padding: 10px 20px;
+  line-height: 28px;
+  font-weight: 700;
   color: #fff;
-  background: #ff7c5c;
   box-shadow: 0 10px 15px -3px #fed7aa, 0 4px 6px -4px #fed7aa;
 }
 
@@ -766,10 +767,15 @@ input {
 }
 
 .layout--desktop .d-btn--primary {
-  padding: 19px 32px 20px;
-  min-height: 60px;
+  padding: 12px 24px;
+  line-height: 28px;
+  font-size: 18px;
   color: #fff;
   background: #ff735c;
+  border-radius: 8px;
+  font-family: inter;
+  font-weight: 700;
+  margin-right: 24px;
   box-shadow: 0 20px 25px -5px rgba(255, 115, 92, 0.2), 0 8px 10px -6px rgba(255, 115, 92, 0.2);
 }
 

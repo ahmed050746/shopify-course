@@ -78,7 +78,7 @@ html.page-v2 .layout--mobile .m-hero__avatar {
   /* background:
     radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
     linear-gradient(145deg, #a5b4fc 0%, #6366f1 50%, #4c1d95 100%); */
-    background-image: url("img/heroimg.png");
+    background-image: url("/img/heroimg.png");
     background-position: center;
     background-position-x: -65px;
     background-size: cover;
@@ -422,6 +422,43 @@ html.page-v2 .layout--desktop .d-footer__mark {
   height: 100%;
   border-radius: 16px;
 }
+
+    .d-btn--pay {
+      font-size: 16px;
+      line-height: 24px;
+      border-radius: 8px;
+      padding: 12px 24px;
+    }
+   .d-btn--pay {
+      color: #fff;
+      background: linear-gradient(135deg, #10b981 0%, #059669 45%, #047857 100%);
+    }
+
+    .d-btn--pay:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -8px rgba(16, 185, 129, 0.4);
+    }
+
+    .d-hero {
+      background: radial-gradient(ellipse 70% 55% at 70% 20%, rgba(104, 55, 255, 0.07) 0%, transparent 55%), #f9f9fb;
+    }
+
+      .m-btn--pay {
+      padding: 16px 0;
+      color: #fff;
+      background: linear-gradient(135deg, #10b981 0%, #059669 40%, #047857 100%);
+      box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3);
+      margin-left: 12px;
+    }
+
+    .m-btn--pay:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px -6px rgba(16, 185, 129, 0.45);
+    }
+
+    .footerLogoAnchro{
+      text-decoration: none;
+    }
 
 /* -----------------------------------------------------------------------------
    Motion preferences

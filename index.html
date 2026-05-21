@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="style-v2.css">
+  <link rel="stylesheet" href="style/style-v2.css">
 </head>
 <body>
 
@@ -19,12 +19,14 @@
         <div class="m-header__inner">
           <!-- <a class="m-logo" href="#" aria-label="AI Web Crafts home"> -->
             <!-- <span class="m-logo__mark" aria-hidden="true"><span class="m-logo__mark-inner"></span></span> -->
-            <span class="m-logo__text">AI Web Crafts</span>
-            <button type="button" class="m-btn m-btn--primary" id="startJourneyMobile" style="width: 120px; height: 42px; font-size: 14px; text-align: center; justify-content: center; align-items: center; display: flex   ; ">Contact Us</button>
+            <button type="button" class="m-btn m-btn--primary" id="startJourneyMobile" style="width: 120px; font-size: 12px;">Contact Us</button>
+            <a href="payment.html">
+              <button type="button" class="m-btn m-btn--pay" id="payNowMobile" style="width: 120px; padding: 10px 20px; font-size: 12px;">Pay Now</button>
+            </a>
           </a>
         </div>
       </header>
-
+      
       <main class="m-main">
         <section class="m-hero" aria-labelledby="m-hero-title">
           <div class="m-hero__inner">
@@ -71,7 +73,7 @@
 
         <section class="m-lead" aria-labelledby="m-lead-title">
           <div class="m-lead__inner">
-                        <article class="m-story" aria-labelledby="m-story-title">
+                <article class="m-story" aria-labelledby="m-story-title">
               <div class="m-story__head">
                 <div class="m-story__thumb vhightimg" role="img" aria-label="Mentor thumbnail placeholder">
                   <img class="vhightimg" src="/img/6596.png">
@@ -87,9 +89,7 @@
                 <li><span class="m-story__icon m-story__icon--globe" aria-hidden="true"></span> Global &amp; Local Market Strategies</li>
                 <li><span class="m-story__icon m-story__icon--chart" aria-hidden="true"></span> Real-time Store &amp; Ads Optimization</li>
               </ul>
-              <!-- <a href="about.html" class="m-story__link" id="readFullStoryMobil"><span>Read Full Story</span><span class="m-story__chev" aria-hidden="true"></span></a> -->
             </article>
-      
 
             <form class="m-form" id="consultFormMobile" action="#" method="post" novalidate>
                     <header class="m-lead__header">
@@ -123,8 +123,12 @@
 
       <footer class="m-footer">
         <div class="m-footer__brand">
-          <span class="m-footer__mark" aria-hidden="true"><span></span></span>
-          <span class="m-footer__name">AI Web Crafts</span>
+          <a href="index.html">
+             <img src="img/logo white.png" alt="" style="width: 28px; margin-right: 4px;">
+          </a>
+          <a href="index.html" class="footerLogoAnchro">
+            <span class="m-footer__name">AI Web Crafts</span>
+          </a>
         </div>
         <p class="m-footer__legal">© 2026 AI Web Crafts. All rights reserved.</p>
       </footer>
@@ -140,6 +144,9 @@
           <span class="d-logo__text">AI Web Crafts</span>
         </a>
         <button type="button" class="d-btn d-btn--primary" id="startJourneyDesktop" style="margin-left: auto;">Contact Us</button>
+        <a href="payment.html">
+          <button type="button" class="d-btn d-btn--pay" id="payNowDesktop">Pay Now</button>
+        </a>
       </div>
     </header>
 
@@ -283,7 +290,7 @@
   </div>
 
   <!-- WhatsApp: replace 923001234567 with your number (digits only, country code, no +). -->
-  <!-- <a
+  <a
     class="fab-whatsapp"
     href="https://wa.me/923001234567"
     target="_blank"
@@ -294,7 +301,7 @@
     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
       <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
     </svg>
-  </a> -->
+  </a>
 
   <div class="thank-modal" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="thankModalTitle" hidden>
     <div class="thank-modal__backdrop" id="thankYouModalBackdrop"></div>
