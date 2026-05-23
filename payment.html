@@ -719,6 +719,54 @@
         background-size: 14px;
       }
     }
+
+    /* deepSeek Price font change */
+
+    /* Default (Mobile First Approach) */
+.price-original {
+  font-size: 14px;
+  text-decoration: line-through;
+  color: #94a3b8;
+}
+
+.price-discount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Tablet (768px and above) */
+@media (min-width: 768px) {
+  .price-original {
+    font-size: 16px;
+  }
+  
+  .price-discount {
+    font-size: 32px;
+  }
+}
+
+/* Desktop (1024px and above) */
+@media (min-width: 1024px) {
+  .price-original {
+    font-size: 18px;
+  }
+  
+  .price-discount {
+    font-size: 36px;
+  }
+}
+
+/* Large Desktop (1280px and above) */
+@media (min-width: 1280px) {
+  .price-original {
+    font-size: 20px;
+  }
+  
+  .price-discount {
+    font-size: 42px;
+  }
+} 
   </style>
 </head>
 <body>
@@ -736,21 +784,21 @@
   <div class="payment-container">
     <!-- Pricing Card -->
     <div class="pricing-card">
-      <div class="pricing-badge">Limited Time Offer</div>
-      <h1 class="pricing-title">1-on-1 E-Commerce Mentorship</h1>
-      <p class="pricing-sub">Live, personalized guidance — Shopify, Dropshipping & International Marketplaces</p>
+      <!-- <div class="pricing-badge">Limited Time Offer</div> -->
+      <!-- <h1 class="pricing-title">1-on-1 E-Commerce Mentorship</h1> -->
+      <!-- <p class="pricing-sub">Live, personalized guidance — Shopify, Dropshipping & International Marketplaces</p> -->
+      <div class="price-save">🔥 70% OFF — Limited Seats Only!</div>
       <div class="price-row">
         <span class="price-original">Rs. 50,000</span>
         <span class="price-discount">Rs. 15,000</span>
       </div>
-      <div class="price-save">🔥 70% OFF — Limited Seats Only!</div>
-      <ul class="price-includes">
+      <!-- <ul class="price-includes">
         <li>1-on-1 Personalized Mentorship (Live Sessions)</li>
         <li>Real-time Store & Ads Optimization</li>
         <li>Global & Local Market Strategies</li>
         <li>eBay, Walmart, Etsy Guidance</li>
         <li>16+ Years of Direct Experience</li>
-      </ul>
+      </ul> -->
     </div>
 
     <!-- Payment Method Tabs -->
@@ -758,13 +806,13 @@
 
     <div class="payment-tabs">
       <button class="tab-btn active" onclick="showTab('bank')" id="tab-bank">
-        <span class="tab-icon">🏦</span>Bank Transfer
+        <span class="tab-icon"><img src="img/bank-svgrepo-com (2).svg" alt="" class="pay-method-icon" style="width: 32px;"></span>Bank Transfer
       </button>
-      <button class="tab-btn" onclick="showTab('jazz')" id="tab-jazz">
-        <span class="tab-icon">📱</span>JazzCash
-      </button>
+      <!-- <button class="tab-btn" onclick="showTab('jazz')" id="tab-jazz">
+        <span class="tab-icon">📱</span>EasyPaisa
+      </button> -->
       <button class="tab-btn" onclick="showTab('easy')" id="tab-easy">
-        <span class="tab-icon">💚</span>EasyPaisa
+        <span class="tab-icon"><img src="img/Easypaisa-logo.png" alt="" class="pay-method-icon" style="width: 32px;"></span>EasyPaisa
       </button>
     </div>
 
@@ -862,7 +910,7 @@
       </div>
 
       <!-- FIXED: Payment Method Dropdown with proper padding and styling -->
-      <div class="field">
+      <!-- <div class="field">
         <label for="c-method">Payment Method *</label>
         <select id="c-method">
           <option value="" disabled selected>— Select Payment Method —</option>
@@ -871,19 +919,19 @@
           <option value="EasyPaisa">💚 EasyPaisa</option>
         </select>
         <p class="form-error" id="err-method">Please select a payment method</p>
-      </div>
+      </div> -->
 
-      <div class="field">
+      <!-- <div class="field">
         <label for="c-txn">Transaction ID / Reference Number *</label>
         <input type="text" id="c-txn" placeholder="Enter transaction ID or reference number" maxlength="100">
         <p class="form-error" id="err-txn">Transaction ID is required</p>
-      </div>
+      </div> -->
 
       <div class="field">
         <label>Upload Payment Screenshot *</label>
         <div class="upload-area" id="upload-area">
           <input type="file" id="c-screenshot" accept="image/*" onchange="handleFileSelect(event)">
-          <span class="upload-icon">📸</span>
+          <span class="upload-icon"><img src="img/upload-svgrepo-com (1).svg" alt="" style="width: 42px;"></span>
           <p class="upload-text">Click or drag & drop screenshot here</p>
           <p class="upload-hint">JPG, PNG — Max 5MB</p>
         </div>
@@ -895,7 +943,7 @@
       </div>
 
       <button class="submit-btn" id="confirm-btn" onclick="submitConfirmation()">
-        ✅ Confirm Payment & Enroll Now
+        Send
       </button>
     </div>
 
