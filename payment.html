@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" class="page-v2">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Enroll Now — AI Web Crafts</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(120% 80% at 50% -10%, rgba(104, 55, 255, 0.06) 0%, transparent 55%),
+        #f9f9fb;
+      color: #302652;
+      min-height: 100vh;
+    }
+
+    img { max-width: 100%; height: auto; display: block; }
+    button, input { font: inherit; }
+
+    /* ── NAV ── */
+    .pay-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255, 255, 255, 0.88);
+      border-bottom: 1px solid #e8e8e8;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 1px 0 rgba(15, 23, 42, 0.06), 0 18px 50px -36px rgba(48, 38, 82, 0.18);
+      padding: 0 32px;
+    }
+
+    .pay-nav__inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      height: 73px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .pay-nav__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .pay-nav__logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #8b5cf6 0%, #6837ff 50%, #5b21b6 100%);
+      box-shadow: 0 6px 18px rgba(104, 55, 255, 0.35);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .pay-nav__brand:hover .pay-nav__logo-mark {
+      transform: scale(1.06) rotate(-2deg);
+      box-shadow: 0 10px 26px rgba(104, 55, 255, 0.45);
+    }
+
+    .pay-nav__logo-mark span {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background: #fff;
+      display: block;
+    }
+
+    .pay-nav__text {
+      font-weight: 900;
+      font-size: 24px;
+      line-height: 32px;
+      letter-spacing: -0.6px;
+      color: #302652;
+    }
+
+    .pay-nav__back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 20px;
+      border-radius: 8px;
+      border: 1px solid #e8e8e8;
+      background: #fff;
+      font-weight: 700;
+      font-size: 14px;
+      color: #302652;
+      text-decoration: none;
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+
+    .pay-nav__back:hover {
+      transform: translateY(-2px);
+      border-color: rgba(104,55,255,0.35);
+      color: #5b21b6;
+      box-shadow: 0 10px 28px -12px rgba(48, 38, 82, 0.15);
+    }
+
+    /* ── PAGE SHELL ── */
+    .pay-page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 56px 32px 80px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .pay-page-title {
+      margin: 0 0 8px;
+      font-weight: 800;
+      font-size: 40px;
+      line-height: 44px;
+      letter-spacing: -0.03em;
+      color: #302652;
+    }
+
+    .pay-page-sub {
+      margin: 0 0 48px;
+      font-size: 18px;
+      line-height: 28px;
+      color: #6b6b6b;
+    }
+
+    /* ── GRID ── */
+    .pay-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .pay-page { padding: 32px 16px 60px; }
+      .pay-page-title { font-size: 30px; line-height: 36px; }
+      .pay-grid { grid-template-columns: 1fr; gap: 24px; }
+      .pay-left { position: static; }
+      .pay-nav { padding: 0 16px; }
+    }
+
+    /* ── STICKY LEFT ── */
+    @media (min-width: 900px) {
+      .pay-left { position: sticky; top: 100px; }
+    }
+
+    /* ── BADGE ── */
+    .pay-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+      box-shadow: 0 1px 2px rgba(104,55,255,0.08);
+      margin-bottom: 20px;
+    }
+
+    .pay-badge__dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: #6837ff;
+      box-shadow: 0 0 0 3px rgba(104,55,255,0.2);
+      animation: badge-pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes badge-pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(104,55,255,0.2); transform: scale(1); }
+      50% { box-shadow: 0 0 0 6px rgba(104,55,255,0.12); transform: scale(1.05); }
+    }
+
+    .pay-badge__text {
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #6837ff;
+    }
+
+    /* ── PRICING CARD ── */
+    .price-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 32px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px -1px rgba(0,0,0,0.06);
+      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+    }
+
+    .price-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(104,55,255,0.18);
+      box-shadow: 0 24px 48px -20px rgba(48,38,82,0.12), 0 12px 24px -16px rgba(48,38,82,0.08);
+    }
+
+    .price-save-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+      color: #166534;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      margin-bottom: 20px;
+      letter-spacing: 0.3px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .price-original {
+      font-size: 20px;
+      font-weight: 600;
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+
+    .price-discount {
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      background: linear-gradient(135deg, #ff8a73 0%, #ff735c 45%, #ea580c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── SECTION LABEL ── */
+    .sec-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+      color: #302652;
+      margin-bottom: 16px;
+    }
+
+    .sec-label__icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, #4338ca 0%, #302652 55%, #1e1b4b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(48,38,82,0.22);
+    }
+
+    .sec-label__icon svg { display: block; }
+
+    /* ── PAYMENT TABS ── */
+    .pay-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pay-tab {
+      flex: 1;
+      padding: 14px 12px;
+      border-radius: 12px;
+      border: 1.5px solid #e8e8e8;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b6b6b;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .pay-tab .tab-emoji { font-size: 20px; }
+
+    .pay-tab.active {
+      border-color: #6837ff;
+      background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
+      color: #5b21b6;
+      box-shadow: 0 4px 14px rgba(104,55,255,0.18);
+    }
+
+    .pay-tab:hover:not(.active) {
+      border-color: rgba(104,55,255,0.3);
+      color: #302652;
+      transform: translateY(-1px);
+    }
+
+    /* ── PAYMENT DETAIL CARD ── */
+    .pay-detail {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .pay-detail[hidden] { display: none; }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .detail-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .detail-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .detail-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: #302652;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .detail-val--accent {
+      background: linear-gradient(135deg, #ff8a73 0%, #ff735c 45%, #ea580c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      font-size: 18px;
+    }
+
+    .copy-btn {
+      background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+      color: #4338ca;
+      border: none;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+      letter-spacing: 0.3px;
+    }
+
+    .copy-btn:hover { background: #6837ff; color: #fff; }
+    .copy-btn.copied { background: #10b981; color: #fff; }
+
+    .method-note {
+      margin-top: 20px;
+      background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%);
+      border-left: 3px solid #6837ff;
+      border-radius: 0 10px 10px 0;
+      padding: 12px 16px;
+      font-size: 13px;
+      color: #1e40af;
+      line-height: 1.5;
+    }
+
+    /* ── CONFIRM CARD ── */
+    .confirm-card {
+      background: #fff;
+      border: 1px solid rgba(104,55,255,0.4);
+      border-radius: 16px;
+      padding: 32px;
+      box-shadow: 0 10px 25px rgba(104,55,255,0.4);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .confirm-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(104,55,255,0.35);
+    }
+
+    /* ── FORM FIELDS ── */
+    .d-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .d-field__label {
+      font-weight: 600;
+      font-size: 13px;
+      line-height: 18px;
+      color: #334155;
+    }
+
+    .d-field__input {
+      width: 100%;
+      height: 49px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: #1e293b;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .d-field__input::placeholder { color: #94a3b8; }
+
+    .d-field__input:hover { border-color: rgba(104,55,255,0.3); }
+
+    .d-field__input:focus {
+      border-color: #6837ff;
+      box-shadow: 0 0 0 3px rgba(104,55,255,0.15);
+    }
+
+    .d-field__input[aria-invalid="true"] {
+      border-color: #fca5a5;
+      box-shadow: 0 0 0 2px rgba(220,38,38,0.15);
+    }
+
+    /* ── UPLOAD AREA ── */
+    .upload-wrap { position: relative; }
+
+    .upload-area {
+      border: 2px dashed rgba(104,55,255,0.35);
+      border-radius: 12px;
+      padding: 28px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #f5f3ff 0%, #faf5ff 100%);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .upload-area:hover {
+      border-color: #6837ff;
+      background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
+    }
+
+    .upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-icon {
+      font-size: 32px;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .upload-text {
+      font-size: 13px;
+      font-weight: 700;
+      color: #6837ff;
+    }
+
+    .upload-hint {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    .upload-preview { display: none; margin-top: 12px; }
+    .upload-preview.visible { display: block; }
+    .upload-preview img { max-width: 100%; max-height: 140px; border-radius: 10px; }
+    .upload-filename { font-size: 12px; color: #6b7280; margin-top: 6px; }
+
+    /* ── ERRORS ── */
+    .form-error {
+      font-size: 12px;
+      font-weight: 500;
+      color: #dc2626;
+      margin-top: 5px;
+      display: none;
+    }
+
+    .form-error.visible { display: block; }
+
+    /* ── SUBMIT BUTTON ── */
+    .submit-btn {
+      width: 100%;
+      padding: 19px 24px 20px;
+      border: 0;
+      border-radius: 12px;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 28px;
+      font-family: inherit;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(135deg, #8b5cf6 0%, #6837ff 45%, #5b21b6 100%);
+      box-shadow: 0 10px 15px -3px rgba(104,55,255,0.3), 0 4px 6px -4px rgba(104,55,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 8px;
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 36px -10px rgba(104,55,255,0.5), 0 8px 16px -10px rgba(91,33,182,0.35);
+    }
+
+    .submit-btn:active { transform: translateY(1px); }
+
+    .submit-btn:focus-visible { outline: 2px solid #6837ff; outline-offset: 3px; }
+
+    .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    .loading-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(255,255,255,0.35);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      display: none;
+      flex-shrink: 0;
+    }
+
+    .submit-btn.loading .loading-spinner { display: block; }
+    .submit-btn.loading .btn-text { opacity: 0.92; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── WHATSAPP FAB ── */
+    .fab-whatsapp {
+      position: fixed;
+      right: max(28px, env(safe-area-inset-right, 0px));
+      bottom: max(28px, env(safe-area-inset-bottom, 0px));
+      z-index: 250;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 58px;
+      height: 58px;
+      border-radius: 9999px;
+      background: linear-gradient(145deg, #25d366 0%, #128c7e 100%);
+      color: #fff;
+      text-decoration: none;
+      box-shadow: 0 10px 28px -6px rgba(18,140,126,0.55), 0 4px 12px rgba(0,0,0,0.12);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .fab-whatsapp:hover {
+      transform: scale(1.06);
+      box-shadow: 0 14px 36px -8px rgba(18,140,126,0.6), 0 6px 16px rgba(0,0,0,0.14);
+    }
+
+    .fab-whatsapp svg { width: 30px; height: 30px; display: block; }
+
+    /* ── SUCCESS MODAL ── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay[hidden] { display: none !important; }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15,23,42,0.45);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 420px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 24px;
+      padding: 40px 32px 32px;
+      text-align: center;
+      box-shadow: 0 25px 50px -12px rgba(48,38,82,0.25);
+      animation: modalPop 0.3s cubic-bezier(0.34,1.56,0.64,1);
+    }
+
+    @keyframes modalPop {
+      from { transform: scale(0.85); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .modal-icon { font-size: 52px; margin-bottom: 16px; display: block; }
+
+    .modal-title {
+      margin: 0 0 12px;
+      font-weight: 800;
+      font-size: 28px;
+      line-height: 34px;
+      letter-spacing: -0.03em;
+      color: #302652;
+    }
+
+    .modal-text {
+      margin: 0 0 28px;
+      font-size: 16px;
+      line-height: 26px;
+      color: #6b6b6b;
+    }
+
+    .modal-close-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 140px;
+      padding: 14px 28px;
+      border: 0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 15px;
+      color: #fff;
+      background: linear-gradient(135deg, #8b5cf6 0%, #6837ff 45%, #5b21b6 100%);
+      box-shadow: 0 10px 20px -6px rgba(104,55,255,0.4);
+      cursor: pointer;
+      transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease;
+    }
+
+    .modal-close-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -8px rgba(104,55,255,0.45);
+    }
+
+    /* ── FOOTER ── */
+    .pay-footer {
+      padding: 48px 32px;
+      background: linear-gradient(180deg, #3730a3 0%, #302652 45%, #1e1b4b 100%);
+      text-align: center;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+    }
+
+    .pay-footer__brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pay-footer__mark {
+      width: 24px;
+      height: 24px;
+      border-radius: 4px;
+      background: linear-gradient(135deg, #a78bfa 0%, #6837ff 50%, #5b21b6 100%);
+      box-shadow: 0 6px 20px rgba(104,55,255,0.4);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .pay-footer__mark span { width: 12px; height: 12px; border-radius: 4px; background: #fff; display: block; }
+
+    .pay-footer__name { font-weight: 900; font-size: 20px; line-height: 28px; color: #fff; }
+    .pay-footer__legal { margin: 0; font-size: 14px; color: rgba(255,255,255,0.6); }
+    .pay-footer__legal a { color: #a5b4fc; text-decoration: none; font-weight: 600; }
+    .pay-footer__legal a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <nav class="pay-nav">
+    <div class="pay-nav__inner">
+      <a class="pay-nav__brand" href="index.html">
+        <span class="pay-nav__logo-mark" aria-hidden="true"><span></span></span>
+        <span class="pay-nav__text">AI Web Crafts</span>
+      </a>
+      <a class="pay-nav__back" href="index.html">← Back</a>
+    </div>
+  </nav>
+
+  <div class="pay-page">
+    <h1 class="pay-page-title">Enroll Now</h1>
+    <p class="pay-page-sub">Complete your payment and we'll confirm your enrollment within 24 hours.</p>
+
+    <div class="pay-grid">
+
+      <!-- LEFT: Pricing + Payment Method -->
+      <div class="pay-left">
+
+        <div class="pay-badge" aria-label="Accepting new students">
+          <span class="pay-badge__dot" aria-hidden="true"></span>
+          <span class="pay-badge__text">Limited Seats Available</span>
+        </div>
+
+        <div class="price-card">
+          <div class="price-save-tag">🔥 70% OFF — Act Fast!</div>
+          <div class="price-row">
+            <span class="price-original">Rs. 50,000</span>
+            <span class="price-discount">Rs. 15,000</span>
+          </div>
+        </div>
+
+        <div class="sec-label">
+          <span class="sec-label__icon" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h18M7 3v2m10-2v2M6.2 21h11.6A2.2 2.2 0 0020 18.8V7.2A2.2 2.2 0 0017.8 5H6.2A2.2 2.2 0 004 7.2v11.6A2.2 2.2 0 006.2 21z" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </span>
+          Select Payment Method
+        </div>
+
+        <div class="pay-tabs">
+          <button class="pay-tab active" onclick="showTab('bank')" id="tab-bank">
+            <span class="tab-emoji" aria-hidden="true">🏦</span>
+            Bank Transfer
+          </button>
+          <button class="pay-tab" onclick="showTab('easy')" id="tab-easy">
+            <span class="tab-emoji" aria-hidden="true">📱</span>
+            EasyPaisa
+          </button>
+        </div>
+
+        <div class="pay-detail" id="detail-bank">
+          <div class="detail-row">
+            <span class="detail-lbl">Bank</span>
+            <span class="detail-val">Meezan Bank</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-lbl">Account Name</span>
+            <span class="detail-val">AI Web Crafts</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-lbl">Account No.</span>
+            <span class="detail-val">
+              <span id="bank-acc">0123-4567890-001</span>
+              <button class="copy-btn" onclick="copyText('bank-acc', this)">Copy</button>
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-lbl">IBAN</span>
+            <span class="detail-val">
+              <span id="bank-iban">PK36MEZN0001234567890</span>
+              <button class="copy-btn" onclick="copyText('bank-iban', this)">Copy</button>
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-lbl">Amount</span>
+            <span class="detail-val detail-val--accent">Rs. 15,000</span>
+          </div>
+          <div class="method-note">💡 After transfer, take a screenshot and upload it in the form.</div>
+        </div>
+
+        <div class="pay-detail" id="detail-easy" hidden>
+          <div class="detail-row">
+            <span class="detail-lbl">EasyPaisa No.</span>
+            <span class="detail-val">
+              <span id="easy-num">0333-1234567</span>
+              <button class="copy-btn" onclick="copyText('easy-num', this)">Copy</button>
+            </span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-lbl">Account Name</span>
+            <span class="detail-val">AI Web Crafts</span>
+          </div>
+          <div class="detail-row">
+            <span class="detail-lbl">Amount</span>
+            <span class="detail-val detail-val--accent">Rs. 15,000</span>
+          </div>
+          <div class="method-note">💚 Use EasyPaisa app or *786# to send. Take a screenshot and upload below.</div>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Confirmation Form -->
+      <div class="pay-right">
+        <div class="confirm-card">
+          <div class="sec-label" style="margin-bottom: 24px;">
+            <span class="sec-label__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            Confirm Your Payment
+          </div>
+
+          <div class="d-field">
+            <label class="d-field__label" for="c-name">Full Name *</label>
+            <input class="d-field__input" type="text" id="c-name" placeholder="Enter your full name" autocomplete="name" maxlength="120">
+            <p class="form-error" id="err-name">Please enter your name.</p>
+          </div>
+
+          <div class="d-field">
+            <label class="d-field__label" for="c-phone">Phone Number *</label>
+            <input class="d-field__input" type="tel" id="c-phone" placeholder="0300-XXXXXXX" inputmode="numeric" autocomplete="tel" maxlength="20">
+            <p class="form-error" id="err-phone">Please enter a valid phone number.</p>
+          </div>
+
+          <div class="d-field">
+            <label class="d-field__label">Payment Screenshot *</label>
+            <div class="upload-area" id="upload-area">
+              <input type="file" id="c-screenshot" accept="image/*" onchange="handleFileSelect(event)" aria-label="Upload payment screenshot">
+              <span class="upload-icon" aria-hidden="true">📸</span>
+              <p class="upload-text">Click or drag & drop here</p>
+              <p class="upload-hint">JPG, PNG — Max 5MB</p>
+            </div>
+            <div class="upload-preview" id="upload-preview">
+              <img id="preview-img" src="" alt="Screenshot preview">
+              <p class="upload-filename" id="upload-filename"></p>
+            </div>
+            <p class="form-error" id="err-screenshot">Please upload payment screenshot.</p>
+          </div>
+
+          <button class="submit-btn" id="confirm-btn" type="button">
+            <span class="loading-spinner" aria-hidden="true"></span>
+            <span class="btn-text">Send Confirmation</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WhatsApp FAB -->
+  <a class="fab-whatsapp"
+    href="https://api.whatsapp.com/send?phone=923321319363&text=Hello%20I%20need%20help"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+    title="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
+    </svg>
+  </a>
+
+  <!-- Success Modal -->
+  <div class="modal-overlay" id="successModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-dialog" role="document">
+      <span class="modal-icon" aria-hidden="true">✅</span>
+      <h2 class="modal-title" id="modalTitle">Payment Submitted!</h2>
+      <p class="modal-text">Thank you! We will verify your payment and confirm your enrollment within 24 hours.</p>
+      <button class="modal-close-btn" id="modalCloseBtn" type="button">Got it!</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="pay-footer">
+    <div class="pay-footer__brand">
+      <span class="pay-footer__mark" aria-hidden="true"><span></span></span>
+      <span class="pay-footer__name">AI Web Crafts</span>
+    </div>
+    <p class="pay-footer__legal">
+      © 2026 AI Web Crafts. All rights reserved. &nbsp;|&nbsp;
+      Having issues? <a href="https://wa.me/923321319363" target="_blank">Chat on WhatsApp</a>
+    </p>
+  </footer>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKuSLup7ht_lXCrxbvFyNqeNgPZ8VI0FAdMW1BL1eh53nUi3nTl3ogqcBobf5Xa-OV/exec";
+
+    let selectedFile = null;
+    let screenshotBase64 = null;
+
+    function showTab(tab) {
+      const bankDetail = document.getElementById('detail-bank');
+      const easyDetail = document.getElementById('detail-easy');
+      const bankBtn = document.getElementById('tab-bank');
+      const easyBtn = document.getElementById('tab-easy');
+      if (tab === 'bank') {
+        bankDetail.removeAttribute('hidden');
+        easyDetail.setAttribute('hidden', '');
+        bankBtn.classList.add('active');
+        easyBtn.classList.remove('active');
+      } else {
+        bankDetail.setAttribute('hidden', '');
+        easyDetail.removeAttribute('hidden');
+        bankBtn.classList.remove('active');
+        easyBtn.classList.add('active');
+      }
+    }
+
+    function copyText(id, btn) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text);
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+    }
+
+    function handleFileSelect(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) { alert('File is larger than 5MB. Please choose a smaller image.'); return; }
+      selectedFile = file;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        screenshotBase64 = e.target.result;
+        document.getElementById('preview-img').src = e.target.result;
+        document.getElementById('upload-filename').textContent = file.name;
+        document.getElementById('upload-preview').classList.add('visible');
+        document.getElementById('err-screenshot').classList.remove('visible');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    const uploadArea = document.getElementById('upload-area');
+    uploadArea.addEventListener('dragover', (e) => { e.preventDefault(); uploadArea.style.borderColor = '#6837ff'; });
+    uploadArea.addEventListener('dragleave', () => { uploadArea.style.borderColor = ''; });
+    uploadArea.addEventListener('drop', (e) => {
+      e.preventDefault();
+      uploadArea.style.borderColor = '';
+      const files = e.dataTransfer.files;
+      if (files.length) { document.getElementById('c-screenshot').files = files; handleFileSelect({ target: { files } }); }
+    });
+
+    function showErr(id) { document.getElementById(id)?.classList.add('visible'); }
+    function clearErr(id) { document.getElementById(id)?.classList.remove('visible'); }
+
+    function openModal() {
+      const m = document.getElementById('successModal');
+      m.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('modalCloseBtn').focus();
+    }
+
+    function closeModal() {
+      document.getElementById('successModal').setAttribute('hidden', '');
+      document.body.style.overflow = '';
+      window.location.href = 'index.html';
+    }
+
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    document.getElementById('modalBackdrop').addEventListener('click', closeModal);
+    document.addEventListener('keydown', (e) => {
+      const m = document.getElementById('successModal');
+      if (e.key === 'Escape' && !m.hasAttribute('hidden')) closeModal();
+    });
+
+    async function submitConfirmation() {
+      const name = document.getElementById('c-name').value.trim();
+      const phone = document.getElementById('c-phone').value.trim();
+      let isValid = true;
+
+      clearErr('err-name'); clearErr('err-phone'); clearErr('err-screenshot');
+
+      if (name.length < 2) { showErr('err-name'); document.getElementById('c-name').setAttribute('aria-invalid','true'); isValid = false; }
+      const cleanPhone = phone.replace(/[-\s]/g, '');
+      if (!/^\d{7,}$/.test(cleanPhone)) { showErr('err-phone'); document.getElementById('c-phone').setAttribute('aria-invalid','true'); isValid = false; }
+      if (!selectedFile) { showErr('err-screenshot'); isValid = false; }
+      if (!isValid) return;
+
+      const btn = document.getElementById('confirm-btn');
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      try {
+        const formData = new URLSearchParams();
+        formData.append('name', name);
+        formData.append('phone', cleanPhone);
+        if (screenshotBase64) formData.append('screenshot', screenshotBase64);
+
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 30000);
+
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formData,
+          signal: controller.signal
+        });
+
+        clearTimeout(timeout);
+        document.getElementById('c-name').value = '';
+        document.getElementById('c-phone').value = '';
+        document.getElementById('c-screenshot').value = '';
+        selectedFile = null; screenshotBase64 = null;
+        document.getElementById('upload-preview').classList.remove('visible');
+        openModal();
+      } catch (err) {
+        console.log('Submit:', err);
+        openModal();
+      } finally {
+        btn.classList.remove('loading');
+        btn.disabled = false;
+      }
+    }
+
+    document.getElementById('confirm-btn').addEventListener('click', submitConfirmation);
+    document.getElementById('c-name').addEventListener('input', () => { clearErr('err-name'); document.getElementById('c-name').removeAttribute('aria-invalid'); });
+    document.getElementById('c-phone').addEventListener('input', () => { clearErr('err-phone'); document.getElementById('c-phone').removeAttribute('aria-invalid'); });
+  </script>
+</body>
+</html>
