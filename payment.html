@@ -695,6 +695,43 @@
     .pay-footer__legal { margin: 0; font-size: 14px; color: rgba(255,255,255,0.6); }
     .pay-footer__legal a { color: #a5b4fc; text-decoration: none; font-weight: 600; }
     .pay-footer__legal a:hover { text-decoration: underline; }
+
+    /* Default (desktop) styles */
+.price-original {
+  font-size: 20px;
+}
+
+.price-discount {
+  font-size: 44px;
+}
+
+/* Mobile screens (cell phones) */
+@media (max-width: 768px) {
+  .price-original {
+    font-size: 14px;  /* Smaller for mobile */
+  }
+  
+  .price-discount {
+    font-size: 28px;  /* Adjusted for mobile */
+  }
+}
+
+/* Optional: For very small phones (below 480px) */
+@media (max-width: 480px) {
+  .price-original {
+    font-size: 12px;
+  }
+  
+  .price-discount {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 425px) {
+  .pay-nav__brand img {
+    display: none;
+  }
+}
   </style>
 </head>
 <body>
@@ -702,7 +739,8 @@
   <nav class="pay-nav">
     <div class="pay-nav__inner">
       <a class="pay-nav__brand" href="index.html">
-        <span class="pay-nav__logo-mark" aria-hidden="true"><span></span></span>
+        <!-- <span class="pay-nav__logo-mark" aria-hidden="true"><span></span></span> -->
+        <span class="" aria-hidden="true"><span><img src="img/logo.png" alt="" width="24px"></span></span>
         <span class="pay-nav__text">AI Web Crafts</span>
       </a>
       <a class="pay-nav__back" href="index.html">← Back</a>
@@ -710,18 +748,11 @@
   </nav>
 
   <div class="pay-page">
-    <h1 class="pay-page-title">Enroll Now</h1>
-    <p class="pay-page-sub">Complete your payment and we'll confirm your enrollment within 24 hours.</p>
 
     <div class="pay-grid">
 
       <!-- LEFT: Pricing + Payment Method -->
       <div class="pay-left">
-
-        <div class="pay-badge" aria-label="Accepting new students">
-          <span class="pay-badge__dot" aria-hidden="true"></span>
-          <span class="pay-badge__text">Limited Seats Available</span>
-        </div>
 
         <div class="price-card">
           <div class="price-save-tag">🔥 70% OFF — Act Fast!</div>
