@@ -561,6 +561,25 @@
         });
       }
     })();
+
+    // whatsapp message
+    function handleWhatsApp(e) {
+  e.preventDefault();
+  
+  const phone = "923293412618";
+  const text = encodeURIComponent("Hello I need help");
+  const waURL = `https://wa.me/${phone}?text=${text}`;
+
+  // Android detect karein
+  const isAndroid = /android/i.test(navigator.userAgent);
+
+  if (isAndroid) {
+    // Directly WhatsApp Messenger ko target karein
+    window.location.href = `intent://send/${phone}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;S.sms_body=${text};end`;
+  } else {
+    window.open(waURL, "_blank");
+  }
+}
   </script>
 </body>
 </html>
