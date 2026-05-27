@@ -306,14 +306,15 @@
   </div>
 
   <!-- WhatsApp: replace 923001234567 with your number (digits only, country code, no +). -->
+   <!-- href = "https://wa.me/923293412618?text=Hello%20I%20need%20help" -->
   <a
     class="fab-whatsapp"
-    href = "https://wa.me/923293412618?text=Hello%20I%20need%20help"
+    
+    href="https://web.whatsapp.com/send?phone=923293412618&text=Hello%20I%20need%20help"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Chat on WhatsApp"
     title="WhatsApp"
-    onclick="handleWhatsApp(event)"
   >
     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
       <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
@@ -562,25 +563,6 @@
         });
       }
     })();
-
-    // whatsapp message
-    function handleWhatsApp(e) {
-  e.preventDefault();
-  
-  const phone = "923293412618";
-  const text = encodeURIComponent("Hello I need help");
-  const waURL = `https://wa.me/${phone}?text=${text}`;
-
-  // Android detect karein
-  const isAndroid = /android/i.test(navigator.userAgent);
-
-  if (isAndroid) {
-    // Directly WhatsApp Messenger ko target karein
-    window.location.href = `intent://send/${phone}#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;S.sms_body=${text};end`;
-  } else {
-    window.open(waURL, "_blank");
-  }
-}
   </script>
 </body>
 </html>
