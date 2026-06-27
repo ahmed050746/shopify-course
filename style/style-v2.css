@@ -489,3 +489,42 @@ html.page-v2 .layout--desktop .d-footer__mark {
     box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
   }
 }
+
+
+/* ----------------------- course outline mobile ------------------------- */
+
+.youtube-placeholder {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+    aspect-ratio: 16 / 9;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.youtube-placeholder img,
+.youtube-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+    border-radius: 16px;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 60px;
+    color: #fff;
+    text-shadow: 0 0 10px rgba(0,0,0,.5);
+    pointer-events: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .play-button {
+        font-size: 40px;
+    }
+}
