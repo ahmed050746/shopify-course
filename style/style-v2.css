@@ -490,6 +490,10 @@ html.page-v2 .layout--desktop .d-footer__mark {
   }
 }
 
+.youtube-video{
+  height: 50vh;
+}
+
 
 /* ----------------------- course outline mobile ------------------------- */
 
