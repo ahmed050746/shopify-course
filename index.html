@@ -448,6 +448,15 @@
               form.reset();
               clearFormErrors(nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr);
               
+              // 🎯 Google Ads Conversion Event Trigger
+              if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-16499475514/i1VWCPqtw9wcELqIyLs9',
+                  'value': 1.0,
+                  'currency': 'PKR'
+                });
+              }
+
               // Meta Pixel Lead Event Trigger
               if (typeof fbq === 'function') {
                 fbq('track', 'Lead', { content_name: 'Ecom Mentorship', currency: 'PKR', value: 15000 });
