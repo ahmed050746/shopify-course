@@ -458,9 +458,21 @@
               }
 
               // Meta Pixel Lead Event Trigger
-              if (typeof fbq === 'function') {
-                fbq('track', 'Lead', { content_name: 'Ecom Mentorship', currency: 'PKR', value: 15000 });
-              }
+              // if (typeof fbq === 'function') {
+              //   fbq('track', 'Lead', { content_name: 'Ecom Mentorship', currency: 'PKR', value: 15000 });
+              // }
+
+              // Meta Pixel Lead Event Trigger (with Unique Event ID)
+                  if (typeof fbq === 'function') {
+                    var leadUniqueId = 'lead_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+                    fbq('track', 'Lead', {
+                      content_name: 'Ecom Mentorship',
+                      currency: 'PKR',
+                      value: 15000
+                    }, {
+                      eventID: leadUniqueId
+                    });
+                  }
               
               openThankModal();
             })
