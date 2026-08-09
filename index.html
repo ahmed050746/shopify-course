@@ -493,6 +493,39 @@
       wireLeadForm("consultFormMobile", "m-name", "m-phone", "m-email");
       wireLeadForm("consultFormDesktop", "d-name", "d-phone", "d-email");
 
+      // 🎯 Pay Now Button Tracking (InitiateCheckout)
+      function setupPayNowTracking(buttonId) {
+        var payBtn = document.getElementById(buttonId);
+        if (!payBtn) return;
+
+        payBtn.addEventListener('click', function () {
+          var checkoutUniqueId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+          // 1. DataLayer Push (Server Container / CAPI ke liye)
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'initiate_checkout',
+            'eventId': checkoutUniqueId,
+            'ecommerce': {
+              'currency': 'PKR',
+              'value': 15000
+            }
+          });
+
+          // 2. Browser Meta Pixel Event
+          if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout', {
+              content_name: 'Ecom Mentorship',
+              currency: 'PKR',
+              value: 15000
+            }, { eventID: checkoutUniqueId });
+          }
+        });
+      }
+
+      setupPayNowTracking('payNowMobile');
+      setupPayNowTracking('payNowDesktop');
+
       var startMobile = document.getElementById("startJourneyMobile");
       if (startMobile) {
         startMobile.addEventListener("click", function () {
