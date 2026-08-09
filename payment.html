@@ -8,15 +8,34 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-16499475514"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'AW-16499475514');
-</script>
+  <!-- PageView Unique ID Generator -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    var pageViewUniqueId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+    window.dataLayer.push({
+      'pageViewId': pageViewUniqueId
+    });
+  </script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16499475514"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-16499475514');
+  </script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PZ2P9PPL');</script>
+  <!-- End Google Tag Manager -->
+
   <style>
     *, *::before, *::after { box-sizing: border-box; }
 
@@ -706,50 +725,52 @@
     .pay-footer__legal a:hover { text-decoration: underline; }
 
     /* Default (desktop) styles */
-.price-original {
-  font-size: 20px;
-}
+    .price-original {
+      font-size: 20px;
+    }
 
-.price-discount {
-  font-size: 44px;
-}
+    .price-discount {
+      font-size: 44px;
+    }
 
-/* Mobile screens (cell phones) */
-@media (max-width: 768px) {
-  .price-original {
-    font-size: 14px;  /* Smaller for mobile */
-  }
-  
-  .price-discount {
-    font-size: 28px;  /* Adjusted for mobile */
-  }
-}
+    /* Mobile screens (cell phones) */
+    @media (max-width: 768px) {
+      .price-original {
+        font-size: 14px;  /* Smaller for mobile */
+      }
+      
+      .price-discount {
+        font-size: 28px;  /* Adjusted for mobile */
+      }
+    }
 
-/* Optional: For very small phones (below 480px) */
-@media (max-width: 480px) {
-  .price-original {
-    font-size: 12px;
-  }
-  
-  .price-discount {
-    font-size: 24px;
-  }
-}
+    /* Optional: For very small phones (below 480px) */
+    @media (max-width: 480px) {
+      .price-original {
+        font-size: 12px;
+      }
+      
+      .price-discount {
+        font-size: 24px;
+      }
+    }
 
-@media (max-width: 425px) {
-  .pay-nav__brand img {
-    display: none;
-  }
-}
+    @media (max-width: 425px) {
+      .pay-nav__brand img {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ2P9PPL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <nav class="pay-nav">
     <div class="pay-nav__inner">
       <a class="pay-nav__brand" href="index.html">
-        <!-- <span class="pay-nav__logo-mark" aria-hidden="true"><span></span></span> -->
-        <span class="" aria-hidden="true"><span><img src="img/logo.png" alt=" log ai web crafts" width="24px"></span></span>
+        <span class="" aria-hidden="true"><span><img src="img/logo.png" alt="logo ai web crafts" width="24px"></span></span>
         <span class="pay-nav__text">AI Web Crafts</span>
       </a>
       <a class="pay-nav__back" href="index.html">← Back</a>
@@ -1038,6 +1059,50 @@
         });
 
         clearTimeout(timeout);
+
+        // 🎯 1. Unique Purchase Event ID for Deduplication
+        var purchaseUniqueId = 'pur_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+        // 🎯 2. DataLayer Push for GTM & Meta Server Container (CAPI)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'purchase',
+          'eventId': purchaseUniqueId,
+          'user_data': {
+            'phone': cleanPhone,
+            'name': name
+          },
+          'ecommerce': {
+            'transaction_id': purchaseUniqueId,
+            'value': 15000,
+            'currency': 'PKR',
+            'items': [{
+              'item_name': 'E-Commerce Mentorship',
+              'price': 15000,
+              'quantity': 1
+            }]
+          }
+        });
+
+        // 🎯 3. Meta Pixel Direct Client Trigger (Fallback)
+        if (typeof fbq === 'function') {
+          fbq('track', 'Purchase', {
+            content_name: 'E-Commerce Mentorship',
+            currency: 'PKR',
+            value: 15000
+          }, { eventID: purchaseUniqueId });
+        }
+
+        // 🎯 4. Google Ads Purchase Event Trigger
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-16499475514/i1VWCPqtw9wcELqIyLs9',
+            'value': 15000.0,
+            'currency': 'PKR',
+            'transaction_id': purchaseUniqueId
+          });
+        }
+
         document.getElementById('c-name').value = '';
         document.getElementById('c-phone').value = '';
         document.getElementById('c-screenshot').value = '';
