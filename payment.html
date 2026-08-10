@@ -1060,14 +1060,14 @@
 
         clearTimeout(timeout);
 
-        // 🎯 1. Unique Purchase Event ID for Deduplication
+        // Generate ONCE per transaction attempt
         var purchaseUniqueId = 'pur_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
 
-        // 🎯 2. DataLayer Push for GTM & Meta Server Container (CAPI)
+        // 1. Push to DataLayer (For GTM Web & Server Container CAPI)
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           'event': 'purchase_complete',
-          'eventId': purchaseUniqueId,
+          'eventId': purchaseUniqueId, // Send eventId to DataLayer
           'user_data': {
             'phone': cleanPhone,
             'name': name
@@ -1084,16 +1084,16 @@
           }
         });
 
-        // 🎯 3. Meta Pixel Direct Client Trigger (Fallback)
+        // 2. Direct Browser Meta Pixel (Must match purchaseUniqueId)
         if (typeof fbq === 'function') {
           fbq('track', 'Purchase', {
             content_name: 'E-Commerce Mentorship',
             currency: 'PKR',
             value: 15000
-          }, { eventID: purchaseUniqueId });
+          }, { eventID: purchaseUniqueId }); // Exact same ID variable
         }
 
-        // 🎯 4. Google Ads Purchase Event Trigger
+        // 3. Google Ads Purchase Event Trigger
         if (typeof gtag === 'function') {
           gtag('event', 'conversion', {
             'send_to': 'AW-16499475514/i1VWCPqtw9wcELqIyLs9',
