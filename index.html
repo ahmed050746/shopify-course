@@ -443,84 +443,135 @@
       }
 
       function wireLeadForm(formId, nameId, phoneId, emailId) {
-        var form = document.getElementById(formId);
-        if (!form) return;
+  var form = document.getElementById(formId);
+  if (!form) return;
 
-        var nameEl = document.getElementById(nameId);
-        var phoneEl = document.getElementById(phoneId);
-        var emailEl = document.getElementById(emailId);
-        var nameErr = document.getElementById(nameId + "-error");
-        var phoneErr = document.getElementById(phoneId + "-error");
-        var emailErr = document.getElementById(emailId + "-error");
+  var nameEl = document.getElementById(nameId);
+  var phoneEl = document.getElementById(phoneId);
+  var emailEl = document.getElementById(emailId);
+  var nameErr = document.getElementById(nameId + "-error");
+  var phoneErr = document.getElementById(phoneId + "-error");
+  var emailErr = document.getElementById(emailId + "-error");
 
-        form.addEventListener("submit", function (e) {
-          e.preventDefault();
-          var name = nameEl ? nameEl.value : "";
-          var phone = phoneEl ? phoneEl.value : "";
-          var email = emailEl ? emailEl.value : "";
-
-          if (!validateLead(name, phone, email, nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr)) return;
-
-          var submitBtn = form.querySelector('button[type="submit"]');
-          setSubmitLoading(submitBtn, true);
-
-          var params = new URLSearchParams();
-          params.append("entry.2007658999", name.trim());
-          params.append("entry.1341104541", phone.trim());
-          params.append("entry.1004741489", email.trim());
-
-          fetch(GOOGLE_FORM_ACTION, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: params,
-          })
-            .then(function () {
-              setSubmitLoading(submitBtn, false);
-              form.reset();
-              clearFormErrors(nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr);
-              
-              // 🎯 Google Ads Conversion Event Trigger
-              if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                  'send_to': 'AW-16499475514/QVraCJrchuIcELqlyLs9',
-                  'value': 1.0,
-                  'currency': 'PKR'
-                });
-              }
-
-              // 🎯 Meta Pixel & Server DataLayer Lead Event Trigger
-              var leadUniqueId = 'lead_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-
-              // 1. DataLayer Push (Server Container & Meta CAPI ke liye)
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({
-                'event': 'generate_lead',
-                'eventId': leadUniqueId,
-                'user_data': {
-                  'email': email.trim(),
-                  'phone': phone.trim(),
-                  'name': name.trim()
-                }
-              });
-
-              // 2. Browser Meta Pixel Event (Fallback Trigger)
-              if (typeof fbq === 'function') {
-                fbq('track', 'Lead', {
-                  content_name: 'Ecom Mentorship',
-                  currency: 'PKR',
-                  value: 15000
-                }, { eventID: leadUniqueId });
-              }
-
-              openThankModal();
-            })
-            .catch(function () {
-              setSubmitLoading(submitBtn, false);
-              showMessage("Something went wrong. Please try again.");
-            });
-        });
+  // Helper function: Pure JS inline styles + attributes apply karta hai visuals aur behavior dono fix karne ke liye
+  function toggleFormState(disabled) {
+    var inputs = [nameEl, phoneEl, emailEl];
+    inputs.forEach(function (input) {
+      if (input) {
+        input.disabled = disabled;
+        if (disabled) {
+          input.style.backgroundColor = "#e5e7eb";
+          input.style.color = "#9ca3af";
+          input.style.cursor = "not-allowed";
+          input.style.borderColor = "#d1d5db";
+        } else {
+          input.style.backgroundColor = "";
+          input.style.color = "";
+          input.style.cursor = "";
+          input.style.borderColor = "";
+        }
       }
+    });
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.disabled = disabled;
+      if (disabled) {
+        submitBtn.style.backgroundColor = "#9ca3af";
+        submitBtn.style.borderColor = "#9ca3af";
+        submitBtn.style.color = "#ffffff";
+        submitBtn.style.cursor = "not-allowed";
+        submitBtn.style.boxShadow = "none";
+        submitBtn.style.transform = "none";
+      } else {
+        submitBtn.style.backgroundColor = "";
+        submitBtn.style.borderColor = "";
+        submitBtn.style.color = "";
+        submitBtn.style.cursor = "";
+        submitBtn.style.boxShadow = "";
+        submitBtn.style.transform = "";
+      }
+    }
+  }
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = nameEl ? nameEl.value : "";
+    var phone = phoneEl ? phoneEl.value : "";
+    var email = emailEl ? emailEl.value : "";
+
+    if (!validateLead(name, phone, email, nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr)) {
+      toggleFormState(false);
+      return;
+    }
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    setSubmitLoading(submitBtn, true);
+
+    // Form submit hote hi poora UI & behavior disable kar dein
+    toggleFormState(true);
+
+    var params = new URLSearchParams();
+    params.append("entry.2007658999", name.trim());
+    params.append("entry.1341104541", phone.trim());
+    params.append("entry.1004741489", email.trim());
+
+    fetch(GOOGLE_FORM_ACTION, {
+      method: "POST",
+      mode: "no-cors",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: params,
+    })
+      .then(function () {
+        if (submitBtn) {
+          submitBtn.classList.remove("is-loading");
+          submitBtn.setAttribute("aria-busy", "false");
+        }
+        
+        form.reset();
+        clearFormErrors(nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr);
+        
+        // 🎯 Google Ads Conversion Event Trigger
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-16499475514/QVraCJrchuIcELqlyLs9',
+            'value': 1.0,
+            'currency': 'PKR'
+          });
+        }
+
+        // 🎯 Meta Pixel & Server DataLayer Lead Event Trigger
+        var leadUniqueId = 'lead_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'generate_lead',
+          'eventId': leadUniqueId,
+          'user_data': {
+            'email': email.trim(),
+            'phone': phone.trim(),
+            'name': name.trim()
+          }
+        });
+
+        if (typeof fbq === 'function') {
+          fbq('track', 'Lead', {
+            content_name: 'Ecom Mentorship',
+            currency: 'PKR',
+            value: 15000
+          }, { eventID: leadUniqueId });
+        }
+
+        openThankModal();
+      })
+      .catch(function () {
+        // Error aane par form re-enable kar dein
+        toggleFormState(false);
+        setSubmitLoading(submitBtn, false);
+        showMessage("Something went wrong. Please try again.");
+      });
+  });
+}
 
       wireLeadForm("consultFormMobile", "m-name", "m-phone", "m-email");
       wireLeadForm("consultFormDesktop", "d-name", "d-phone", "d-email");

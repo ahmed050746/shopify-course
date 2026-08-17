@@ -558,6 +558,28 @@ html.page-v2 .layout--desktop .d-footer__mark {
   color: #0f172a;
 }
 
+/* Form Inputs & Selects Disabled Styling */
+.m-field__input:disabled,
+.d-field__input:disabled {
+  background-color: #f3f4f6 !important;
+  color: #9ca3af !important;
+  cursor: not-allowed !important;
+  border-color: #e5e7eb !important;
+  opacity: 0.7;
+}
+
+/* Submit Button Disabled Styling */
+.form-submit:disabled,
+button[type="submit"]:disabled {
+  background-color: #9ca3af !important;
+  border-color: #9ca3af !important;
+  color: #ffffff !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
 /* ----------------------- course outline mobile ------------------------- */
 
 .youtube-placeholder {
