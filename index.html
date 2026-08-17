@@ -322,11 +322,42 @@
 
   <!-- WhatsApp FAB -->
   <!-- <a class="fab-whatsapp" href="https://wa.me/923293412618?text=Hello%20I%20need%20help" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp"> -->
-    <a class="fab-whatsapp wa-lead-btn" href="https://wa.me/923293412618?text=Hello%20I%20need%20help" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp">
+    <!-- <a class="fab-whatsapp wa-lead-btn" href="https://wa.me/923293412618?text=Hello%20I%20need%20help" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp">
     <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
       <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
     </svg>
-  </a>
+  </a> -->
+
+  <!-- WhatsApp FAB (Opens Modal) -->
+<button type="button" class="fab-whatsapp" onclick="openWaModal()" aria-label="Chat on WhatsApp" title="WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
+  </svg>
+</button>
+
+<!-- WhatsApp Lead Form Modal -->
+<div id="waLeadModal" class="thank-modal" role="dialog" aria-modal="true" hidden>
+  <div class="thank-modal__backdrop" onclick="closeWaModal()"></div>
+  <div class="thank-modal__dialog" role="document">
+    <h2 class="thank-modal__title">Start WhatsApp Chat</h2>
+    <p class="thank-modal__text">Please enter your details to connect with our mentor on WhatsApp.</p>
+    
+    <form id="waModalForm" onsubmit="handleWaModalSubmit(event)">
+      <div class="m-field" style="margin-bottom: 12px; text-align: left;">
+        <label class="m-field__label" for="wa-name">Name *</label>
+        <input class="m-field__input" type="text" id="wa-name" required placeholder="Enter your name">
+      </div>
+      <div class="m-field" style="margin-bottom: 16px; text-align: left;">
+        <label class="m-field__label" for="wa-phone">WhatsApp Number *</label>
+        <input class="m-field__input" type="tel" id="wa-phone" required placeholder="03XXXXXXXXX">
+      </div>
+      <button type="submit" class="m-btn m-btn--submit" style="background-color: #25D366; width: 100%;">
+        Connect on WhatsApp
+      </button>
+    </form>
+    <button type="button" class="thank-modal__close" onclick="closeWaModal()" style="margin-top: 10px;">Cancel</button>
+  </div>
+</div>
 
   <div class="thank-modal" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="thankModalTitle" hidden>
     <div class="thank-modal__backdrop" id="thankYouModalBackdrop"></div>
@@ -567,34 +598,97 @@
         });
     });
 
-    // 🎯 WhatsApp Event with Exact Deduplication ID
-        function setupWhatsAppTracking() {
-          var waButtons = document.querySelectorAll('.wa-lead-btn');
+    // 🎯 New WhatsApp Modal Logic & Verified Lead Trigger
+function openWaModal() {
+  var modal = document.getElementById("waLeadModal");
+  if (modal) {
+    modal.removeAttribute("hidden");
+    document.body.classList.add("modal-open");
+  }
+}
+
+function closeWaModal() {
+  var modal = document.getElementById("waLeadModal");
+  if (modal) {
+    modal.setAttribute("hidden", "");
+    document.body.classList.remove("modal-open");
+  }
+}
+
+        function handleWaModalSubmit(e) {
+          e.preventDefault();
           
-          waButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
-              // 1. Single Unique Event ID generate karein
-              var sharedEventId = 'wa_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+          var nameEl = document.getElementById("wa-name");
+          var phoneEl = document.getElementById("wa-phone");
+          
+          var name = nameEl ? nameEl.value.trim() : "";
+          var phone = phoneEl ? phoneEl.value.trim() : "";
+          
+          if (name.length < 3 || phone.length < 7) {
+            alert("Please enter valid Name and Phone Number.");
+            return;
+          }
 
-              // 2. DataLayer Push (Server Side CAPI ke liye - GTM Web/Server Container)
-              window.dataLayer = window.dataLayer || [];
-              window.dataLayer.push({
-                'event': 'generate_lead',
-                'eventId': sharedEventId, // Exact same ID for Server CAPI
-                'lead_type': 'whatsapp_chat'
-              });
+          // 1. Unique Event ID for Deduplication
+          var waLeadUniqueId = 'wa_modal_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
 
-              // 3. Browser Meta Pixel Lead Event Fire
-              if (typeof fbq === 'function') {
-                fbq('track', 'Lead', {
-                  content_name: 'WhatsApp Lead',
-                  currency: 'PKR',
-                  value: 15000
-                }, { eventID: sharedEventId }); // Exact same ID for Browser Pixel
-              }
-            });
+          // 2. Push Verified Lead Event to DataLayer (For GTM & Server CAPI)
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'generate_lead',
+            'eventId': waLeadUniqueId,
+            'user_data': {
+              'phone': phone,
+              'name': name
+            },
+            'lead_type': 'whatsapp_modal_form'
           });
+
+          // 3. Browser Meta Pixel Event Fire
+          if (typeof fbq === 'function') {
+            fbq('track', 'Lead', {
+              content_name: 'WhatsApp Form Lead',
+              currency: 'PKR',
+              value: 15000
+            }, { eventID: waLeadUniqueId });
+          }
+
+          // 4. Redirect to WhatsApp App
+          var waNumber = "923293412618";
+          var preText = encodeURIComponent("Hi, my name is " + name + ". I have submitted my form and need details about mentorship.");
+          
+          closeWaModal();
+          window.location.href = "https://wa.me/" + waNumber + "?text=" + preText;
         }
+
+    // 🎯 WhatsApp Event with Exact Deduplication ID
+        // function setupWhatsAppTracking() {
+        //   var waButtons = document.querySelectorAll('.wa-lead-btn');
+          
+        //   waButtons.forEach(function(button) {
+        //     button.addEventListener('click', function() {
+        //       // 1. Single Unique Event ID generate karein
+        //       var sharedEventId = 'wa_' + Date.now() + '_' + Math.floor(Math.random() * 100000);
+
+        //       // 2. DataLayer Push (Server Side CAPI ke liye - GTM Web/Server Container)
+        //       window.dataLayer = window.dataLayer || [];
+        //       window.dataLayer.push({
+        //         'event': 'generate_lead',
+        //         'eventId': sharedEventId, // Exact same ID for Server CAPI
+        //         'lead_type': 'whatsapp_chat'
+        //       });
+
+        //       // 3. Browser Meta Pixel Lead Event Fire
+        //       if (typeof fbq === 'function') {
+        //         fbq('track', 'Lead', {
+        //           content_name: 'WhatsApp Lead',
+        //           currency: 'PKR',
+        //           value: 15000
+        //         }, { eventID: sharedEventId }); // Exact same ID for Browser Pixel
+        //       }
+        //     });
+        //   });
+        // }
 
         // Trigger setup on page load
         setupWhatsAppTracking();

@@ -494,6 +494,69 @@ html.page-v2 .layout--desktop .d-footer__mark {
   height: 50vh;
 }
 
+/* WhatsApp Modal UI Clean Fix */
+#waLeadModal .thank-modal__dialog {
+  padding: 32px 24px;
+  border-radius: 20px;
+  max-width: 420px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+#waLeadModal .m-field__label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 6px;
+}
+
+#waLeadModal .m-field__input {
+  width: 100%;
+  padding: 12px 16px;
+  font-size: 15px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  background-color: #f8fafc;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+#waLeadModal .m-field__input:focus {
+  border-color: #25D366;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.15);
+}
+
+#waLeadModal button[type="submit"] {
+  border: none;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.1s ease, background 0.2s ease;
+}
+
+#waLeadModal button[type="submit"]:hover {
+  background-color: #1ebe5d !important;
+  transform: translateY(-1px);
+}
+
+#waLeadModal .thank-modal__close {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 12px;
+  padding: 6px 12px;
+}
+
+#waLeadModal .thank-modal__close:hover {
+  color: #0f172a;
+}
 
 /* ----------------------- course outline mobile ------------------------- */
 
