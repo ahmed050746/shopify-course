@@ -10,24 +10,27 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="style/style-v2.css">
+  <link rel="stylesheet" href="style.css">
+
   <script>
-  window.dataLayer = window.dataLayer || [];
-  var pageViewUniqueId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-  
-  window.dataLayer.push({
-    'pageViewId': pageViewUniqueId
-  });
-</script>
+    window.dataLayer = window.dataLayer || [];
+    var pageViewUniqueId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+    
+    window.dataLayer.push({
+      'pageViewId': pageViewUniqueId
+    });
+  </script>
+
   <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16499475514"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'AW-16499475514');
-        </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16499475514"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'AW-16499475514');
+  </script>
+
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -52,6 +55,592 @@
     "offers": { "@type": "Offer", "price": "15000", "priceCurrency": "PKR" }
   }
   </script>
+
+  <!-- Integrated Payment Section Styles -->
+  <style>
+    /* ── SECTION DIVIDER ── */
+    .section-divider {
+      max-width: 1200px;
+      margin: 60px auto 0;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .section-divider__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(232, 232, 232, 0) 0%, rgba(104, 55, 255, 0.25) 50%, rgba(232, 232, 232, 0) 100%);
+      border: none;
+    }
+
+    /* ── PAYMENT SECTION INTEGRATED STYLES ── */
+    .pay-section-wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .pay-header-block {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .pay-page-title {
+      margin: 0 0 8px;
+      font-weight: 800;
+      font-size: 36px;
+      line-height: 42px;
+      letter-spacing: -0.03em;
+      color: #302652;
+    }
+
+    .pay-page-sub {
+      margin: 0;
+      font-size: 16px;
+      line-height: 24px;
+      color: #6b6b6b;
+    }
+
+    .pay-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .pay-grid { grid-template-columns: 1fr; gap: 24px; }
+      .pay-page-title { font-size: 28px; line-height: 34px; }
+      .section-divider { margin: 40px auto 0; }
+    }
+
+    /* PRICING CARD */
+    .price-card {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 24px;
+      padding: 24px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+
+    .price-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px -10px rgba(48,38,82,0.12);
+    }
+
+    .price-save-tag {
+      display: inline-block;
+      background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+      color: #166534;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 9999px;
+      margin-bottom: 12px;
+    }
+
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .price-original {
+      font-size: 20px;
+      font-weight: 600;
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+
+    .price-discount {
+      font-size: 40px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ff8a73 0%, #ff735c 45%, #ea580c 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* SECTION LABEL */
+    .sec-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #302652;
+      margin-bottom: 16px;
+    }
+
+    .sec-label__icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(145deg, #4338ca 0%, #302652 55%, #1e1b4b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 10px rgba(48,38,82,0.22);
+    }
+
+    /* PAYMENT TABS */
+    .pay-tabs {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pay-tab {
+      flex: 1;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1.5px solid #e8e8e8;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      color: #6b6b6b;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .pay-tab.active {
+      border-color: #6837ff;
+      background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
+      color: #5b21b6;
+      box-shadow: 0 4px 14px rgba(104,55,255,0.18);
+    }
+
+    /* PAYMENT DETAILS */
+    .pay-detail {
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    }
+
+    .pay-detail[hidden] { display: none; }
+
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      gap: 8px;
+    }
+
+    .detail-row:last-child { border-bottom: none; }
+
+    .detail-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    .detail-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: #302652;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .detail-val--accent {
+      color: #ea580c;
+      font-size: 18px;
+    }
+
+    .copy-btn {
+      background: #eef2ff;
+      color: #4338ca;
+      border: none;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      cursor: pointer;
+    }
+
+    .copy-btn.copied { background: #10b981; color: #fff; }
+
+    .method-note {
+      margin-top: 16px;
+      background: #eff6ff;
+      border-left: 3px solid #6837ff;
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 12px;
+      color: #1e40af;
+    }
+
+    /* CONFIRMATION CARD */
+    .confirm-card {
+      background: #fff;
+      border: 1px solid rgba(104,55,255,0.3);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 10px 25px rgba(104,55,255,0.12);
+    }
+
+    .upload-area {
+      border: 2px dashed rgba(104,55,255,0.35);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      background: #faf5ff;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .upload-area input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+
+    .upload-icon { font-size: 28px; display: block; margin-bottom: 4px; }
+    .upload-text { font-size: 13px; font-weight: 700; color: #6837ff; margin: 0; }
+    .upload-hint { font-size: 11px; color: #94a3b8; margin: 4px 0 0; }
+
+    .upload-preview { display: none; margin-top: 12px; }
+    .upload-preview.visible { display: block; }
+    .upload-preview img { max-width: 100%; max-height: 120px; border-radius: 8px; }
+
+    .submit-pay-btn {
+      width: 100%;
+      padding: 16px 24px;
+      border: 0;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(135deg, #8b5cf6 0%, #6837ff 45%, #5b21b6 100%);
+      box-shadow: 0 8px 16px -4px rgba(104,55,255,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+      transition: transform 0.2s;
+    }
+
+    .submit-pay-btn:hover { transform: translateY(-2px); }
+    .submit-pay-btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+    /* MODAL STYLES FOR PAYMENT SUCCESS */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .modal-overlay[hidden] { display: none !important; }
+
+    .modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(15,23,42,0.45);
+      backdrop-filter: blur(4px);
+    }
+
+    .modal-dialog {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 400px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    @media (max-width: 768px) {
+      .price-original { font-size: 14px; }
+      .price-discount { font-size: 28px; }
+    }
+
+    /* ── HERO PRICE BADGE ── */
+    .hero-price-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border: 1px solid #e8e8e8;
+      border-radius: 9999px;
+      padding: 8px 16px;
+      margin-top: 18px;
+      box-shadow: 0 4px 14px rgba(48,38,82,0.08);
+    }
+
+    .hero-price-badge__tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.2px;
+      color: #ea580c;
+      background: linear-gradient(135deg, #ffedd5, #fed7aa);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+
+    .hero-price-badge__prices {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .hero-price-badge__original {
+      font-size: 13px;
+      font-weight: 600;
+      color: #94a3b8;
+      text-decoration: line-through;
+    }
+
+    .hero-price-badge__discount {
+      font-size: 18px;
+      font-weight: 800;
+      color: #302652;
+    }
+
+    @media (max-width: 480px) {
+      .hero-price-badge { padding: 6px 12px; gap: 8px; }
+      .hero-price-badge__discount { font-size: 16px; }
+      .hero-price-badge__tag { font-size: 10px; padding: 3px 8px; }
+    }
+
+    /* ── WIDE MODAL (Enroll Now) ── */
+    .modal-dialog--wide {
+      max-width: 1000px;
+      width: 100%;
+      max-height: 88vh;
+      overflow-y: auto;
+      text-align: left;
+      padding: 32px 24px;
+    }
+
+    @media (max-width: 900px) {
+      .modal-dialog--wide { max-width: 560px; padding: 24px 16px; max-height: 92vh; }
+    }
+
+    .modal-dialog--wide .pay-section-wrap { margin: 0; padding: 0; }
+    .modal-dialog--wide .pay-header-block { text-align: left; margin-bottom: 28px; }
+
+    .modal-close-btn {
+      position: sticky;
+      top: 0;
+      float: right;
+      margin-left: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid #e8e8e8;
+      background: #fff;
+      color: #6b6b6b;
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+
+    .modal-close-btn:hover { background: #f5f5f5; color: #302652; }
+
+    /* ── CONFIRMATION CODE FIELD ── */
+    .form-hint {
+      margin: 6px 0 0;
+      font-size: 12px;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    .code-field-input { text-transform: uppercase; letter-spacing: 1px; }
+
+    /* ── COMPULSORY QUALIFYING QUESTIONS (Fill the Form / WhatsApp modal) — ACCORDION ── */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .quiz-field {
+      border: 1.5px solid #e8e8e8;
+      border-radius: 14px;
+      padding: 0;
+      margin: 0 0 10px;
+      background: #fff;
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .quiz-field.is-open {
+      border-color: #6837ff;
+      box-shadow: 0 8px 20px -12px rgba(104,55,255,0.35);
+    }
+
+    .quiz-field.is-answered:not(.is-open) {
+      border-color: #c7bcff;
+      background: #fbfaff;
+    }
+
+    .quiz-field__header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: transparent;
+      border: none;
+      margin: 0;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .quiz-field__num {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #6837ff 0%, #4338ca 100%);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      transition: background 0.2s ease;
+    }
+
+    .quiz-field.is-answered .quiz-field__num {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    }
+
+    .quiz-field__qtext {
+      flex: 1;
+      font-size: 13px;
+      font-weight: 700;
+      color: #302652;
+      line-height: 1.4;
+    }
+
+    .quiz-field__qtext em {
+      color: #ef4444;
+      font-style: normal;
+    }
+
+    .quiz-field__answer {
+      display: none;
+      flex-basis: 100%;
+      font-size: 12px;
+      font-weight: 500;
+      color: #6b6b6b;
+      margin-top: 2px;
+    }
+
+    .quiz-field.is-answered:not(.is-open) .quiz-field__answer {
+      display: block;
+    }
+
+    .quiz-field__chevron {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: #94a3b8;
+      transition: transform 0.3s ease;
+    }
+
+    .quiz-field.is-open .quiz-field__chevron {
+      transform: rotate(180deg);
+      color: #6837ff;
+    }
+
+    .quiz-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .quiz-field.is-open .quiz-panel {
+      grid-template-rows: 1fr;
+    }
+
+    .quiz-panel__inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 2px 14px 14px;
+    }
+
+    .quiz-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border: 1.5px solid #e8e8e8;
+      border-radius: 10px;
+      background: #fff;
+      font-size: 13px;
+      font-weight: 500;
+      color: #44404f;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .quiz-option:hover { border-color: #c7c3f5; background: #faf9ff; }
+
+    .quiz-option input[type="radio"] {
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      accent-color: #6837ff;
+    }
+
+    .quiz-option:has(input:checked) {
+      border-color: #6837ff;
+      background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
+      color: #302652;
+      font-weight: 600;
+    }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -64,9 +653,7 @@
       <header class="m-header">
         <div class="m-header__inner">
             <button type="button" class="m-btn m-btn--primary" id="startJourneyMobile" style="width: 120px; font-size: 12px;">Contact Us</button>
-            <a href="payment.html">
-              <button type="button" class="m-btn m-btn--pay" id="payNowMobile" style="width: 120px; padding: 10px 20px; font-size: 12px;">Pay Now</button>
-            </a>
+            <button type="button" class="m-btn m-btn--pay" id="payNowMobile" onclick="openEnrollModal('m')" style="width: 120px; padding: 10px 20px; font-size: 12px;">Pay Now</button>
         </div>
       </header>
       
@@ -79,9 +666,12 @@
               </div>
 
             <div class="m-hero__content">
-              <div class="m-badge" style="margin-top: 16px;">
-                <span class="m-badge__dot" aria-hidden="true"></span>
-                <span class="m-badge__text">Accepting new students</span>
+              <div class="hero-price-badge" style="margin-top: 16px;">
+                <span class="hero-price-badge__tag">🔥 70% OFF</span>
+                <span class="hero-price-badge__prices">
+                  <span class="hero-price-badge__original">Rs. 50,000</span>
+                  <span class="hero-price-badge__discount">Rs. 15,000</span>
+                </span>
               </div>
               <h1 id="m-hero-title" class="m-hero__title">
                 <span class="m-hero__title-line m-hero__title-line--dark">Master</span>
@@ -149,6 +739,90 @@
                 <input class="m-field__input" type="email" id="m-email" name="email" placeholder="Enter your email (optional)" autocomplete="email" maxlength="120">
                 <p class="form-error" id="m-email-error" role="alert" hidden></p>
               </div>
+
+              <fieldset class="m-field quiz-field">
+                <legend class="sr-only">Aap E-commerce kyun seekhna chahte hain?</legend>
+                <button type="button" class="quiz-field__header" aria-expanded="true" aria-controls="m-quiz-panel-1">
+                  <span class="quiz-field__num" aria-hidden="true">1</span>
+                  <span class="quiz-field__qtext">Aap E-commerce kyun seekhna chahte hain? <em>*</em>
+                    <span class="quiz-field__answer"></span>
+                  </span>
+                  <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="quiz-panel" id="m-quiz-panel-1">
+                  <div class="quiz-panel__inner">
+                    <div class="quiz-options">
+                      <label class="quiz-option"><input type="radio" name="m-q1-reason" value="Apna online business start karna hai" required><span>Apna online business start karna hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q1-reason" value="Existing business ko online grow karna hai"><span>Existing business ko online grow karna hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q1-reason" value="Part-time income source banana hai"><span>Part-time income source banana hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q1-reason" value="Sirf information lena chahta/chahti hoon"><span>Sirf information lena chahta/chahti hoon</span></label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="m-field quiz-field">
+                <legend class="sr-only">Aapka E-commerce/Shopify ka experience kitna hai?</legend>
+                <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="m-quiz-panel-2">
+                  <span class="quiz-field__num" aria-hidden="true">2</span>
+                  <span class="quiz-field__qtext">Aapka E-commerce/Shopify ka experience kitna hai? <em>*</em>
+                    <span class="quiz-field__answer"></span>
+                  </span>
+                  <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="quiz-panel" id="m-quiz-panel-2">
+                  <div class="quiz-panel__inner">
+                    <div class="quiz-options">
+                      <label class="quiz-option"><input type="radio" name="m-q2-experience" value="Bilkul beginner hoon" required><span>Bilkul beginner hoon</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q2-experience" value="Thora bohat experience hai"><span>Thora bohat experience hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q2-experience" value="Pehle Shopify/Dropshipping try ki hai"><span>Pehle Shopify/Dropshipping try ki hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q2-experience" value="Already online business kar raha/rahi hoon"><span>Already online business kar raha/rahi hoon</span></label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="m-field quiz-field">
+                <legend class="sr-only">Aap training kab start karna chahte hain?</legend>
+                <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="m-quiz-panel-3">
+                  <span class="quiz-field__num" aria-hidden="true">3</span>
+                  <span class="quiz-field__qtext">Aap training kab start karna chahte hain? <em>*</em>
+                    <span class="quiz-field__answer"></span>
+                  </span>
+                  <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="quiz-panel" id="m-quiz-panel-3">
+                  <div class="quiz-panel__inner">
+                    <div class="quiz-options">
+                      <label class="quiz-option"><input type="radio" name="m-q3-timeline" value="Abhi / isi week" required><span>Abhi / isi week</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q3-timeline" value="1–2 weeks mein"><span>1–2 weeks mein</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q3-timeline" value="Is month mein"><span>Is month mein</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q3-timeline" value="Abhi sirf information chahiye"><span>Abhi sirf information chahiye</span></label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="m-field quiz-field">
+                <legend class="sr-only">1-on-1 mentorship ki fee Rs. 15,000 hai. Kya aap is investment ke liye ready hain?</legend>
+                <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="m-quiz-panel-4">
+                  <span class="quiz-field__num" aria-hidden="true">4</span>
+                  <span class="quiz-field__qtext">1-on-1 mentorship ki fee Rs. 15,000 hai. Agar training aapke liye suitable ho, kya aap is investment ke liye ready hain? <em>*</em>
+                    <span class="quiz-field__answer"></span>
+                  </span>
+                  <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="quiz-panel" id="m-quiz-panel-4">
+                  <div class="quiz-panel__inner">
+                    <div class="quiz-options">
+                      <label class="quiz-option"><input type="radio" name="m-q4-budget" value="Ji, main serious hoon" required><span>Ji, main serious hoon</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q4-budget" value="Pehle complete details samajhna chahta/chahti hoon"><span>Pehle complete details samajhna chahta/chahti hoon</span></label>
+                      <label class="quiz-option"><input type="radio" name="m-q4-budget" value="Abhi budget available nahi hai"><span>Abhi budget available nahi hai</span></label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
               <button type="submit" class="m-btn m-btn--submit form-submit" id="secureSpotBtnMobile" aria-busy="false">
                 <span class="form-submit__text">Submit</span>
                 <span class="form-submit__spinner" aria-hidden="true"></span>
@@ -156,6 +830,151 @@
             </form>
           </div>
         </section>
+
+        <!-- Integrated Payment Section (Mobile) — now shown inside a modal, closed by default -->
+        <div class="modal-overlay" id="payModalMobile" role="dialog" aria-modal="true" aria-labelledby="payModalMobileTitle" hidden>
+          <div class="modal-backdrop" id="payModalMobileBackdrop"></div>
+          <div class="modal-dialog modal-dialog--wide" role="document">
+            <button type="button" class="modal-close-btn" id="payModalMobileClose" aria-label="Close">✕</button>
+        <section class="pay-section-wrap" id="payment-section-mobile">
+          <div class="pay-header-block">
+            <h2 class="pay-page-title" id="payModalMobileTitle">Enroll Now</h2>
+            <p class="pay-page-sub">Secure your spot in the 1-on-1 mentorship program today.</p>
+          </div>
+
+          <div class="pay-grid">
+            <!-- LEFT: Pricing + Payment Method -->
+            <div class="pay-left">
+              <div class="price-card">
+                <div class="price-save-tag">🔥 70% OFF — Act Fast!</div>
+                <div class="price-row">
+                  <span class="price-original">Rs. 50,000</span>
+                  <span class="price-discount">Rs. 15,000</span>
+                </div>
+              </div>
+
+              <div class="sec-label">
+                <span class="sec-label__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h18M7 3v2m10-2v2M6.2 21h11.6A2.2 2.2 0 0020 18.8V7.2A2.2 2.2 0 0017.8 5H6.2A2.2 2.2 0 004 7.2v11.6A2.2 2.2 0 006.2 21z" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+                </span>
+                Select Payment Method
+              </div>
+
+              <div class="pay-tabs">
+                <button type="button" class="pay-tab active" onclick="showTab('bank', 'm')" id="tab-bank-m">
+                  <span class="tab-emoji" aria-hidden="true">🏦</span>
+                  Bank Transfer
+                </button>
+                <button type="button" class="pay-tab" onclick="showTab('easy', 'm')" id="tab-easy-m">
+                  <span class="tab-emoji" aria-hidden="true">📱</span>
+                  EasyPaisa
+                </button>
+              </div>
+
+              <div class="pay-detail" id="detail-bank-m">
+                <div class="detail-row">
+                  <span class="detail-lbl">Bank</span>
+                  <span class="detail-val">HBL</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-lbl">Account Name</span>
+                  <span class="detail-val">Ahmed Ali</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-lbl">Account No.</span>
+                  <span class="detail-val">
+                    <span id="bank-acc-m">00537900951003</span>
+                    <button type="button" class="copy-btn" onclick="copyText('bank-acc-m', this)">Copy</button>
+                  </span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-lbl">IBAN</span>
+                  <span class="detail-val">
+                    <span id="bank-iban-m">PK02HABB0000537900951003</span>
+                    <button type="button" class="copy-btn" onclick="copyText('bank-iban-m', this)">Copy</button>
+                  </span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-lbl">Amount</span>
+                  <span class="detail-val detail-val--accent">Rs. 15,000</span>
+                </div>
+                <div class="method-note">💡 After transfer, take a screenshot and upload it in the form.</div>
+              </div>
+
+              <div class="pay-detail" id="detail-easy-m" hidden>
+                <div class="detail-row">
+                  <span class="detail-lbl">EasyPaisa No.</span>
+                  <span class="detail-val">
+                    <span id="easy-num-m">03321319363</span>
+                    <button type="button" class="copy-btn" onclick="copyText('easy-num-m', this)">Copy</button>
+                  </span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-lbl">Account Name</span>
+                  <span class="detail-val">Ahmed Ali</span>
+                </div>
+                <div class="detail-row">
+                  <span class="detail-lbl">Amount</span>
+                  <span class="detail-val detail-val--accent">Rs. 15,000</span>
+                </div>
+                <div class="method-note">💚 Use EasyPaisa app or *786# to send. Take a screenshot and upload below.</div>
+              </div>
+            </div>
+
+            <!-- RIGHT: Confirmation Form -->
+            <div class="pay-right">
+              <div class="confirm-card">
+                <div class="sec-label" style="margin-bottom: 24px;">
+                  <span class="sec-label__icon" aria-hidden="true">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                  Confirm Your Payment
+                </div>
+
+                <div class="d-field">
+                  <label class="d-field__label" for="c-name-m">Full Name *</label>
+                  <input class="d-field__input" type="text" id="c-name-m" placeholder="Enter your full name" autocomplete="name" maxlength="120">
+                  <p class="form-error" id="err-name-m" hidden>Please enter your name.</p>
+                </div>
+
+                <div class="d-field">
+                  <label class="d-field__label" for="c-phone-m">Phone Number *</label>
+                  <input class="d-field__input" type="tel" id="c-phone-m" placeholder="0300-XXXXXXX" inputmode="numeric" autocomplete="tel" maxlength="20">
+                  <p class="form-error" id="err-phone-m" hidden>Please enter a valid phone number.</p>
+                </div>
+
+                <div class="d-field">
+                  <label class="d-field__label">Payment Screenshot *</label>
+                  <div class="upload-area" id="upload-area-m">
+                    <input type="file" id="c-screenshot-m" accept="image/*" onchange="handleFileSelect(event, 'm')" aria-label="Upload payment screenshot">
+                    <span class="upload-icon" aria-hidden="true">📸</span>
+                    <p class="upload-text">Click or drag & drop here</p>
+                    <p class="upload-hint">JPG, PNG — Max 5MB</p>
+                  </div>
+                  <div class="upload-preview" id="upload-preview-m">
+                    <img id="preview-img-m" src="" alt="Screenshot preview">
+                    <p class="upload-filename" id="upload-filename-m"></p>
+                  </div>
+                  <p class="form-error" id="err-screenshot-m" hidden>Please upload payment screenshot.</p>
+                </div>
+
+                <div class="d-field">
+                  <label class="d-field__label" for="c-code-m">Confirmation Code *</label>
+                  <input class="d-field__input code-field-input" type="text" id="c-code-m" placeholder="e.g. AWC001" autocomplete="off" maxlength="20">
+                  <p class="form-hint">Yeh code hamari team ny aapko contact confirm karny k baad diya hoga.</p>
+                  <p class="form-error" id="err-code-m" hidden>Please enter a valid confirmation code (e.g. AWC001).</p>
+                </div>
+
+                <button class="submit-pay-btn" id="confirm-btn-m" type="button" onclick="submitConfirmation('m')" disabled>
+                  <span class="loading-spinner" aria-hidden="true"></span>
+                  <span class="btn-text">Send Confirmation</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+          </div>
+        </div>
       </main>
 
       <footer class="m-footer">
@@ -181,9 +1000,7 @@
           <span class="d-logo__text">AI Web Crafts</span>
         </a>
         <button type="button" class="d-btn d-btn--primary" id="startJourneyDesktop" style="margin-left: auto;">Contact Us</button>
-        <a href="payment.html">
-          <button type="button" class="d-btn d-btn--pay" id="payNowDesktop">Pay Now</button>
-        </a>
+        <button type="button" class="d-btn d-btn--pay" id="payNowDesktop" onclick="openEnrollModal('d')">Pay Now</button>
       </div>
     </header>
 
@@ -191,9 +1008,12 @@
       <section class="d-hero" aria-labelledby="d-hero-title">
         <div class="d-hero__inner">
           <div class="d-hero__copy">
-            <div class="d-badge">
-              <span class="d-badge__dot-wrap" aria-hidden="true"><span class="d-badge__dot"></span></span>
-              <span class="d-badge__text">Accepting new students</span>
+            <div class="hero-price-badge">
+              <span class="hero-price-badge__tag">🔥 70% OFF</span>
+              <span class="hero-price-badge__prices">
+                <span class="hero-price-badge__original">Rs. 50,000</span>
+                <span class="hero-price-badge__discount">Rs. 15,000</span>
+              </span>
             </div>
             <h1 id="d-hero-title" class="d-hero__title">Master <span class="d-hero__title-accent">E-Commerce</span> With An Expert</h1>
             <p class="d-hero__desc">Learn real-world strategies from an experienced operator. Tailored 1-on-1 mentorship for Shopify and international dropshipping.</p>
@@ -289,6 +1109,90 @@
                 <input class="d-field__input" type="email" id="d-email" name="email" placeholder="Enter your email (optional)" autocomplete="email" maxlength="120">
                 <p class="form-error" id="d-email-error" role="alert" hidden></p>
               </div>
+
+              <fieldset class="d-field quiz-field">
+                <legend class="sr-only">Aap E-commerce kyun seekhna chahte hain?</legend>
+                <button type="button" class="quiz-field__header" aria-expanded="true" aria-controls="d-quiz-panel-1">
+                  <span class="quiz-field__num" aria-hidden="true">1</span>
+                  <span class="quiz-field__qtext">Aap E-commerce kyun seekhna chahte hain? <em>*</em>
+                    <span class="quiz-field__answer"></span>
+                  </span>
+                  <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="quiz-panel" id="d-quiz-panel-1">
+                  <div class="quiz-panel__inner">
+                    <div class="quiz-options">
+                      <label class="quiz-option"><input type="radio" name="d-q1-reason" value="Apna online business start karna hai" required><span>Apna online business start karna hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q1-reason" value="Existing business ko online grow karna hai"><span>Existing business ko online grow karna hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q1-reason" value="Part-time income source banana hai"><span>Part-time income source banana hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q1-reason" value="Sirf information lena chahta/chahti hoon"><span>Sirf information lena chahta/chahti hoon</span></label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="d-field quiz-field">
+                <legend class="sr-only">Aapka E-commerce/Shopify ka experience kitna hai?</legend>
+                <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="d-quiz-panel-2">
+                  <span class="quiz-field__num" aria-hidden="true">2</span>
+                  <span class="quiz-field__qtext">Aapka E-commerce/Shopify ka experience kitna hai? <em>*</em>
+                    <span class="quiz-field__answer"></span>
+                  </span>
+                  <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="quiz-panel" id="d-quiz-panel-2">
+                  <div class="quiz-panel__inner">
+                    <div class="quiz-options">
+                      <label class="quiz-option"><input type="radio" name="d-q2-experience" value="Bilkul beginner hoon" required><span>Bilkul beginner hoon</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q2-experience" value="Thora bohat experience hai"><span>Thora bohat experience hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q2-experience" value="Pehle Shopify/Dropshipping try ki hai"><span>Pehle Shopify/Dropshipping try ki hai</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q2-experience" value="Already online business kar raha/rahi hoon"><span>Already online business kar raha/rahi hoon</span></label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="d-field quiz-field">
+                <legend class="sr-only">Aap training kab start karna chahte hain?</legend>
+                <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="d-quiz-panel-3">
+                  <span class="quiz-field__num" aria-hidden="true">3</span>
+                  <span class="quiz-field__qtext">Aap training kab start karna chahte hain? <em>*</em>
+                    <span class="quiz-field__answer"></span>
+                  </span>
+                  <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="quiz-panel" id="d-quiz-panel-3">
+                  <div class="quiz-panel__inner">
+                    <div class="quiz-options">
+                      <label class="quiz-option"><input type="radio" name="d-q3-timeline" value="Abhi / isi week" required><span>Abhi / isi week</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q3-timeline" value="1–2 weeks mein"><span>1–2 weeks mein</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q3-timeline" value="Is month mein"><span>Is month mein</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q3-timeline" value="Abhi sirf information chahiye"><span>Abhi sirf information chahiye</span></label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <fieldset class="d-field quiz-field">
+                <legend class="sr-only">1-on-1 mentorship ki fee Rs. 15,000 hai. Kya aap is investment ke liye ready hain?</legend>
+                <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="d-quiz-panel-4">
+                  <span class="quiz-field__num" aria-hidden="true">4</span>
+                  <span class="quiz-field__qtext">1-on-1 mentorship ki fee Rs. 15,000 hai. Agar training aapke liye suitable ho, kya aap is investment ke liye ready hain? <em>*</em>
+                    <span class="quiz-field__answer"></span>
+                  </span>
+                  <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+                <div class="quiz-panel" id="d-quiz-panel-4">
+                  <div class="quiz-panel__inner">
+                    <div class="quiz-options">
+                      <label class="quiz-option"><input type="radio" name="d-q4-budget" value="Ji, main serious hoon" required><span>Ji, main serious hoon</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q4-budget" value="Pehle complete details samajhna chahta/chahti hoon"><span>Pehle complete details samajhna chahta/chahti hoon</span></label>
+                      <label class="quiz-option"><input type="radio" name="d-q4-budget" value="Abhi budget available nahi hai"><span>Abhi budget available nahi hai</span></label>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
               <div class="d-form__actions">
                 <button type="submit" class="d-btn d-btn--submit form-submit" id="secureSpotBtnDesktop" aria-busy="false">
                   <span class="form-submit__text">Submit</span>
@@ -309,6 +1213,151 @@
           </div>
         </div>
       </section>
+
+      <!-- Integrated Payment Section (Desktop) — now shown inside a modal, closed by default -->
+      <div class="modal-overlay" id="payModalDesktop" role="dialog" aria-modal="true" aria-labelledby="payModalDesktopTitle" hidden>
+        <div class="modal-backdrop" id="payModalDesktopBackdrop"></div>
+        <div class="modal-dialog modal-dialog--wide" role="document">
+          <button type="button" class="modal-close-btn" id="payModalDesktopClose" aria-label="Close">✕</button>
+      <section class="pay-section-wrap" id="payment-section">
+        <div class="pay-header-block">
+          <h2 class="pay-page-title" id="payModalDesktopTitle">Enroll Now</h2>
+          <p class="pay-page-sub">Secure your spot in the 1-on-1 mentorship program today.</p>
+        </div>
+
+        <div class="pay-grid">
+          <!-- LEFT: Pricing + Payment Method -->
+          <div class="pay-left">
+            <div class="price-card">
+              <div class="price-save-tag">🔥 70% OFF — Act Fast!</div>
+              <div class="price-row">
+                <span class="price-original">Rs. 50,000</span>
+                <span class="price-discount">Rs. 15,000</span>
+              </div>
+            </div>
+
+            <div class="sec-label">
+              <span class="sec-label__icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h18M7 3v2m10-2v2M6.2 21h11.6A2.2 2.2 0 0020 18.8V7.2A2.2 2.2 0 0017.8 5H6.2A2.2 2.2 0 004 7.2v11.6A2.2 2.2 0 006.2 21z" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
+              </span>
+              Select Payment Method
+            </div>
+
+            <div class="pay-tabs">
+              <button type="button" class="pay-tab active" onclick="showTab('bank')" id="tab-bank">
+                <span class="tab-emoji" aria-hidden="true">🏦</span>
+                Bank Transfer
+              </button>
+              <button type="button" class="pay-tab" onclick="showTab('easy')" id="tab-easy">
+                <span class="tab-emoji" aria-hidden="true">📱</span>
+                EasyPaisa
+              </button>
+            </div>
+
+            <div class="pay-detail" id="detail-bank">
+              <div class="detail-row">
+                <span class="detail-lbl">Bank</span>
+                <span class="detail-val">HBL</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-lbl">Account Name</span>
+                <span class="detail-val">Ahmed Ali</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-lbl">Account No.</span>
+                <span class="detail-val">
+                  <span id="bank-acc">00537900951003</span>
+                  <button type="button" class="copy-btn" onclick="copyText('bank-acc', this)">Copy</button>
+                </span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-lbl">IBAN</span>
+                <span class="detail-val">
+                  <span id="bank-iban">PK02HABB0000537900951003</span>
+                  <button type="button" class="copy-btn" onclick="copyText('bank-iban', this)">Copy</button>
+                </span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-lbl">Amount</span>
+                <span class="detail-val detail-val--accent">Rs. 15,000</span>
+              </div>
+              <div class="method-note">💡 After transfer, take a screenshot and upload it in the form.</div>
+            </div>
+
+            <div class="pay-detail" id="detail-easy" hidden>
+              <div class="detail-row">
+                <span class="detail-lbl">EasyPaisa No.</span>
+                <span class="detail-val">
+                  <span id="easy-num">03321319363</span>
+                  <button type="button" class="copy-btn" onclick="copyText('easy-num', this)">Copy</button>
+                </span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-lbl">Account Name</span>
+                <span class="detail-val">Ahmed Ali</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-lbl">Amount</span>
+                <span class="detail-val detail-val--accent">Rs. 15,000</span>
+              </div>
+              <div class="method-note">💚 Use EasyPaisa app or *786# to send. Take a screenshot and upload below.</div>
+            </div>
+          </div>
+
+          <!-- RIGHT: Confirmation Form -->
+          <div class="pay-right">
+            <div class="confirm-card">
+              <div class="sec-label" style="margin-bottom: 24px;">
+                <span class="sec-label__icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Confirm Your Payment
+              </div>
+
+              <div class="d-field">
+                <label class="d-field__label" for="c-name">Full Name *</label>
+                <input class="d-field__input" type="text" id="c-name" placeholder="Enter your full name" autocomplete="name" maxlength="120">
+                <p class="form-error" id="err-name" hidden>Please enter your name.</p>
+              </div>
+
+              <div class="d-field">
+                <label class="d-field__label" for="c-phone">Phone Number *</label>
+                <input class="d-field__input" type="tel" id="c-phone" placeholder="0300-XXXXXXX" inputmode="numeric" autocomplete="tel" maxlength="20">
+                <p class="form-error" id="err-phone" hidden>Please enter a valid phone number.</p>
+              </div>
+
+              <div class="d-field">
+                <label class="d-field__label">Payment Screenshot *</label>
+                <div class="upload-area" id="upload-area">
+                  <input type="file" id="c-screenshot" accept="image/*" onchange="handleFileSelect(event)" aria-label="Upload payment screenshot">
+                  <span class="upload-icon" aria-hidden="true">📸</span>
+                  <p class="upload-text">Click or drag & drop here</p>
+                  <p class="upload-hint">JPG, PNG — Max 5MB</p>
+                </div>
+                <div class="upload-preview" id="upload-preview">
+                  <img id="preview-img" src="" alt="Screenshot preview">
+                  <p class="upload-filename" id="upload-filename"></p>
+                </div>
+                <p class="form-error" id="err-screenshot" hidden>Please upload payment screenshot.</p>
+              </div>
+
+              <div class="d-field">
+                <label class="d-field__label" for="c-code">Confirmation Code *</label>
+                <input class="d-field__input code-field-input" type="text" id="c-code" placeholder="e.g. AWC001" autocomplete="off" maxlength="20">
+                <p class="form-hint">Yeh code hamari team ny aapko contact confirm karny k baad diya hoga.</p>
+                <p class="form-error" id="err-code" hidden>Please enter a valid confirmation code (e.g. AWC001).</p>
+              </div>
+
+              <button class="submit-pay-btn" id="confirm-btn" type="button" onclick="submitConfirmation()" disabled>
+                <span class="loading-spinner" aria-hidden="true"></span>
+                <span class="btn-text">Send Confirmation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+        </div>
+      </div>
     </main>
 
     <footer class="d-footer">
@@ -321,35 +1370,97 @@
   </div>
 
   <!-- WhatsApp FAB (Opens Modal) -->
-<button type="button" class="fab-whatsapp" onclick="openWaModal()" aria-label="Chat on WhatsApp" title="WhatsApp">
-  <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-    <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
-  </svg>
-</button>
+  <button type="button" class="fab-whatsapp" onclick="openWaModal()" aria-label="Chat on WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
+    </svg>
+  </button>
 
-<!-- WhatsApp Lead Form Modal -->
-<div id="waLeadModal" class="thank-modal" role="dialog" aria-modal="true" hidden>
-  <div class="thank-modal__backdrop" onclick="closeWaModal()"></div>
-  <div class="thank-modal__dialog" role="document">
-    <h2 class="thank-modal__title">Start WhatsApp Chat</h2>
-    <p class="thank-modal__text">Please enter your details to connect with our mentor on WhatsApp.</p>
-    
-    <form id="waModalForm" onsubmit="handleWaModalSubmit(event)">
-      <div class="m-field" style="margin-bottom: 12px; text-align: left;">
-        <label class="m-field__label" for="wa-name">Name *</label>
-        <input class="m-field__input" type="text" id="wa-name" required placeholder="Enter your name">
-      </div>
-      <div class="m-field" style="margin-bottom: 16px; text-align: left;">
-        <label class="m-field__label" for="wa-phone">WhatsApp Number *</label>
-        <input class="m-field__input" type="tel" id="wa-phone" required placeholder="03XXXXXXXXX">
-      </div>
-      <button type="submit" class="m-btn m-btn--submit" style="background-color: #25D366; width: 100%;">
-        Connect on WhatsApp
-      </button>
-    </form>
-    <button type="button" class="thank-modal__close" onclick="closeWaModal()" style="margin-top: 10px;">Cancel</button>
+  <!-- WhatsApp Lead Form Modal -->
+  <div id="waLeadModal" class="thank-modal" role="dialog" aria-modal="true" hidden>
+    <div class="thank-modal__backdrop" onclick="closeWaModal()"></div>
+    <div class="thank-modal__dialog" role="document">
+      <h2 class="thank-modal__title">Start WhatsApp Chat</h2>
+      <p class="thank-modal__text">Please enter your details to connect with our mentor on WhatsApp.</p>
+      
+      <form id="waModalForm" onsubmit="handleWaModalSubmit(event)">
+        <div class="m-field" style="margin-bottom: 12px; text-align: left;">
+          <label class="m-field__label" for="wa-name">Name *</label>
+          <input class="m-field__input" type="text" id="wa-name" required placeholder="Enter your name">
+        </div>
+        <div class="m-field" style="margin-bottom: 16px; text-align: left;">
+          <label class="m-field__label" for="wa-phone">WhatsApp Number *</label>
+          <input class="m-field__input" type="tel" id="wa-phone" required placeholder="03XXXXXXXXX">
+        </div>
+
+        <fieldset class="m-field quiz-field" style="margin-bottom: 12px; text-align: left;">
+          <legend class="sr-only">Aap E-commerce kyun seekhna chahte hain?</legend>
+          <button type="button" class="quiz-field__header" aria-expanded="true" aria-controls="wa-quiz-panel-1">
+            <span class="quiz-field__num" aria-hidden="true">1</span>
+            <span class="quiz-field__qtext">Aap E-commerce kyun seekhna chahte hain? <em>*</em>
+              <span class="quiz-field__answer"></span>
+            </span>
+            <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="quiz-panel" id="wa-quiz-panel-1">
+            <div class="quiz-panel__inner">
+              <div class="quiz-options">
+                <label class="quiz-option"><input type="radio" name="wa-q1-reason" value="Online business start karna hai" required><span>Online business start karna hai</span></label>
+                <label class="quiz-option"><input type="radio" name="wa-q1-reason" value="Part-time income ke liye"><span>Part-time income ke liye</span></label>
+                <label class="quiz-option"><input type="radio" name="wa-q1-reason" value="Existing business grow karna hai"><span>Existing business grow karna hai</span></label>
+                <label class="quiz-option"><input type="radio" name="wa-q1-reason" value="Sirf information chahiye"><span>Sirf information chahiye</span></label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="m-field quiz-field" style="margin-bottom: 12px; text-align: left;">
+          <legend class="sr-only">Aapka current level kya hai?</legend>
+          <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="wa-quiz-panel-2">
+            <span class="quiz-field__num" aria-hidden="true">2</span>
+            <span class="quiz-field__qtext">Aapka current level kya hai? <em>*</em>
+              <span class="quiz-field__answer"></span>
+            </span>
+            <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="quiz-panel" id="wa-quiz-panel-2">
+            <div class="quiz-panel__inner">
+              <div class="quiz-options">
+                <label class="quiz-option"><input type="radio" name="wa-q2-level" value="Beginner" required><span>Beginner</span></label>
+                <label class="quiz-option"><input type="radio" name="wa-q2-level" value="Thora experience hai"><span>Thora experience hai</span></label>
+                <label class="quiz-option"><input type="radio" name="wa-q2-level" value="Already business kar raha/rahi hoon"><span>Already business kar raha/rahi hoon</span></label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset class="m-field quiz-field" style="margin-bottom: 12px; text-align: left;">
+          <legend class="sr-only">1-on-1 mentorship ki fee Rs. 15,000 hai. Kya aap interested hain?</legend>
+          <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="wa-quiz-panel-3">
+            <span class="quiz-field__num" aria-hidden="true">3</span>
+            <span class="quiz-field__qtext">1-on-1 mentorship ki fee Rs. 15,000 hai. Kya aap interested hain? <em>*</em>
+              <span class="quiz-field__answer"></span>
+            </span>
+            <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+          <div class="quiz-panel" id="wa-quiz-panel-3">
+            <div class="quiz-panel__inner">
+              <div class="quiz-options">
+                <label class="quiz-option"><input type="radio" name="wa-q3-fee" value="Ji, main serious hoon" required><span>Ji, main serious hoon</span></label>
+                <label class="quiz-option"><input type="radio" name="wa-q3-fee" value="Pehle details chahiye"><span>Pehle details chahiye</span></label>
+                <label class="quiz-option"><input type="radio" name="wa-q3-fee" value="Abhi budget available nahi hai"><span>Abhi budget available nahi hai</span></label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <button type="submit" class="m-btn m-btn--submit" style="background-color: #25D366; width: 100%;">
+          Connect on WhatsApp
+        </button>
+      </form>
+      <button type="button" class="thank-modal__close" onclick="closeWaModal()" style="margin-top: 10px;">Cancel</button>
+    </div>
   </div>
-</div>
 
   <div class="thank-modal" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="thankModalTitle" hidden>
     <div class="thank-modal__backdrop" id="thankYouModalBackdrop"></div>
@@ -360,7 +1471,152 @@
     </div>
   </div>
 
+  <!-- Success Modal for Payment Confirmation -->
+  <div class="modal-overlay" id="paymentSuccessModal" role="dialog" aria-modal="true" aria-labelledby="payModalTitle" hidden>
+    <div class="modal-backdrop" id="payModalBackdrop"></div>
+    <div class="modal-dialog" role="document">
+      <span style="font-size: 48px; display: block; margin-bottom: 12px;" aria-hidden="true">✅</span>
+      <h2 class="modal-title" id="payModalTitle" style="font-size: 24px; margin-bottom: 8px;">Payment Submitted!</h2>
+      <p class="modal-text" style="font-size: 14px; margin-bottom: 20px;">Thank you! We will verify your payment and confirm your enrollment within 24 hours.</p>
+      <button class="m-btn m-btn--primary" id="payModalCloseBtn" type="button" style="width: 100%;">Got it!</button>
+    </div>
+  </div>
+
   <script>
+    function getRadioValue(form, name) {
+      var el = form.querySelector('input[name="' + name + '"]:checked');
+      return el ? el.value : "";
+    }
+
+    function validateRadioGroups(form, groupNames) {
+      var allValid = true;
+      var firstInvalid = null;
+      groupNames.forEach(function (name) {
+        var input = form.querySelector('input[name="' + name + '"]');
+        var checked = form.querySelector('input[name="' + name + '"]:checked');
+        var fieldset = input ? input.closest("fieldset") : null;
+        if (!checked) {
+          allValid = false;
+          if (fieldset) {
+            fieldset.style.outline = "2px solid #ef4444";
+            fieldset.style.outlineOffset = "4px";
+            fieldset.style.borderRadius = "14px";
+            if (!firstInvalid) firstInvalid = fieldset;
+          }
+        } else if (fieldset) {
+          fieldset.style.outline = "";
+        }
+      });
+      if (firstInvalid) {
+        /* Accordion: open the first unanswered question so the user can see it, collapse the rest */
+        groupNames.forEach(function (name) {
+          var input = form.querySelector('input[name="' + name + '"]');
+          var fs = input ? input.closest(".quiz-field") : null;
+          if (!fs) return;
+          var header = fs.querySelector(".quiz-field__header");
+          if (fs === firstInvalid) {
+            fs.classList.add("is-open");
+            if (header) header.setAttribute("aria-expanded", "true");
+          } else {
+            fs.classList.remove("is-open");
+            if (header) header.setAttribute("aria-expanded", "false");
+          }
+        });
+        firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+      return allValid;
+    }
+
+    /* Turns each set of qualifying questions into an accordion:
+       one question open at a time, auto-advances to the next after an answer is picked. */
+    function initQuizAccordion(formId, groupNames) {
+      var form = document.getElementById(formId);
+      if (!form) return;
+
+      var items = groupNames.map(function (name) {
+        var input = form.querySelector('input[name="' + name + '"]');
+        return input ? input.closest(".quiz-field") : null;
+      });
+
+      function closeAll() {
+        items.forEach(function (fs) {
+          if (!fs) return;
+          fs.classList.remove("is-open");
+          var header = fs.querySelector(".quiz-field__header");
+          if (header) header.setAttribute("aria-expanded", "false");
+        });
+      }
+
+      function openItem(fs) {
+        if (!fs) return;
+        closeAll();
+        fs.classList.add("is-open");
+        var header = fs.querySelector(".quiz-field__header");
+        if (header) header.setAttribute("aria-expanded", "true");
+      }
+
+      items.forEach(function (fs, idx) {
+        if (!fs) return;
+        var header = fs.querySelector(".quiz-field__header");
+        var answerEl = fs.querySelector(".quiz-field__answer");
+
+        if (header) {
+          header.addEventListener("click", function () {
+            if (fs.classList.contains("is-open")) {
+              fs.classList.remove("is-open");
+              header.setAttribute("aria-expanded", "false");
+            } else {
+              openItem(fs);
+            }
+          });
+        }
+
+        var radios = fs.querySelectorAll('input[type="radio"]');
+        radios.forEach(function (radio) {
+          radio.addEventListener("change", function () {
+            fs.classList.add("is-answered");
+            if (answerEl) answerEl.textContent = radio.value;
+            var next = items[idx + 1];
+            setTimeout(function () {
+              if (next) {
+                openItem(next);
+                next.scrollIntoView({ behavior: "smooth", block: "center" });
+              } else {
+                fs.classList.remove("is-open");
+                if (header) header.setAttribute("aria-expanded", "false");
+              }
+            }, 260);
+          });
+        });
+      });
+
+      if (items[0]) openItem(items[0]);
+    }
+
+    function resetQuizAccordion(formId, groupNames) {
+      var form = document.getElementById(formId);
+      if (!form) return;
+      var items = groupNames.map(function (name) {
+        var input = form.querySelector('input[name="' + name + '"]');
+        return input ? input.closest(".quiz-field") : null;
+      });
+      items.forEach(function (fs, idx) {
+        if (!fs) return;
+        fs.classList.remove("is-answered");
+        fs.style.outline = "";
+        var header = fs.querySelector(".quiz-field__header");
+        var answerEl = fs.querySelector(".quiz-field__answer");
+        if (answerEl) answerEl.textContent = "";
+        if (idx === 0) {
+          fs.classList.add("is-open");
+          if (header) header.setAttribute("aria-expanded", "true");
+        } else {
+          fs.classList.remove("is-open");
+          if (header) header.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
     (function () {
       var GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSeuFBMI1v-zEHZpEVw_YA1qRP7WGmPOdaGY8KEkToEZKVrpEA/formResponse";
       var PHONE_DIGITS_ONLY = /^\d+$/;
@@ -442,141 +1698,162 @@
         return ok;
       }
 
-      function wireLeadForm(formId, nameId, phoneId, emailId) {
-  var form = document.getElementById(formId);
-  if (!form) return;
+      function wireLeadForm(formId, nameId, phoneId, emailId, questionGroups) {
+        var form = document.getElementById(formId);
+        if (!form) return;
 
-  var nameEl = document.getElementById(nameId);
-  var phoneEl = document.getElementById(phoneId);
-  var emailEl = document.getElementById(emailId);
-  var nameErr = document.getElementById(nameId + "-error");
-  var phoneErr = document.getElementById(phoneId + "-error");
-  var emailErr = document.getElementById(emailId + "-error");
+        var nameEl = document.getElementById(nameId);
+        var phoneEl = document.getElementById(phoneId);
+        var emailEl = document.getElementById(emailId);
+        var nameErr = document.getElementById(nameId + "-error");
+        var phoneErr = document.getElementById(phoneId + "-error");
+        var emailErr = document.getElementById(emailId + "-error");
 
-  // Helper function: Pure JS inline styles + attributes apply karta hai visuals aur behavior dono fix karne ke liye
-  function toggleFormState(disabled) {
-    var inputs = [nameEl, phoneEl, emailEl];
-    inputs.forEach(function (input) {
-      if (input) {
-        input.disabled = disabled;
-        if (disabled) {
-          input.style.backgroundColor = "#e5e7eb";
-          input.style.color = "#9ca3af";
-          input.style.cursor = "not-allowed";
-          input.style.borderColor = "#d1d5db";
-        } else {
-          input.style.backgroundColor = "";
-          input.style.color = "";
-          input.style.cursor = "";
-          input.style.borderColor = "";
-        }
-      }
-    });
-
-    var submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) {
-      submitBtn.disabled = disabled;
-      if (disabled) {
-        submitBtn.style.backgroundColor = "#9ca3af";
-        submitBtn.style.borderColor = "#9ca3af";
-        submitBtn.style.color = "#ffffff";
-        submitBtn.style.cursor = "not-allowed";
-        submitBtn.style.boxShadow = "none";
-        submitBtn.style.transform = "none";
-      } else {
-        submitBtn.style.backgroundColor = "";
-        submitBtn.style.borderColor = "";
-        submitBtn.style.color = "";
-        submitBtn.style.cursor = "";
-        submitBtn.style.boxShadow = "";
-        submitBtn.style.transform = "";
-      }
-    }
-  }
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var name = nameEl ? nameEl.value : "";
-    var phone = phoneEl ? phoneEl.value : "";
-    var email = emailEl ? emailEl.value : "";
-
-    if (!validateLead(name, phone, email, nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr)) {
-      toggleFormState(false);
-      return;
-    }
-
-    var submitBtn = form.querySelector('button[type="submit"]');
-    setSubmitLoading(submitBtn, true);
-
-    // Form submit hote hi poora UI & behavior disable kar dein
-    toggleFormState(true);
-
-    var params = new URLSearchParams();
-    params.append("entry.2007658999", name.trim());
-    params.append("entry.1341104541", phone.trim());
-    params.append("entry.1004741489", email.trim());
-
-    fetch(GOOGLE_FORM_ACTION, {
-      method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: params,
-    })
-      .then(function () {
-        if (submitBtn) {
-          submitBtn.classList.remove("is-loading");
-          submitBtn.setAttribute("aria-busy", "false");
-        }
-        
-        form.reset();
-        clearFormErrors(nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr);
-        
-        // 🎯 Google Ads Conversion Event Trigger
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-16499475514/QVraCJrchuIcELqlyLs9',
-            'value': 1.0,
-            'currency': 'PKR'
+        function toggleFormState(disabled) {
+          var inputs = [nameEl, phoneEl, emailEl];
+          inputs.forEach(function (input) {
+            if (input) {
+              input.disabled = disabled;
+              if (disabled) {
+                input.style.backgroundColor = "#e5e7eb";
+                input.style.color = "#9ca3af";
+                input.style.cursor = "not-allowed";
+                input.style.borderColor = "#d1d5db";
+              } else {
+                input.style.backgroundColor = "";
+                input.style.color = "";
+                input.style.cursor = "";
+                input.style.borderColor = "";
+              }
+            }
           });
-        }
 
-        // 🎯 Meta Pixel & Server DataLayer Lead Event Trigger
-        var leadUniqueId = 'lead_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          'event': 'generate_lead',
-          'eventId': leadUniqueId,
-          'user_data': {
-            'email': email.trim(),
-            'phone': phone.trim(),
-            'name': name.trim()
+          var submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.disabled = disabled;
+            if (disabled) {
+              submitBtn.style.backgroundColor = "#9ca3af";
+              submitBtn.style.borderColor = "#9ca3af";
+              submitBtn.style.color = "#ffffff";
+              submitBtn.style.cursor = "not-allowed";
+              submitBtn.style.boxShadow = "none";
+              submitBtn.style.transform = "none";
+            } else {
+              submitBtn.style.backgroundColor = "";
+              submitBtn.style.borderColor = "";
+              submitBtn.style.color = "";
+              submitBtn.style.cursor = "";
+              submitBtn.style.boxShadow = "";
+              submitBtn.style.transform = "";
+            }
           }
-        });
-
-        if (typeof fbq === 'function') {
-          fbq('track', 'Lead', {
-            content_name: 'Ecom Mentorship',
-            currency: 'PKR',
-            value: 15000
-          }, { eventID: leadUniqueId });
         }
 
-        openThankModal();
-      })
-      .catch(function () {
-        // Error aane par form re-enable kar dein
-        toggleFormState(false);
-        setSubmitLoading(submitBtn, false);
-        showMessage("Something went wrong. Please try again.");
-      });
-  });
-}
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          var name = nameEl ? nameEl.value : "";
+          var phone = phoneEl ? phoneEl.value : "";
+          var email = emailEl ? emailEl.value : "";
 
-      wireLeadForm("consultFormMobile", "m-name", "m-phone", "m-email");
-      wireLeadForm("consultFormDesktop", "d-name", "d-phone", "d-email");
+          if (questionGroups && questionGroups.length && !validateRadioGroups(form, questionGroups)) {
+            return;
+          }
 
-      // 🎯 Pay Now Button Tracking (InitiateCheckout)
+          if (!validateLead(name, phone, email, nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr)) {
+            toggleFormState(false);
+            return;
+          }
+
+          var submitBtn = form.querySelector('button[type="submit"]');
+          setSubmitLoading(submitBtn, true);
+          toggleFormState(true);
+
+          var q1 = questionGroups ? getRadioValue(form, questionGroups[0]) : "";
+          var q2 = questionGroups ? getRadioValue(form, questionGroups[1]) : "";
+          var q3 = questionGroups ? getRadioValue(form, questionGroups[2]) : "";
+          var q4 = questionGroups ? getRadioValue(form, questionGroups[3]) : "";
+
+          var params = new URLSearchParams();
+          params.append("entry.2007658999", name.trim());
+          params.append("entry.1341104541", phone.trim());
+          params.append("entry.1004741489", email.trim());
+          // TODO: replace these placeholder entry IDs with the real ones from your
+          // Google Form once you add the 4 qualifying questions to it (Form > ⋮ > Get pre-filled link).
+          params.append("entry.QUESTION1_REASON", q1);
+          params.append("entry.QUESTION2_EXPERIENCE", q2);
+          params.append("entry.QUESTION3_TIMELINE", q3);
+          params.append("entry.QUESTION4_BUDGET", q4);
+
+          fetch(GOOGLE_FORM_ACTION, {
+            method: "POST",
+            mode: "no-cors",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: params,
+          })
+            .then(function () {
+              if (submitBtn) {
+                submitBtn.classList.remove("is-loading");
+                submitBtn.setAttribute("aria-busy", "false");
+              }
+              
+              form.reset();
+              clearFormErrors(nameEl, phoneEl, emailEl, nameErr, phoneErr, emailErr);
+              form.querySelectorAll(".quiz-field").forEach(function (fs) { fs.style.outline = ""; });
+              resetQuizAccordion(formId, questionGroups);
+              
+              if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                  'send_to': 'AW-16499475514/QVraCJrchuIcELqlyLs9',
+                  'value': 1.0,
+                  'currency': 'PKR'
+                });
+              }
+
+              var leadUniqueId = 'lead_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                'event': 'generate_lead',
+                'eventId': leadUniqueId,
+                'user_data': {
+                  'email': email.trim(),
+                  'phone': phone.trim(),
+                  'name': name.trim()
+                },
+                'qualifying_answers': {
+                  'reason': q1,
+                  'experience': q2,
+                  'timeline': q3,
+                  'budget_ready': q4
+                }
+              });
+
+              if (typeof fbq === 'function') {
+                fbq('track', 'Lead', {
+                  content_name: 'Ecom Mentorship',
+                  currency: 'PKR',
+                  value: 15000
+                }, { eventID: leadUniqueId });
+              }
+
+              openThankModal();
+            })
+            .catch(function () {
+              toggleFormState(false);
+              setSubmitLoading(submitBtn, false);
+              showMessage("Something went wrong. Please try again.");
+            });
+        });
+      }
+
+      wireLeadForm("consultFormMobile", "m-name", "m-phone", "m-email", ["m-q1-reason", "m-q2-experience", "m-q3-timeline", "m-q4-budget"]);
+      wireLeadForm("consultFormDesktop", "d-name", "d-phone", "d-email", ["d-q1-reason", "d-q2-experience", "d-q3-timeline", "d-q4-budget"]);
+
+      initQuizAccordion("consultFormMobile", ["m-q1-reason", "m-q2-experience", "m-q3-timeline", "m-q4-budget"]);
+      initQuizAccordion("consultFormDesktop", ["d-q1-reason", "d-q2-experience", "d-q3-timeline", "d-q4-budget"]);
+      initQuizAccordion("waModalForm", ["wa-q1-reason", "wa-q2-level", "wa-q3-fee"]);
+
+      // Pay Now Button Tracking
       function setupPayNowTracking(buttonId) {
         var payBtn = document.getElementById(buttonId);
         if (!payBtn) return;
@@ -584,7 +1861,6 @@
         payBtn.addEventListener('click', function () {
           var checkoutUniqueId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
 
-          // 1. DataLayer Push (Server Container / CAPI ke liye)
           window.dataLayer = window.dataLayer || [];
           window.dataLayer.push({
             'event': 'initiate_checkout',
@@ -595,7 +1871,6 @@
             }
           });
 
-          // 2. Browser Meta Pixel Event
           if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout', {
               content_name: 'Ecom Mentorship',
@@ -623,7 +1898,7 @@
       }
     })();
 
-    // Lazy load YouTube video on click only
+    // YouTube Lazy Load
     document.querySelectorAll(".youtube-placeholder").forEach(el => {
         el.addEventListener("click", function () {
             const videoId = this.dataset.video;
@@ -641,69 +1916,323 @@
         });
     });
 
-    // 🎯 New WhatsApp Modal Logic & Verified Lead Trigger
-function openWaModal() {
-  var modal = document.getElementById("waLeadModal");
-  if (modal) {
-    modal.removeAttribute("hidden");
-    document.body.classList.add("modal-open");
-  }
-}
+    // WhatsApp Modal Logic
+    function openWaModal() {
+      var modal = document.getElementById("waLeadModal");
+      if (modal) {
+        modal.removeAttribute("hidden");
+        document.body.classList.add("modal-open");
+      }
+    }
 
-function closeWaModal() {
-  var modal = document.getElementById("waLeadModal");
-  if (modal) {
-    modal.setAttribute("hidden", "");
-    document.body.classList.remove("modal-open");
-  }
-}
+    function closeWaModal() {
+      var modal = document.getElementById("waLeadModal");
+      if (modal) {
+        modal.setAttribute("hidden", "");
+        document.body.classList.remove("modal-open");
+      }
+    }
 
-        function handleWaModalSubmit(e) {
+    function handleWaModalSubmit(e) {
+      e.preventDefault();
+
+      var form = document.getElementById("waModalForm");
+      var nameEl = document.getElementById("wa-name");
+      var phoneEl = document.getElementById("wa-phone");
+
+      var name = nameEl ? nameEl.value.trim() : "";
+      var phone = phoneEl ? phoneEl.value.trim() : "";
+
+      if (name.length < 3 || phone.length < 7) {
+        alert("Please enter valid Name and Phone Number.");
+        return;
+      }
+
+      var waQuestionGroups = ["wa-q1-reason", "wa-q2-level", "wa-q3-fee"];
+      if (form && !validateRadioGroups(form, waQuestionGroups)) {
+        alert("Please answer all the questions before continuing.");
+        return;
+      }
+
+      var q1 = form ? getRadioValue(form, "wa-q1-reason") : "";
+      var q2 = form ? getRadioValue(form, "wa-q2-level") : "";
+      var q3 = form ? getRadioValue(form, "wa-q3-fee") : "";
+
+      var waLeadUniqueId = 'wa_modal_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'generate_lead',
+        'eventId': waLeadUniqueId,
+        'user_data': {
+          'phone': phone,
+          'name': name
+        },
+        'lead_type': 'whatsapp_modal_form',
+        'qualifying_answers': {
+          'reason': q1,
+          'level': q2,
+          'fee_interest': q3
+        }
+      });
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'WhatsApp Form Lead',
+          currency: 'PKR',
+          value: 15000
+        }, { eventID: waLeadUniqueId });
+      }
+
+      var waNumber = "923293412618";
+      var preText = encodeURIComponent(
+        "Hi, my name is " + name + ".\n" +
+        "1) " + q1 + "\n" +
+        "2) " + q2 + "\n" +
+        "3) " + q3 + "\n" +
+        "I have submitted my form and need details about mentorship."
+      );
+
+      closeWaModal();
+      window.location.href = "https://wa.me/" + waNumber + "?text=" + preText;
+    }
+
+    /* ── INTEGRATED PAYMENT LOGIC ── */
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKuSLup7ht_lXCrxbvFyNqeNgPZ8VI0FAdMW1BL1eh53nUi3nTl3ogqcBobf5Xa-OV/exec";
+
+    let selectedFile = null;
+    let screenshotBase64 = null;
+    const CONFIRM_CODE_PATTERN = /^[A-Z]{2,5}\d{2,5}$/;
+
+    /* Enroll Now modal (opened only via Pay Now, closed by default) */
+    function openEnrollModal(prefix) {
+      const id = prefix === 'm' ? 'payModalMobile' : 'payModalDesktop';
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      const closeBtn = document.getElementById(id + 'Close');
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeEnrollModal(prefix) {
+      const id = prefix === 'm' ? 'payModalMobile' : 'payModalDesktop';
+      const m = document.getElementById(id);
+      if (!m) return;
+      m.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('payModalMobileClose')?.addEventListener('click', () => closeEnrollModal('m'));
+    document.getElementById('payModalMobileBackdrop')?.addEventListener('click', () => closeEnrollModal('m'));
+    document.getElementById('payModalDesktopClose')?.addEventListener('click', () => closeEnrollModal('d'));
+    document.getElementById('payModalDesktopBackdrop')?.addEventListener('click', () => closeEnrollModal('d'));
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key !== 'Escape') return;
+      if (!document.getElementById('payModalMobile')?.hasAttribute('hidden')) closeEnrollModal('m');
+      if (!document.getElementById('payModalDesktop')?.hasAttribute('hidden')) closeEnrollModal('d');
+    });
+
+    /* Confirmation code gate: "Send Confirmation" stays disabled until a valid code is entered */
+    function validateCodeField(prefix = '') {
+      const p = prefix ? '-' + prefix : '';
+      const codeEl = document.getElementById('c-code' + p);
+      const btn = document.getElementById('confirm-btn' + p);
+      if (!codeEl || !btn) return false;
+      const valid = CONFIRM_CODE_PATTERN.test((codeEl.value || '').trim().toUpperCase());
+      btn.disabled = !valid;
+      return valid;
+    }
+
+    document.getElementById('c-code')?.addEventListener('input', () => { clearPayErr('err-code'); validateCodeField(''); });
+    document.getElementById('c-code-m')?.addEventListener('input', () => { clearPayErr('err-code-m'); validateCodeField('m'); });
+    validateCodeField('');
+    validateCodeField('m');
+
+    function showTab(tab, prefix = '') {
+      const p = prefix ? '-' + prefix : '';
+      const bankDetail = document.getElementById('detail-bank' + p);
+      const easyDetail = document.getElementById('detail-easy' + p);
+      const bankBtn = document.getElementById('tab-bank' + p);
+      const easyBtn = document.getElementById('tab-easy' + p);
+      
+      if (tab === 'bank') {
+        bankDetail.removeAttribute('hidden');
+        easyDetail.setAttribute('hidden', '');
+        bankBtn.classList.add('active');
+        easyBtn.classList.remove('active');
+      } else {
+        bankDetail.setAttribute('hidden', '');
+        easyDetail.removeAttribute('hidden');
+        bankBtn.classList.remove('active');
+        easyBtn.classList.add('active');
+      }
+    }
+
+    function copyText(id, btn) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text);
+      const orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
+    }
+
+    function handleFileSelect(event, prefix = '') {
+      const file = event.target.files[0];
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) { alert('File is larger than 5MB. Please choose a smaller image.'); return; }
+      selectedFile = file;
+      const reader = new FileReader();
+      
+      const p = prefix ? '-' + prefix : '';
+      reader.onload = (e) => {
+        screenshotBase64 = e.target.result;
+        document.getElementById('preview-img' + p).src = e.target.result;
+        document.getElementById('upload-filename' + p).textContent = file.name;
+        document.getElementById('upload-preview' + p).classList.add('visible');
+        document.getElementById('err-screenshot' + p).setAttribute('hidden', '');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function setupDragAndDrop(areaId, inputId, prefix = '') {
+      const area = document.getElementById(areaId);
+      if (area) {
+        area.addEventListener('dragover', (e) => { e.preventDefault(); area.style.borderColor = '#6837ff'; });
+        area.addEventListener('dragleave', () => { area.style.borderColor = ''; });
+        area.addEventListener('drop', (e) => {
           e.preventDefault();
-          
-          var nameEl = document.getElementById("wa-name");
-          var phoneEl = document.getElementById("wa-phone");
-          
-          var name = nameEl ? nameEl.value.trim() : "";
-          var phone = phoneEl ? phoneEl.value.trim() : "";
-          
-          if (name.length < 3 || phone.length < 7) {
-            alert("Please enter valid Name and Phone Number.");
-            return;
+          area.style.borderColor = '';
+          const files = e.dataTransfer.files;
+          if (files.length) { document.getElementById(inputId).files = files; handleFileSelect({ target: { files } }, prefix); }
+        });
+      }
+    }
+
+    setupDragAndDrop('upload-area', 'c-screenshot');
+    setupDragAndDrop('upload-area-m', 'c-screenshot-m', 'm');
+
+    function showPayErr(id) { document.getElementById(id)?.removeAttribute('hidden'); }
+    function clearPayErr(id) { document.getElementById(id)?.setAttribute('hidden', ''); }
+
+    function openPayModal() {
+      const m = document.getElementById('paymentSuccessModal');
+      m.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      document.getElementById('payModalCloseBtn').focus();
+    }
+
+    function closePayModal() {
+      document.getElementById('paymentSuccessModal').setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('payModalCloseBtn')?.addEventListener('click', closePayModal);
+    document.getElementById('payModalBackdrop')?.addEventListener('click', closePayModal);
+
+    async function submitConfirmation(prefix = '') {
+      const p = prefix ? '-' + prefix : '';
+      const name = document.getElementById('c-name' + p).value.trim();
+      const phone = document.getElementById('c-phone' + p).value.trim();
+      const code = (document.getElementById('c-code' + p).value || '').trim().toUpperCase();
+      let isValid = true;
+
+      clearPayErr('err-name' + p); clearPayErr('err-phone' + p); clearPayErr('err-screenshot' + p); clearPayErr('err-code' + p);
+
+      if (name.length < 2) { showPayErr('err-name' + p); document.getElementById('c-name' + p).setAttribute('aria-invalid','true'); isValid = false; }
+      const cleanPhone = phone.replace(/[-\s]/g, '');
+      if (!/^\d{7,}$/.test(cleanPhone)) { showPayErr('err-phone' + p); document.getElementById('c-phone' + p).setAttribute('aria-invalid','true'); isValid = false; }
+      if (!selectedFile) { showPayErr('err-screenshot' + p); isValid = false; }
+      if (!CONFIRM_CODE_PATTERN.test(code)) { showPayErr('err-code' + p); isValid = false; }
+      if (!isValid) return;
+
+      const btn = document.getElementById('confirm-btn' + p);
+      btn.classList.add('loading');
+      btn.disabled = true;
+
+      try {
+        const formData = new URLSearchParams();
+        formData.append('name', name);
+        formData.append('phone', cleanPhone);
+        formData.append('code', code);
+        if (screenshotBase64) formData.append('screenshot', screenshotBase64);
+
+        const controller = new AbortController();
+        const timeout = setTimeout(() => controller.abort(), 30000);
+
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: formData,
+          signal: controller.signal
+        });
+
+        clearTimeout(timeout);
+
+        var purchaseUniqueId = 'pur_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          'event': 'purchase_complete',
+          'eventId': purchaseUniqueId,
+          'user_data': {
+            'phone': cleanPhone,
+            'name': name
+          },
+          'ecommerce': {
+            'transaction_id': purchaseUniqueId,
+            'value': 15000,
+            'currency': 'PKR',
+            'items': [{
+              'item_name': 'E-Commerce Mentorship',
+              'price': 15000,
+              'quantity': 1
+            }]
           }
+        });
 
-          // 1. Unique Event ID for Deduplication
-          var waLeadUniqueId = 'wa_modal_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-
-          // 2. Push Verified Lead Event to DataLayer (For GTM & Server CAPI)
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            'event': 'generate_lead',
-            'eventId': waLeadUniqueId,
-            'user_data': {
-              'phone': phone,
-              'name': name
-            },
-            'lead_type': 'whatsapp_modal_form'
-          });
-
-          // 3. Browser Meta Pixel Event Fire
-          if (typeof fbq === 'function') {
-            fbq('track', 'Lead', {
-              content_name: 'WhatsApp Form Lead',
-              currency: 'PKR',
-              value: 15000
-            }, { eventID: waLeadUniqueId });
-          }
-
-          // 4. Redirect to WhatsApp App
-          var waNumber = "923293412618";
-          var preText = encodeURIComponent("Hi, my name is " + name + ". I have submitted my form and need details about mentorship.");
-          
-          closeWaModal();
-          window.location.href = "https://wa.me/" + waNumber + "?text=" + preText;
+        if (typeof fbq === 'function') {
+          fbq('track', 'Purchase', {
+            content_name: 'E-Commerce Mentorship',
+            currency: 'PKR',
+            value: 15000
+          }, { eventID: purchaseUniqueId });
         }
 
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', {
+            'send_to': 'AW-16499475514/RrpICJCXmOIcELqIyLs9',
+            'value': 15000.0,
+            'currency': 'PKR',
+            'transaction_id': purchaseUniqueId
+          });
+        }
+
+        document.getElementById('c-name' + p).value = '';
+        document.getElementById('c-phone' + p).value = '';
+        document.getElementById('c-code' + p).value = '';
+        document.getElementById('c-screenshot' + p).value = '';
+        selectedFile = null; screenshotBase64 = null;
+        document.getElementById('upload-preview' + p).classList.remove('visible');
+        validateCodeField(prefix);
+        closeEnrollModal(prefix);
+        openPayModal();
+      } catch (err) {
+        console.log('Submit:', err);
+        openPayModal();
+      } finally {
+        btn.classList.remove('loading');
+        validateCodeField(prefix);
+      }
+    }
+
+    document.getElementById('c-name')?.addEventListener('input', () => { clearPayErr('err-name'); document.getElementById('c-name').removeAttribute('aria-invalid'); });
+    document.getElementById('c-phone')?.addEventListener('input', () => { clearPayErr('err-phone'); document.getElementById('c-phone').removeAttribute('aria-invalid'); });
+    document.getElementById('c-name-m')?.addEventListener('input', () => { clearPayErr('err-name-m'); document.getElementById('c-name-m').removeAttribute('aria-invalid'); });
+    document.getElementById('c-phone-m')?.addEventListener('input', () => { clearPayErr('err-phone-m'); document.getElementById('c-phone-m').removeAttribute('aria-invalid'); });
   </script>
 </body>
 </html>
