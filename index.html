@@ -960,9 +960,9 @@
 
                 <div class="d-field">
                   <label class="d-field__label" for="c-code-m">Confirmation Code *</label>
-                  <input class="d-field__input code-field-input" type="text" id="c-code-m" placeholder="e.g. AWC001" autocomplete="off" maxlength="20">
+                  <input class="d-field__input code-field-input" type="text" id="c-code-m" placeholder="e.g. AWCmentor" autocomplete="off" maxlength="20">
                   <p class="form-hint">Yeh code hamari team ny aapko contact confirm karny k baad diya hoga.</p>
-                  <p class="form-error" id="err-code-m" hidden>Please enter a valid confirmation code (e.g. AWC001).</p>
+                  <p class="form-error" id="err-code-m" hidden>Please enter a valid confirmation code (e.g. AWCmentor).</p>
                 </div>
 
                 <button class="submit-pay-btn" id="confirm-btn-m" type="button" onclick="submitConfirmation('m')" disabled>
@@ -1343,9 +1343,9 @@
 
               <div class="d-field">
                 <label class="d-field__label" for="c-code">Confirmation Code *</label>
-                <input class="d-field__input code-field-input" type="text" id="c-code" placeholder="e.g. AWC001" autocomplete="off" maxlength="20">
+                <input class="d-field__input code-field-input" type="text" id="c-code" placeholder="e.g. AWCmentOr" autocomplete="off" maxlength="20">
                 <p class="form-hint">Yeh code hamari team ny aapko contact confirm karny k baad diya hoga.</p>
-                <p class="form-error" id="err-code" hidden>Please enter a valid confirmation code (e.g. AWC001).</p>
+                <p class="form-error" id="err-code" hidden>Please enter a valid confirmation code (e.g. AWCmentOr).</p>
               </div>
 
               <button class="submit-pay-btn" id="confirm-btn" type="button" onclick="submitConfirmation()" disabled>
@@ -1854,32 +1854,32 @@
       initQuizAccordion("waModalForm", ["wa-q1-reason", "wa-q2-level", "wa-q3-fee"]);
 
       // Pay Now Button Tracking
-      function setupPayNowTracking(buttonId) {
-        var payBtn = document.getElementById(buttonId);
-        if (!payBtn) return;
+      // function setupPayNowTracking(buttonId) {
+      //   var payBtn = document.getElementById(buttonId);
+      //   if (!payBtn) return;
 
-        payBtn.addEventListener('click', function () {
-          var checkoutUniqueId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+      //   payBtn.addEventListener('click', function () {
+      //     var checkoutUniqueId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
 
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            'event': 'initiate_checkout',
-            'eventId': checkoutUniqueId,
-            'ecommerce': {
-              'currency': 'PKR',
-              'value': 15000
-            }
-          });
+      //     window.dataLayer = window.dataLayer || [];
+      //     window.dataLayer.push({
+      //       'event': 'initiate_checkout',
+      //       'eventId': checkoutUniqueId,
+      //       'ecommerce': {
+      //         'currency': 'PKR',
+      //         'value': 15000
+      //       }
+      //     });
 
-          if (typeof fbq === 'function') {
-            fbq('track', 'InitiateCheckout', {
-              content_name: 'Ecom Mentorship',
-              currency: 'PKR',
-              value: 15000
-            }, { eventID: checkoutUniqueId });
-          }
-        });
-      }
+      //     if (typeof fbq === 'function') {
+      //       fbq('track', 'InitiateCheckout', {
+      //         content_name: 'Ecom Mentorship',
+      //         currency: 'PKR',
+      //         value: 15000
+      //       }, { eventID: checkoutUniqueId });
+      //     }
+      //   });
+      // }
 
       setupPayNowTracking('payNowMobile');
       setupPayNowTracking('payNowDesktop');
