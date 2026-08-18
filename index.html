@@ -1853,36 +1853,7 @@
       initQuizAccordion("consultFormDesktop", ["d-q1-reason", "d-q2-experience", "d-q3-timeline", "d-q4-budget"]);
       initQuizAccordion("waModalForm", ["wa-q1-reason", "wa-q2-level", "wa-q3-fee"]);
 
-      // Pay Now Button Tracking
-      // function setupPayNowTracking(buttonId) {
-      //   var payBtn = document.getElementById(buttonId);
-      //   if (!payBtn) return;
-
-      //   payBtn.addEventListener('click', function () {
-      //     var checkoutUniqueId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-
-      //     window.dataLayer = window.dataLayer || [];
-      //     window.dataLayer.push({
-      //       'event': 'initiate_checkout',
-      //       'eventId': checkoutUniqueId,
-      //       'ecommerce': {
-      //         'currency': 'PKR',
-      //         'value': 15000
-      //       }
-      //     });
-
-      //     if (typeof fbq === 'function') {
-      //       fbq('track', 'InitiateCheckout', {
-      //         content_name: 'Ecom Mentorship',
-      //         currency: 'PKR',
-      //         value: 15000
-      //       }, { eventID: checkoutUniqueId });
-      //     }
-      //   });
-      // }
-
-      setupPayNowTracking('payNowMobile');
-      setupPayNowTracking('payNowDesktop');
+      // Pay Now Button Tracking — disabled (initiate_checkout event should not fire on click)
 
       var startMobile = document.getElementById("startJourneyMobile");
       if (startMobile) {
