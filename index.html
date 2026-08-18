@@ -453,6 +453,7 @@
   var phoneErr = document.getElementById(phoneId + "-error");
   var emailErr = document.getElementById(emailId + "-error");
 
+  // Helper function: Pure JS inline styles + attributes apply karta hai visuals aur behavior dono fix karne ke liye
   function toggleFormState(disabled) {
     var inputs = [nameEl, phoneEl, emailEl];
     inputs.forEach(function (input) {
@@ -507,6 +508,7 @@
     var submitBtn = form.querySelector('button[type="submit"]');
     setSubmitLoading(submitBtn, true);
 
+    // Form submit hote hi poora UI & behavior disable kar dein
     toggleFormState(true);
 
     var params = new URLSearchParams();
@@ -563,6 +565,7 @@
         openThankModal();
       })
       .catch(function () {
+        // Error aane par form re-enable kar dein
         toggleFormState(false);
         setSubmitLoading(submitBtn, false);
         showMessage("Something went wrong. Please try again.");
@@ -572,6 +575,39 @@
 
       wireLeadForm("consultFormMobile", "m-name", "m-phone", "m-email");
       wireLeadForm("consultFormDesktop", "d-name", "d-phone", "d-email");
+
+      // 🎯 Pay Now Button Tracking (InitiateCheckout)
+      function setupPayNowTracking(buttonId) {
+        var payBtn = document.getElementById(buttonId);
+        if (!payBtn) return;
+
+        payBtn.addEventListener('click', function () {
+          var checkoutUniqueId = 'ic_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+          // 1. DataLayer Push (Server Container / CAPI ke liye)
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'event': 'initiate_checkout',
+            'eventId': checkoutUniqueId,
+            'ecommerce': {
+              'currency': 'PKR',
+              'value': 15000
+            }
+          });
+
+          // 2. Browser Meta Pixel Event
+          if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout', {
+              content_name: 'Ecom Mentorship',
+              currency: 'PKR',
+              value: 15000
+            }, { eventID: checkoutUniqueId });
+          }
+        });
+      }
+
+      setupPayNowTracking('payNowMobile');
+      setupPayNowTracking('payNowDesktop');
 
       var startMobile = document.getElementById("startJourneyMobile");
       if (startMobile) {
