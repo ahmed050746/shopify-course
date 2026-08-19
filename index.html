@@ -353,9 +353,10 @@
       inset: 0;
       z-index: 500;
       display: flex;
-      align-items: center;
       justify-content: center;
       padding: 24px;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .modal-overlay[hidden] { display: none !important; }
@@ -372,6 +373,7 @@
       z-index: 1;
       width: 100%;
       max-width: 400px;
+      margin: auto;
       background: #fff;
       border-radius: 20px;
       padding: 32px 24px;
@@ -2123,13 +2125,13 @@
       btn.classList.add('loading');
       btn.disabled = true;
 
-      try {
-        const formData = new URLSearchParams();
-        formData.append('name', name);
-        formData.append('phone', cleanPhone);
-        formData.append('code', code);
-        if (screenshotBase64) formData.append('screenshot', screenshotBase64);
+      const formData = new URLSearchParams();
+      formData.append('name', name);
+      formData.append('phone', cleanPhone);
+      formData.append('code', code);
+      if (screenshotBase64) formData.append('screenshot', screenshotBase64);
 
+      try {
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 30000);
 
@@ -2142,62 +2144,64 @@
         });
 
         clearTimeout(timeout);
-
-        var purchaseUniqueId = 'pur_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          'event': 'purchase_complete',
-          'eventId': purchaseUniqueId,
-          'user_data': {
-            'phone': cleanPhone,
-            'name': name
-          },
-          'ecommerce': {
-            'transaction_id': purchaseUniqueId,
-            'value': 15000,
-            'currency': 'PKR',
-            'items': [{
-              'item_name': 'E-Commerce Mentorship',
-              'price': 15000,
-              'quantity': 1
-            }]
-          }
-        });
-
-        if (typeof fbq === 'function') {
-          fbq('track', 'Purchase', {
-            content_name: 'E-Commerce Mentorship',
-            currency: 'PKR',
-            value: 15000
-          }, { eventID: purchaseUniqueId });
-        }
-
-        if (typeof gtag === 'function') {
-          gtag('event', 'conversion', {
-            'send_to': 'AW-16499475514/RrpICJCXmOIcELqIyLs9',
-            'value': 15000.0,
-            'currency': 'PKR',
-            'transaction_id': purchaseUniqueId
-          });
-        }
-
-        document.getElementById('c-name' + p).value = '';
-        document.getElementById('c-phone' + p).value = '';
-        document.getElementById('c-code' + p).value = '';
-        document.getElementById('c-screenshot' + p).value = '';
-        selectedFile = null; screenshotBase64 = null;
-        document.getElementById('upload-preview' + p).classList.remove('visible');
-        validateCodeField(prefix);
-        closeEnrollModal(prefix);
-        openPayModal();
       } catch (err) {
-        console.log('Submit:', err);
-        openPayModal();
-      } finally {
-        btn.classList.remove('loading');
-        // validateCodeField(prefix);
+        /* This request is fire-and-forget (mode: 'no-cors', so we can't read the
+           response anyway) — a slow network or a blocked script.google.com request
+           here does NOT mean the confirmation failed. We log it but still proceed,
+           so the Purchase event below no longer gets silently skipped. */
+        console.log('Submit ping did not complete (continuing anyway):', err);
       }
+
+      var purchaseUniqueId = 'pur_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        'event': 'purchase_complete',
+        'eventId': purchaseUniqueId,
+        'user_data': {
+          'phone': cleanPhone,
+          'name': name
+        },
+        'ecommerce': {
+          'transaction_id': purchaseUniqueId,
+          'value': 15000,
+          'currency': 'PKR',
+          'items': [{
+            'item_name': 'E-Commerce Mentorship',
+            'price': 15000,
+            'quantity': 1
+          }]
+        }
+      });
+
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', {
+          content_name: 'E-Commerce Mentorship',
+          currency: 'PKR',
+          value: 15000
+        }, { eventID: purchaseUniqueId });
+      }
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-16499475514/RrpICJCXmOIcELqIyLs9',
+          'value': 15000.0,
+          'currency': 'PKR',
+          'transaction_id': purchaseUniqueId
+        });
+      }
+
+      document.getElementById('c-name' + p).value = '';
+      document.getElementById('c-phone' + p).value = '';
+      document.getElementById('c-code' + p).value = '';
+      document.getElementById('c-screenshot' + p).value = '';
+      selectedFile = null; screenshotBase64 = null;
+      document.getElementById('upload-preview' + p).classList.remove('visible');
+      validateCodeField(prefix);
+      closeEnrollModal(prefix);
+      openPayModal();
+
+      btn.classList.remove('loading');
     }
 
     document.getElementById('c-name')?.addEventListener('input', () => { clearPayErr('err-name'); document.getElementById('c-name').removeAttribute('aria-invalid'); });
