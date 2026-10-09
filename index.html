@@ -71,7 +71,7 @@
     .section-divider__line {
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, rgba(232, 232, 232, 0) 0%, rgba(104, 55, 255, 0.25) 50%, rgba(232, 232, 232, 0) 100%);
+      background: linear-gradient(90deg, rgba(232, 232, 232, 0) 0%, rgba(var(--color-primary-rgb), 0.25) 50%, rgba(232, 232, 232, 0) 100%);
       border: none;
     }
 
@@ -93,14 +93,14 @@
       font-size: 36px;
       line-height: 42px;
       letter-spacing: -0.03em;
-      color: #302652;
+      color: var(--color-text);
     }
 
     .pay-page-sub {
       margin: 0;
       font-size: 16px;
       line-height: 24px;
-      color: #6b6b6b;
+      color: var(--color-text-muted);
     }
 
     .pay-grid {
@@ -118,8 +118,8 @@
 
     /* PRICING CARD */
     .price-card {
-      background: #fff;
-      border: 1px solid #e8e8e8;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
       border-radius: 24px;
       padding: 24px;
       margin-bottom: 24px;
@@ -130,13 +130,13 @@
 
     .price-card:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 24px -10px rgba(48,38,82,0.12);
+      box-shadow: 0 12px 24px -10px rgba(var(--color-text-rgb),0.12);
     }
 
     .price-save-tag {
       display: inline-block;
-      background: linear-gradient(135deg, #dcfce7, #bbf7d0);
-      color: #166534;
+      background: linear-gradient(135deg, var(--color-accent-soft), var(--color-accent));
+      color: var(--color-text-alt);
       font-size: 11px;
       font-weight: 700;
       padding: 5px 14px;
@@ -154,14 +154,14 @@
     .price-original {
       font-size: 20px;
       font-weight: 600;
-      color: #94a3b8;
+      color: var(--color-text-subtle);
       text-decoration: line-through;
     }
 
     .price-discount {
       font-size: 40px;
       font-weight: 800;
-      background: linear-gradient(135deg, #ff8a73 0%, #ff735c 45%, #ea580c 100%);
+      background: linear-gradient(135deg, var(--color-secondary-alt) 0%, var(--color-secondary) 45%, var(--color-secondary) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -176,7 +176,7 @@
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
-      color: #302652;
+      color: var(--color-text);
       margin-bottom: 16px;
     }
 
@@ -184,11 +184,11 @@
       width: 32px;
       height: 32px;
       border-radius: 8px;
-      background: linear-gradient(145deg, #4338ca 0%, #302652 55%, #1e1b4b 100%);
+      background: linear-gradient(145deg, var(--color-primary-alt) 0%, var(--color-text) 55%, var(--color-text-alt) 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 10px rgba(48,38,82,0.22);
+      box-shadow: 0 4px 10px rgba(var(--color-text-rgb),0.22);
     }
 
     /* PAYMENT TABS */
@@ -202,11 +202,11 @@
       flex: 1;
       padding: 12px;
       border-radius: 12px;
-      border: 1.5px solid #e8e8e8;
-      background: #fff;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-bg-alt);
       font-size: 13px;
       font-weight: 600;
-      color: #6b6b6b;
+      color: var(--color-text-muted);
       cursor: pointer;
       display: flex;
       flex-direction: column;
@@ -216,16 +216,16 @@
     }
 
     .pay-tab.active {
-      border-color: #6837ff;
-      background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
-      color: #5b21b6;
-      box-shadow: 0 4px 14px rgba(104,55,255,0.18);
+      border-color: var(--color-primary);
+      background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-primary-soft) 100%);
+      color: var(--color-primary-alt);
+      box-shadow: 0 4px 14px rgba(var(--color-primary-rgb),0.18);
     }
 
     /* PAYMENT DETAILS */
     .pay-detail {
-      background: #fff;
-      border: 1px solid #e8e8e8;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
       border-radius: 16px;
       padding: 20px;
       box-shadow: 0 1px 3px rgba(0,0,0,0.06);
@@ -249,26 +249,26 @@
       font-weight: 700;
       letter-spacing: 0.8px;
       text-transform: uppercase;
-      color: #94a3b8;
+      color: var(--color-text-subtle);
     }
 
     .detail-val {
       font-size: 14px;
       font-weight: 700;
-      color: #302652;
+      color: var(--color-text);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
     .detail-val--accent {
-      color: #ea580c;
+      color: var(--color-secondary);
       font-size: 18px;
     }
 
     .copy-btn {
-      background: #eef2ff;
-      color: #4338ca;
+      background: var(--color-primary-soft);
+      color: var(--color-primary-alt);
       border: none;
       border-radius: 6px;
       font-size: 11px;
@@ -277,33 +277,33 @@
       cursor: pointer;
     }
 
-    .copy-btn.copied { background: #10b981; color: #fff; }
+    .copy-btn.copied { background: var(--color-primary); color: var(--color-bg-alt); }
 
     .method-note {
       margin-top: 16px;
-      background: #eff6ff;
-      border-left: 3px solid #6837ff;
+      background: var(--color-primary-soft);
+      border-left: 3px solid var(--color-primary);
       border-radius: 0 8px 8px 0;
       padding: 10px 14px;
       font-size: 12px;
-      color: #1e40af;
+      color: var(--color-primary-alt);
     }
 
     /* CONFIRMATION CARD */
     .confirm-card {
-      background: #fff;
-      border: 1px solid rgba(104,55,255,0.3);
+      background: var(--color-bg-alt);
+      border: 1px solid rgba(var(--color-primary-rgb),0.3);
       border-radius: 20px;
       padding: 28px;
-      box-shadow: 0 10px 25px rgba(104,55,255,0.12);
+      box-shadow: 0 10px 25px rgba(var(--color-primary-rgb),0.12);
     }
 
     .upload-area {
-      border: 2px dashed rgba(104,55,255,0.35);
+      border: 2px dashed rgba(var(--color-primary-rgb),0.35);
       border-radius: 12px;
       padding: 20px;
       text-align: center;
-      background: #faf5ff;
+      background: var(--color-bg);
       cursor: pointer;
       position: relative;
     }
@@ -318,8 +318,8 @@
     }
 
     .upload-icon { font-size: 28px; display: block; margin-bottom: 4px; }
-    .upload-text { font-size: 13px; font-weight: 700; color: #6837ff; margin: 0; }
-    .upload-hint { font-size: 11px; color: #94a3b8; margin: 4px 0 0; }
+    .upload-text { font-size: 13px; font-weight: 700; color: var(--color-primary); margin: 0; }
+    .upload-hint { font-size: 11px; color: var(--color-text-subtle); margin: 4px 0 0; }
 
     .upload-preview { display: none; margin-top: 12px; }
     .upload-preview.visible { display: block; }
@@ -333,9 +333,9 @@
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      color: #fff;
-      background: linear-gradient(135deg, #8b5cf6 0%, #6837ff 45%, #5b21b6 100%);
-      box-shadow: 0 8px 16px -4px rgba(104,55,255,0.3);
+      color: var(--color-bg-alt);
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 45%, var(--color-primary-alt) 100%);
+      box-shadow: 0 8px 16px -4px rgba(var(--color-primary-rgb),0.3);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -364,7 +364,7 @@
     .modal-backdrop {
       position: absolute;
       inset: 0;
-      background: rgba(15,23,42,0.45);
+      background: rgba(var(--color-text-rgb),0.45);
       backdrop-filter: blur(4px);
     }
 
@@ -374,7 +374,7 @@
       width: 100%;
       max-width: 400px;
       margin: auto;
-      background: #fff;
+      background: var(--color-bg-alt);
       border-radius: 20px;
       padding: 32px 24px;
       text-align: center;
@@ -391,20 +391,20 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: #fff;
-      border: 1px solid #e8e8e8;
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
       border-radius: 9999px;
       padding: 8px 16px;
       margin-top: 18px;
-      box-shadow: 0 4px 14px rgba(48,38,82,0.08);
+      box-shadow: 0 4px 14px rgba(var(--color-text-rgb),0.08);
     }
 
     .hero-price-badge__tag {
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.2px;
-      color: #ea580c;
-      background: linear-gradient(135deg, #ffedd5, #fed7aa);
+      color: var(--color-text-alt);
+      background: linear-gradient(135deg, var(--color-accent-alt), var(--color-accent));
       padding: 4px 10px;
       border-radius: 9999px;
       white-space: nowrap;
@@ -419,14 +419,14 @@
     .hero-price-badge__original {
       font-size: 13px;
       font-weight: 600;
-      color: #94a3b8;
+      color: var(--color-text-subtle);
       text-decoration: line-through;
     }
 
     .hero-price-badge__discount {
       font-size: 18px;
       font-weight: 800;
-      color: #302652;
+      color: var(--color-text);
     }
 
     @media (max-width: 480px) {
@@ -460,9 +460,9 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      border: 1px solid #e8e8e8;
-      background: #fff;
-      color: #6b6b6b;
+      border: 1px solid var(--color-border);
+      background: var(--color-bg-alt);
+      color: var(--color-text-muted);
       font-size: 16px;
       line-height: 1;
       cursor: pointer;
@@ -473,13 +473,13 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.08);
     }
 
-    .modal-close-btn:hover { background: #f5f5f5; color: #302652; }
+    .modal-close-btn:hover { background: var(--color-border-light); color: var(--color-text); }
 
     /* ── CONFIRMATION CODE FIELD ── */
     .form-hint {
       margin: 6px 0 0;
       font-size: 12px;
-      color: #94a3b8;
+      color: var(--color-text-subtle);
       line-height: 1.4;
     }
 
@@ -497,23 +497,23 @@
     }
 
     .quiz-field {
-      border: 1.5px solid #e8e8e8;
+      border: 1.5px solid var(--color-border);
       border-radius: 14px;
       padding: 0;
       margin: 0 0 10px;
-      background: #fff;
+      background: var(--color-bg-alt);
       overflow: hidden;
       transition: border-color 0.25s ease, box-shadow 0.25s ease;
     }
 
     .quiz-field.is-open {
-      border-color: #6837ff;
-      box-shadow: 0 8px 20px -12px rgba(104,55,255,0.35);
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 20px -12px rgba(var(--color-primary-rgb),0.35);
     }
 
     .quiz-field.is-answered:not(.is-open) {
-      border-color: #c7bcff;
-      background: #fbfaff;
+      border-color: var(--color-primary-tint);
+      background: var(--color-primary-wash);
     }
 
     .quiz-field__header {
@@ -539,22 +539,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg, #6837ff 0%, #4338ca 100%);
-      color: #fff;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-alt) 100%);
+      color: var(--color-bg-alt);
       font-size: 11px;
       font-weight: 800;
       transition: background 0.2s ease;
     }
 
     .quiz-field.is-answered .quiz-field__num {
-      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      background: linear-gradient(135deg, var(--color-secondary-alt) 0%, var(--color-secondary) 100%);
     }
 
     .quiz-field__qtext {
       flex: 1;
       font-size: 13px;
       font-weight: 700;
-      color: #302652;
+      color: var(--color-text);
       line-height: 1.4;
     }
 
@@ -568,7 +568,7 @@
       flex-basis: 100%;
       font-size: 12px;
       font-weight: 500;
-      color: #6b6b6b;
+      color: var(--color-text-muted);
       margin-top: 2px;
     }
 
@@ -580,13 +580,13 @@
       flex-shrink: 0;
       width: 18px;
       height: 18px;
-      color: #94a3b8;
+      color: var(--color-text-subtle);
       transition: transform 0.3s ease;
     }
 
     .quiz-field.is-open .quiz-field__chevron {
       transform: rotate(180deg);
-      color: #6837ff;
+      color: var(--color-primary);
     }
 
     .quiz-panel {
@@ -616,30 +616,30 @@
       align-items: flex-start;
       gap: 10px;
       padding: 10px 12px;
-      border: 1.5px solid #e8e8e8;
+      border: 1.5px solid var(--color-border);
       border-radius: 10px;
-      background: #fff;
+      background: var(--color-bg-alt);
       font-size: 13px;
       font-weight: 500;
-      color: #44404f;
+      color: var(--color-text-body);
       cursor: pointer;
       transition: border-color 0.2s ease, background 0.2s ease;
     }
 
-    .quiz-option:hover { border-color: #c7c3f5; background: #faf9ff; }
+    .quiz-option:hover { border-color: var(--color-primary-tint); background: var(--color-primary-mist); }
 
     .quiz-option input[type="radio"] {
       margin-top: 2px;
       width: 16px;
       height: 16px;
       flex-shrink: 0;
-      accent-color: #6837ff;
+      accent-color: var(--color-primary);
     }
 
     .quiz-option:has(input:checked) {
-      border-color: #6837ff;
-      background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
-      color: #302652;
+      border-color: var(--color-primary);
+      background: linear-gradient(135deg, var(--color-primary-soft) 0%, var(--color-primary-soft) 100%);
+      color: var(--color-text);
       font-weight: 600;
     }
   </style>
@@ -654,8 +654,8 @@
     <div class="m-shell">
       <header class="m-header">
         <div class="m-header__inner">
-            <button type="button" class="m-btn m-btn--primary" id="startJourneyMobile" style="width: 120px; font-size: 12px;">Contact Us</button>
-            <button type="button" class="m-btn m-btn--pay" id="payNowMobile" onclick="openEnrollModal('m')" style="width: 120px; padding: 10px 20px; font-size: 12px;">Pay Now</button>
+            <a href="contact.html" class="m-btn m-btn--primary" id="startJourneyMobile" style="width: 120px; font-size: 12px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Contact Us</a>
+            <a href="pay.html" class="m-btn m-btn--pay" id="payNowMobile" style="width: 120px; padding: 10px 20px; font-size: 12px; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Pay Now</a>
         </div>
       </header>
       
@@ -833,150 +833,6 @@
           </div>
         </section>
 
-        <!-- Integrated Payment Section (Mobile) — now shown inside a modal, closed by default -->
-        <div class="modal-overlay" id="payModalMobile" role="dialog" aria-modal="true" aria-labelledby="payModalMobileTitle" hidden>
-          <div class="modal-backdrop" id="payModalMobileBackdrop"></div>
-          <div class="modal-dialog modal-dialog--wide" role="document">
-            <button type="button" class="modal-close-btn" id="payModalMobileClose" aria-label="Close">✕</button>
-        <section class="pay-section-wrap" id="payment-section-mobile">
-          <div class="pay-header-block">
-            <h2 class="pay-page-title" id="payModalMobileTitle">Enroll Now</h2>
-            <p class="pay-page-sub">Secure your spot in the 1-on-1 mentorship program today.</p>
-          </div>
-
-          <div class="pay-grid">
-            <!-- LEFT: Pricing + Payment Method -->
-            <div class="pay-left">
-              <div class="price-card">
-                <div class="price-save-tag">🔥 70% OFF — Act Fast!</div>
-                <div class="price-row">
-                  <span class="price-original">Rs. 50,000</span>
-                  <span class="price-discount">Rs. 15,000</span>
-                </div>
-              </div>
-
-              <div class="sec-label">
-                <span class="sec-label__icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h18M7 3v2m10-2v2M6.2 21h11.6A2.2 2.2 0 0020 18.8V7.2A2.2 2.2 0 0017.8 5H6.2A2.2 2.2 0 004 7.2v11.6A2.2 2.2 0 006.2 21z" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-                </span>
-                Select Payment Method
-              </div>
-
-              <div class="pay-tabs">
-                <button type="button" class="pay-tab active" onclick="showTab('bank', 'm')" id="tab-bank-m">
-                  <span class="tab-emoji" aria-hidden="true">🏦</span>
-                  Bank Transfer
-                </button>
-                <button type="button" class="pay-tab" onclick="showTab('easy', 'm')" id="tab-easy-m">
-                  <span class="tab-emoji" aria-hidden="true">📱</span>
-                  EasyPaisa
-                </button>
-              </div>
-
-              <div class="pay-detail" id="detail-bank-m">
-                <div class="detail-row">
-                  <span class="detail-lbl">Bank</span>
-                  <span class="detail-val">HBL</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-lbl">Account Name</span>
-                  <span class="detail-val">Ahmed Ali</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-lbl">Account No.</span>
-                  <span class="detail-val">
-                    <span id="bank-acc-m">00537900951003</span>
-                    <button type="button" class="copy-btn" onclick="copyText('bank-acc-m', this)">Copy</button>
-                  </span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-lbl">IBAN</span>
-                  <span class="detail-val">
-                    <span id="bank-iban-m">PK02HABB0000537900951003</span>
-                    <button type="button" class="copy-btn" onclick="copyText('bank-iban-m', this)">Copy</button>
-                  </span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-lbl">Amount</span>
-                  <span class="detail-val detail-val--accent">Rs. 15,000</span>
-                </div>
-                <div class="method-note">💡 After transfer, take a screenshot and upload it in the form.</div>
-              </div>
-
-              <div class="pay-detail" id="detail-easy-m" hidden>
-                <div class="detail-row">
-                  <span class="detail-lbl">EasyPaisa No.</span>
-                  <span class="detail-val">
-                    <span id="easy-num-m">03321319363</span>
-                    <button type="button" class="copy-btn" onclick="copyText('easy-num-m', this)">Copy</button>
-                  </span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-lbl">Account Name</span>
-                  <span class="detail-val">Ahmed Ali</span>
-                </div>
-                <div class="detail-row">
-                  <span class="detail-lbl">Amount</span>
-                  <span class="detail-val detail-val--accent">Rs. 15,000</span>
-                </div>
-                <div class="method-note">💚 Use EasyPaisa app or *786# to send. Take a screenshot and upload below.</div>
-              </div>
-            </div>
-
-            <!-- RIGHT: Confirmation Form -->
-            <div class="pay-right">
-              <div class="confirm-card">
-                <div class="sec-label" style="margin-bottom: 24px;">
-                  <span class="sec-label__icon" aria-hidden="true">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  </span>
-                  Confirm Your Payment
-                </div>
-
-                <div class="d-field">
-                  <label class="d-field__label" for="c-name-m">Full Name *</label>
-                  <input class="d-field__input" type="text" id="c-name-m" placeholder="Enter your full name" autocomplete="name" maxlength="120">
-                  <p class="form-error" id="err-name-m" hidden>Please enter your name.</p>
-                </div>
-
-                <div class="d-field">
-                  <label class="d-field__label" for="c-phone-m">Phone Number *</label>
-                  <input class="d-field__input" type="tel" id="c-phone-m" placeholder="0300-XXXXXXX" inputmode="numeric" autocomplete="tel" maxlength="20">
-                  <p class="form-error" id="err-phone-m" hidden>Please enter a valid phone number.</p>
-                </div>
-
-                <div class="d-field">
-                  <label class="d-field__label">Payment Screenshot *</label>
-                  <div class="upload-area" id="upload-area-m">
-                    <input type="file" id="c-screenshot-m" accept="image/*" onchange="handleFileSelect(event, 'm')" aria-label="Upload payment screenshot">
-                    <span class="upload-icon" aria-hidden="true">📸</span>
-                    <p class="upload-text">Click or drag & drop here</p>
-                    <p class="upload-hint">JPG, PNG — Max 5MB</p>
-                  </div>
-                  <div class="upload-preview" id="upload-preview-m">
-                    <img id="preview-img-m" src="" alt="Screenshot preview">
-                    <p class="upload-filename" id="upload-filename-m"></p>
-                  </div>
-                  <p class="form-error" id="err-screenshot-m" hidden>Please upload payment screenshot.</p>
-                </div>
-
-                <div class="d-field">
-                  <label class="d-field__label" for="c-code-m">Confirmation Code *</label>
-                  <input class="d-field__input code-field-input" type="text" id="c-code-m" placeholder="e.g. AWC001" autocomplete="off" maxlength="20">
-                  <p class="form-hint">Yeh code hamari team ny aapko contact confirm karny k baad diya hoga.</p>
-                  <p class="form-error" id="err-code-m" hidden>Please enter a valid confirmation code (e.g. AWC001).</p>
-                </div>
-
-                <button class="submit-pay-btn" id="confirm-btn-m" type="button" onclick="submitConfirmation('m')" disabled>
-                  <span class="loading-spinner" aria-hidden="true"></span>
-                  <span class="btn-text">Send Confirmation</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </section>
-          </div>
-        </div>
       </main>
 
       <footer class="m-footer">
@@ -1001,8 +857,8 @@
           <span class="d-logo" aria-hidden="true"><img src="/img/logo.png" alt="logo AI web crafts" style="width: 32px;" ></span>
           <span class="d-logo__text">AI Web Crafts</span>
         </a>
-        <button type="button" class="d-btn d-btn--primary" id="startJourneyDesktop" style="margin-left: auto;">Contact Us</button>
-        <button type="button" class="d-btn d-btn--pay" id="payNowDesktop" onclick="openEnrollModal('d')">Pay Now</button>
+        <a href="contact.html" class="d-btn d-btn--primary" id="startJourneyDesktop" style="margin-left: auto; text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Contact Us</a>
+        <a href="pay.html" class="d-btn d-btn--pay" id="payNowDesktop" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center;">Pay Now</a>
       </div>
     </header>
 
@@ -1216,150 +1072,6 @@
         </div>
       </section>
 
-      <!-- Integrated Payment Section (Desktop) — now shown inside a modal, closed by default -->
-      <div class="modal-overlay" id="payModalDesktop" role="dialog" aria-modal="true" aria-labelledby="payModalDesktopTitle" hidden>
-        <div class="modal-backdrop" id="payModalDesktopBackdrop"></div>
-        <div class="modal-dialog modal-dialog--wide" role="document">
-          <button type="button" class="modal-close-btn" id="payModalDesktopClose" aria-label="Close">✕</button>
-      <section class="pay-section-wrap" id="payment-section">
-        <div class="pay-header-block">
-          <h2 class="pay-page-title" id="payModalDesktopTitle">Enroll Now</h2>
-          <p class="pay-page-sub">Secure your spot in the 1-on-1 mentorship program today.</p>
-        </div>
-
-        <div class="pay-grid">
-          <!-- LEFT: Pricing + Payment Method -->
-          <div class="pay-left">
-            <div class="price-card">
-              <div class="price-save-tag">🔥 70% OFF — Act Fast!</div>
-              <div class="price-row">
-                <span class="price-original">Rs. 50,000</span>
-                <span class="price-discount">Rs. 15,000</span>
-              </div>
-            </div>
-
-            <div class="sec-label">
-              <span class="sec-label__icon" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h18M7 3v2m10-2v2M6.2 21h11.6A2.2 2.2 0 0020 18.8V7.2A2.2 2.2 0 0017.8 5H6.2A2.2 2.2 0 004 7.2v11.6A2.2 2.2 0 006.2 21z" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-              </span>
-              Select Payment Method
-            </div>
-
-            <div class="pay-tabs">
-              <button type="button" class="pay-tab active" onclick="showTab('bank')" id="tab-bank">
-                <span class="tab-emoji" aria-hidden="true">🏦</span>
-                Bank Transfer
-              </button>
-              <button type="button" class="pay-tab" onclick="showTab('easy')" id="tab-easy">
-                <span class="tab-emoji" aria-hidden="true">📱</span>
-                EasyPaisa
-              </button>
-            </div>
-
-            <div class="pay-detail" id="detail-bank">
-              <div class="detail-row">
-                <span class="detail-lbl">Bank</span>
-                <span class="detail-val">HBL</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-lbl">Account Name</span>
-                <span class="detail-val">Ahmed Ali</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-lbl">Account No.</span>
-                <span class="detail-val">
-                  <span id="bank-acc">00537900951003</span>
-                  <button type="button" class="copy-btn" onclick="copyText('bank-acc', this)">Copy</button>
-                </span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-lbl">IBAN</span>
-                <span class="detail-val">
-                  <span id="bank-iban">PK02HABB0000537900951003</span>
-                  <button type="button" class="copy-btn" onclick="copyText('bank-iban', this)">Copy</button>
-                </span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-lbl">Amount</span>
-                <span class="detail-val detail-val--accent">Rs. 15,000</span>
-              </div>
-              <div class="method-note">💡 After transfer, take a screenshot and upload it in the form.</div>
-            </div>
-
-            <div class="pay-detail" id="detail-easy" hidden>
-              <div class="detail-row">
-                <span class="detail-lbl">EasyPaisa No.</span>
-                <span class="detail-val">
-                  <span id="easy-num">03321319363</span>
-                  <button type="button" class="copy-btn" onclick="copyText('easy-num', this)">Copy</button>
-                </span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-lbl">Account Name</span>
-                <span class="detail-val">Ahmed Ali</span>
-              </div>
-              <div class="detail-row">
-                <span class="detail-lbl">Amount</span>
-                <span class="detail-val detail-val--accent">Rs. 15,000</span>
-              </div>
-              <div class="method-note">💚 Use EasyPaisa app or *786# to send. Take a screenshot and upload below.</div>
-            </div>
-          </div>
-
-          <!-- RIGHT: Confirmation Form -->
-          <div class="pay-right">
-            <div class="confirm-card">
-              <div class="sec-label" style="margin-bottom: 24px;">
-                <span class="sec-label__icon" aria-hidden="true">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                Confirm Your Payment
-              </div>
-
-              <div class="d-field">
-                <label class="d-field__label" for="c-name">Full Name *</label>
-                <input class="d-field__input" type="text" id="c-name" placeholder="Enter your full name" autocomplete="name" maxlength="120">
-                <p class="form-error" id="err-name" hidden>Please enter your name.</p>
-              </div>
-
-              <div class="d-field">
-                <label class="d-field__label" for="c-phone">Phone Number *</label>
-                <input class="d-field__input" type="tel" id="c-phone" placeholder="0300-XXXXXXX" inputmode="numeric" autocomplete="tel" maxlength="20">
-                <p class="form-error" id="err-phone" hidden>Please enter a valid phone number.</p>
-              </div>
-
-              <div class="d-field">
-                <label class="d-field__label">Payment Screenshot *</label>
-                <div class="upload-area" id="upload-area">
-                  <input type="file" id="c-screenshot" accept="image/*" onchange="handleFileSelect(event)" aria-label="Upload payment screenshot">
-                  <span class="upload-icon" aria-hidden="true">📸</span>
-                  <p class="upload-text">Click or drag & drop here</p>
-                  <p class="upload-hint">JPG, PNG — Max 5MB</p>
-                </div>
-                <div class="upload-preview" id="upload-preview">
-                  <img id="preview-img" src="" alt="Screenshot preview">
-                  <p class="upload-filename" id="upload-filename"></p>
-                </div>
-                <p class="form-error" id="err-screenshot" hidden>Please upload payment screenshot.</p>
-              </div>
-
-              <div class="d-field">
-                <label class="d-field__label" for="c-code">Confirmation Code *</label>
-                <input class="d-field__input code-field-input" type="text" id="c-code" placeholder="e.g. AWC001" autocomplete="off" maxlength="20">
-                <p class="form-hint">Yeh code hamari team ny aapko contact confirm karny k baad diya hoga.</p>
-                <p class="form-error" id="err-code" hidden>Please enter a valid confirmation code (e.g. AWC001).</p>
-              </div>
-
-              <button class="submit-pay-btn" id="confirm-btn" type="button" onclick="submitConfirmation()" disabled>
-                <span class="loading-spinner" aria-hidden="true"></span>
-                <span class="btn-text">Send Confirmation</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-        </div>
-      </div>
     </main>
 
     <footer class="d-footer">
@@ -1470,17 +1182,6 @@
       <h2 class="thank-modal__title" id="thankModalTitle">Thank You!</h2>
       <p class="thank-modal__text">We have received your details and our team will contact you shortly.</p>
       <button type="button" class="thank-modal__close" id="thankYouModalClose">Close</button>
-    </div>
-  </div>
-
-  <!-- Success Modal for Payment Confirmation -->
-  <div class="modal-overlay" id="paymentSuccessModal" role="dialog" aria-modal="true" aria-labelledby="payModalTitle" hidden>
-    <div class="modal-backdrop" id="payModalBackdrop"></div>
-    <div class="modal-dialog" role="document">
-      <span style="font-size: 48px; display: block; margin-bottom: 12px;" aria-hidden="true">✅</span>
-      <h2 class="modal-title" id="payModalTitle" style="font-size: 24px; margin-bottom: 8px;">Payment Submitted!</h2>
-      <p class="modal-text" style="font-size: 14px; margin-bottom: 20px;">Thank you! We will verify your payment and confirm your enrollment within 24 hours.</p>
-      <button class="m-btn m-btn--primary" id="payModalCloseBtn" type="button" style="width: 100%;">Got it!</button>
     </div>
   </div>
 
@@ -1857,18 +1558,6 @@
 
       // Pay Now Button Tracking — disabled (initiate_checkout event should not fire on click)
 
-      var startMobile = document.getElementById("startJourneyMobile");
-      if (startMobile) {
-        startMobile.addEventListener("click", function () {
-          document.querySelector(".m-form")?.scrollIntoView({ behavior: "smooth" });
-        });
-      }
-      var startDesk = document.getElementById("startJourneyDesktop");
-      if (startDesk) {
-        startDesk.addEventListener("click", function () {
-          document.querySelector(".d-consult")?.scrollIntoView({ behavior: "smooth" });
-        });
-      }
     })();
 
     // YouTube Lazy Load
@@ -1970,244 +1659,6 @@
       window.location.href = "https://wa.me/" + waNumber + "?text=" + preText;
     }
 
-    /* ── INTEGRATED PAYMENT LOGIC ── */
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKuSLup7ht_lXCrxbvFyNqeNgPZ8VI0FAdMW1BL1eh53nUi3nTl3ogqcBobf5Xa-OV/exec";
-
-    let selectedFile = null;
-    let screenshotBase64 = null;
-    const CONFIRM_CODE_PATTERN = /^[A-Z]{2,5}\d{2,5}$/;
-
-    /* Enroll Now modal (opened only via Pay Now, closed by default) */
-    function openEnrollModal(prefix) {
-      const id = prefix === 'm' ? 'payModalMobile' : 'payModalDesktop';
-      const m = document.getElementById(id);
-      if (!m) return;
-      m.removeAttribute('hidden');
-      document.body.style.overflow = 'hidden';
-      const closeBtn = document.getElementById(id + 'Close');
-      if (closeBtn) closeBtn.focus();
-    }
-
-    function closeEnrollModal(prefix) {
-      const id = prefix === 'm' ? 'payModalMobile' : 'payModalDesktop';
-      const m = document.getElementById(id);
-      if (!m) return;
-      m.setAttribute('hidden', '');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('payModalMobileClose')?.addEventListener('click', () => closeEnrollModal('m'));
-    document.getElementById('payModalMobileBackdrop')?.addEventListener('click', () => closeEnrollModal('m'));
-    document.getElementById('payModalDesktopClose')?.addEventListener('click', () => closeEnrollModal('d'));
-    document.getElementById('payModalDesktopBackdrop')?.addEventListener('click', () => closeEnrollModal('d'));
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key !== 'Escape') return;
-      if (!document.getElementById('payModalMobile')?.hasAttribute('hidden')) closeEnrollModal('m');
-      if (!document.getElementById('payModalDesktop')?.hasAttribute('hidden')) closeEnrollModal('d');
-    });
-
-    /* Confirmation code gate: "Send Confirmation" stays disabled until a valid code is entered */
-    function validateCodeField(prefix = '') {
-      const p = prefix ? '-' + prefix : '';
-      const codeEl = document.getElementById('c-code' + p);
-      const btn = document.getElementById('confirm-btn' + p);
-      if (!codeEl || !btn) return false;
-      const valid = CONFIRM_CODE_PATTERN.test((codeEl.value || '').trim().toUpperCase());
-      btn.disabled = !valid;
-      return valid;
-    }
-
-    document.getElementById('c-code')?.addEventListener('input', () => { clearPayErr('err-code'); validateCodeField(''); });
-    document.getElementById('c-code-m')?.addEventListener('input', () => { clearPayErr('err-code-m'); validateCodeField('m'); });
-    validateCodeField('');
-    validateCodeField('m');
-
-    function showTab(tab, prefix = '') {
-      const p = prefix ? '-' + prefix : '';
-      const bankDetail = document.getElementById('detail-bank' + p);
-      const easyDetail = document.getElementById('detail-easy' + p);
-      const bankBtn = document.getElementById('tab-bank' + p);
-      const easyBtn = document.getElementById('tab-easy' + p);
-      
-      if (tab === 'bank') {
-        bankDetail.removeAttribute('hidden');
-        easyDetail.setAttribute('hidden', '');
-        bankBtn.classList.add('active');
-        easyBtn.classList.remove('active');
-      } else {
-        bankDetail.setAttribute('hidden', '');
-        easyDetail.removeAttribute('hidden');
-        bankBtn.classList.remove('active');
-        easyBtn.classList.add('active');
-      }
-    }
-
-    function copyText(id, btn) {
-      const text = document.getElementById(id).textContent;
-      navigator.clipboard.writeText(text);
-      const orig = btn.textContent;
-      btn.textContent = 'Copied!';
-      btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 2000);
-    }
-
-    function handleFileSelect(event, prefix = '') {
-      const file = event.target.files[0];
-      if (!file) return;
-      if (file.size > 5 * 1024 * 1024) { alert('File is larger than 5MB. Please choose a smaller image.'); return; }
-      selectedFile = file;
-      const reader = new FileReader();
-      
-      const p = prefix ? '-' + prefix : '';
-      reader.onload = (e) => {
-        screenshotBase64 = e.target.result;
-        document.getElementById('preview-img' + p).src = e.target.result;
-        document.getElementById('upload-filename' + p).textContent = file.name;
-        document.getElementById('upload-preview' + p).classList.add('visible');
-        document.getElementById('err-screenshot' + p).setAttribute('hidden', '');
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function setupDragAndDrop(areaId, inputId, prefix = '') {
-      const area = document.getElementById(areaId);
-      if (area) {
-        area.addEventListener('dragover', (e) => { e.preventDefault(); area.style.borderColor = '#6837ff'; });
-        area.addEventListener('dragleave', () => { area.style.borderColor = ''; });
-        area.addEventListener('drop', (e) => {
-          e.preventDefault();
-          area.style.borderColor = '';
-          const files = e.dataTransfer.files;
-          if (files.length) { document.getElementById(inputId).files = files; handleFileSelect({ target: { files } }, prefix); }
-        });
-      }
-    }
-
-    setupDragAndDrop('upload-area', 'c-screenshot');
-    setupDragAndDrop('upload-area-m', 'c-screenshot-m', 'm');
-
-    function showPayErr(id) { document.getElementById(id)?.removeAttribute('hidden'); }
-    function clearPayErr(id) { document.getElementById(id)?.setAttribute('hidden', ''); }
-
-    function openPayModal() {
-      const m = document.getElementById('paymentSuccessModal');
-      m.removeAttribute('hidden');
-      document.body.style.overflow = 'hidden';
-      document.getElementById('payModalCloseBtn').focus();
-    }
-
-    function closePayModal() {
-      document.getElementById('paymentSuccessModal').setAttribute('hidden', '');
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('payModalCloseBtn')?.addEventListener('click', closePayModal);
-    document.getElementById('payModalBackdrop')?.addEventListener('click', closePayModal);
-
-    async function submitConfirmation(prefix = '') {
-      const p = prefix ? '-' + prefix : '';
-      const name = document.getElementById('c-name' + p).value.trim();
-      const phone = document.getElementById('c-phone' + p).value.trim();
-      const code = (document.getElementById('c-code' + p).value || '').trim().toUpperCase();
-      let isValid = true;
-
-      clearPayErr('err-name' + p); clearPayErr('err-phone' + p); clearPayErr('err-screenshot' + p); clearPayErr('err-code' + p);
-
-      if (name.length < 2) { showPayErr('err-name' + p); document.getElementById('c-name' + p).setAttribute('aria-invalid','true'); isValid = false; }
-      const cleanPhone = phone.replace(/[-\s]/g, '');
-      if (!/^\d{7,}$/.test(cleanPhone)) { showPayErr('err-phone' + p); document.getElementById('c-phone' + p).setAttribute('aria-invalid','true'); isValid = false; }
-      if (!selectedFile) { showPayErr('err-screenshot' + p); isValid = false; }
-      if (!CONFIRM_CODE_PATTERN.test(code)) { showPayErr('err-code' + p); isValid = false; }
-      if (!isValid) return;
-
-      const btn = document.getElementById('confirm-btn' + p);
-      btn.classList.add('loading');
-      btn.disabled = true;
-
-      const formData = new URLSearchParams();
-      formData.append('name', name);
-      formData.append('phone', cleanPhone);
-      formData.append('code', code);
-      if (screenshotBase64) formData.append('screenshot', screenshotBase64);
-
-      try {
-        const controller = new AbortController();
-        const timeout = setTimeout(() => controller.abort(), 30000);
-
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: formData,
-          signal: controller.signal
-        });
-
-        clearTimeout(timeout);
-      } catch (err) {
-        /* This request is fire-and-forget (mode: 'no-cors', so we can't read the
-           response anyway) — a slow network or a blocked script.google.com request
-           here does NOT mean the confirmation failed. We log it but still proceed,
-           so the Purchase event below no longer gets silently skipped. */
-        console.log('Submit ping did not complete (continuing anyway):', err);
-      }
-
-      var purchaseUniqueId = 'pur_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({
-        'event': 'purchase_complete',
-        'eventId': purchaseUniqueId,
-        'user_data': {
-          'phone': cleanPhone,
-          'name': name
-        },
-        'ecommerce': {
-          'transaction_id': purchaseUniqueId,
-          'value': 15000,
-          'currency': 'PKR',
-          'items': [{
-            'item_name': 'E-Commerce Mentorship',
-            'price': 15000,
-            'quantity': 1
-          }]
-        }
-      });
-
-      if (typeof fbq === 'function') {
-        fbq('track', 'Purchase', {
-          content_name: 'E-Commerce Mentorship',
-          currency: 'PKR',
-          value: 15000
-        }, { eventID: purchaseUniqueId });
-      }
-
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-16499475514/RrpICJCXmOIcELqIyLs9',
-          'value': 15000.0,
-          'currency': 'PKR',
-          'transaction_id': purchaseUniqueId
-        });
-      }
-
-      document.getElementById('c-name' + p).value = '';
-      document.getElementById('c-phone' + p).value = '';
-      document.getElementById('c-code' + p).value = '';
-      document.getElementById('c-screenshot' + p).value = '';
-      selectedFile = null; screenshotBase64 = null;
-      document.getElementById('upload-preview' + p).classList.remove('visible');
-      validateCodeField(prefix);
-      closeEnrollModal(prefix);
-      openPayModal();
-
-      btn.classList.remove('loading');
-    }
-
-    document.getElementById('c-name')?.addEventListener('input', () => { clearPayErr('err-name'); document.getElementById('c-name').removeAttribute('aria-invalid'); });
-    document.getElementById('c-phone')?.addEventListener('input', () => { clearPayErr('err-phone'); document.getElementById('c-phone').removeAttribute('aria-invalid'); });
-    document.getElementById('c-name-m')?.addEventListener('input', () => { clearPayErr('err-name-m'); document.getElementById('c-name-m').removeAttribute('aria-invalid'); });
-    document.getElementById('c-phone-m')?.addEventListener('input', () => { clearPayErr('err-phone-m'); document.getElementById('c-phone-m').removeAttribute('aria-invalid'); });
   </script>
 </body>
 </html>

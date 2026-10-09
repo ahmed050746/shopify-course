@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="en" class="page-v2">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Contact Us | Book Your Free Consultation | AI Web Crafts</title>
+  <meta name="description" content="Book a consultation for 1-on-1 e-commerce mentorship. Tell us about your goals and our team will contact you.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ pageViewId: 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 1000) });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16499475514"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16499475514');
+  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-PZ2P9PPL');</script>
+
+  <style>
+    body.contact-page {
+      min-height: 100vh;
+      background: var(--color-bg);
+      color: var(--color-text);
+    }
+
+    /* ── Top bar ── */
+    .c-topbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--color-border);
+      backdrop-filter: blur(8px);
+    }
+
+    .c-topbar__back {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: 1.5px solid var(--color-border);
+      background: var(--color-bg-alt);
+      color: var(--color-text);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: border-color 0.2s ease, color 0.2s ease;
+    }
+
+    .c-topbar__back:hover {
+      border-color: rgba(var(--color-primary-rgb), 0.35);
+      color: var(--color-primary);
+    }
+
+    .c-topbar__brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--color-text);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: -0.02em;
+    }
+
+    .c-topbar__brand img {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+    }
+
+    /* ── Hero band ── */
+    .c-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 48px 16px 120px;
+      text-align: center;
+      color: #fff;
+      background: linear-gradient(135deg, var(--color-primary-mid) 0%, var(--color-primary) 50%, var(--color-primary-alt) 100%);
+    }
+
+    .c-hero::before,
+    .c-hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 9999px;
+      pointer-events: none;
+    }
+
+    .c-hero::before {
+      width: 260px;
+      height: 260px;
+      top: -110px;
+      right: -70px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0) 70%);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .c-hero::after {
+      width: 56px;
+      height: 56px;
+      top: 56px;
+      left: 8%;
+      background: var(--color-accent);
+      box-shadow: 0 10px 30px -6px rgba(252, 208, 54, 0.6);
+    }
+
+    @media (max-width: 560px) {
+      .c-hero::after {
+        width: 28px;
+        height: 28px;
+        top: 24px;
+        left: 16px;
+      }
+    }
+
+    .c-hero__eyebrow {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 16px;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .c-hero__eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: var(--color-accent);
+    }
+
+    .c-hero__title {
+      position: relative;
+      margin: 0 auto 12px;
+      max-width: 640px;
+      font-size: clamp(30px, 6vw, 46px);
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .c-hero__sub {
+      position: relative;
+      margin: 0 auto;
+      max-width: 540px;
+      font-size: 16px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    /* ── Layout ── */
+    .c-wrap {
+      position: relative;
+      z-index: 2;
+      max-width: 780px;
+      margin: -84px auto 0;
+      padding: 0 16px 56px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .c-card {
+      background: var(--color-bg-alt);
+      border: 1px solid var(--color-border);
+      border-radius: 20px;
+      box-shadow: 0 24px 48px -24px rgba(var(--color-text-rgb), 0.18);
+    }
+
+    /* ── Get in touch (below the form) ── */
+    .c-info {
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+      padding: 36px 32px 32px;
+      border-radius: 24px;
+      color: #fff;
+      background:
+        radial-gradient(120% 90% at 100% 0%, rgba(var(--color-secondary-rgb), 0.35) 0%, rgba(var(--color-secondary-rgb), 0) 55%),
+        linear-gradient(150deg, #1E1B4B 0%, #312E81 45%, var(--color-primary) 100%);
+      box-shadow: 0 30px 60px -28px rgba(var(--color-primary-rgb), 0.65);
+    }
+
+    .c-info::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 180px;
+      height: 180px;
+      left: -60px;
+      bottom: -70px;
+      border-radius: 9999px;
+      border: 22px solid rgba(252, 208, 54, 0.18);
+    }
+
+    .c-info::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+      background-size: 18px 18px;
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+      mask-image: linear-gradient(180deg, #000 0%, transparent 70%);
+    }
+
+    .c-info__head {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .c-info__eyebrow {
+      margin: 0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--color-accent);
+    }
+
+    .c-info__title-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px 16px;
+      width: 100%;
+    }
+
+    .c-info__title {
+      margin: 0;
+      font-size: clamp(24px, 4vw, 30px);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+    }
+
+    .c-info__sub {
+      margin: 0;
+      max-width: 520px;
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .c-online {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 9999px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 12px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .c-online__dot {
+      position: relative;
+      width: 8px;
+      height: 8px;
+      border-radius: 9999px;
+      background: #25d366;
+    }
+
+    .c-online__dot::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: #25d366;
+      animation: c-ping 1.8s ease-out infinite;
+    }
+
+    @keyframes c-ping {
+      0% { transform: scale(1); opacity: 0.7; }
+      100% { transform: scale(2.8); opacity: 0; }
+    }
+
+    .c-methods {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 0 0 32px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .c-method {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.07);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+      color: inherit;
+      text-decoration: none;
+      transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    }
+
+    a.c-method:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.13);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .c-method__icon {
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      box-shadow: 0 10px 20px -8px rgba(0, 0, 0, 0.45);
+    }
+
+    .c-method__icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .c-method__icon--wa { background: linear-gradient(145deg, #2EE07A 0%, #25d366 45%, #128c7e 100%); }
+    .c-method__icon--call { background: linear-gradient(135deg, var(--color-primary-mid) 0%, var(--color-primary) 100%); }
+    .c-method__icon--loc { background: linear-gradient(135deg, var(--color-secondary-alt) 0%, var(--color-secondary) 100%); }
+
+    .c-method__label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .c-method__value {
+      display: block;
+      margin-top: 4px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .c-method__cta {
+      margin-top: auto;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    .c-steps-box {
+      padding: 24px;
+      border-radius: 18px;
+      background: var(--color-bg-alt);
+      color: var(--color-text);
+    }
+
+    .c-steps__title {
+      margin: 0 0 20px;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-align: center;
+      color: var(--color-primary);
+    }
+
+    .c-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .c-step {
+      position: relative;
+      text-align: center;
+      counter-increment: step;
+    }
+
+    .c-step::before {
+      content: counter(step);
+      position: relative;
+      z-index: 1;
+      width: 44px;
+      height: 44px;
+      margin: 0 auto 12px;
+      border-radius: 9999px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 800;
+      color: #fff;
+      background: linear-gradient(135deg, var(--color-primary-mid) 0%, var(--color-primary) 100%);
+      box-shadow: 0 0 0 6px var(--color-primary-soft);
+    }
+
+    .c-step:nth-child(2)::before {
+      background: linear-gradient(135deg, var(--color-secondary-alt) 0%, var(--color-secondary) 100%);
+      box-shadow: 0 0 0 6px var(--color-secondary-soft);
+    }
+
+    .c-step:nth-child(3)::before {
+      color: var(--color-text);
+      background: linear-gradient(135deg, var(--color-accent-alt) 0%, var(--color-accent) 100%);
+      box-shadow: 0 0 0 6px var(--color-accent-soft);
+    }
+
+    .c-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 22px;
+      left: calc(50% + 34px);
+      right: calc(-50% + 26px);
+      border-top: 2px dashed var(--color-border);
+    }
+
+    .c-step__title {
+      margin: 0 0 4px;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .c-step__text {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--color-text-muted);
+    }
+
+    /* ── Form column ── */
+    .c-form-card {
+      padding: 28px 24px;
+    }
+
+    .c-form__head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .c-form__title {
+      margin: 0 0 4px;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .c-form__sub {
+      margin: 0;
+      font-size: 14px;
+      color: var(--color-text-muted);
+    }
+
+    .c-progress {
+      flex-shrink: 0;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      background: var(--color-primary-soft);
+      color: var(--color-primary);
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .c-progress.is-complete {
+      background: var(--color-secondary-soft);
+      color: var(--color-secondary);
+    }
+
+    .c-form__row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 14px;
+    }
+
+    .c-form .d-field,
+    .c-form .d-field:last-of-type { margin-bottom: 16px; }
+
+    .c-form .d-field__label em {
+      color: #ef4444;
+      font-style: normal;
+    }
+
+    .c-form .d-field__input[aria-invalid="true"] {
+      border-color: #fca5a5;
+      box-shadow: 0 0 0 1px rgba(220, 38, 38, 0.2);
+    }
+
+    .c-form__divider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 8px 0 14px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--color-text-subtle);
+    }
+
+    .c-form__divider::before,
+    .c-form__divider::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+
+    .c-submit {
+      width: 100%;
+      margin-top: 8px;
+      padding: 16px 24px;
+      border: 0;
+      border-radius: 12px;
+      font: inherit;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      cursor: pointer;
+      background: linear-gradient(135deg, var(--color-primary-mid) 0%, var(--color-primary) 45%, var(--color-primary-alt) 100%);
+      box-shadow: 0 12px 24px -10px rgba(var(--color-primary-rgb), 0.55);
+      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+    }
+
+    .c-submit:hover { transform: translateY(-2px); }
+    .c-submit:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+    .c-submit:disabled { opacity: 0.65; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    .c-form__note {
+      margin: 12px 0 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--color-text-subtle);
+    }
+
+    .c-form fieldset:disabled,
+    .c-form .d-field__input:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    /* ── Quiz accordion (same as homepage) ── */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .quiz-field {
+      border: 1.5px solid var(--color-border);
+      border-radius: 14px;
+      padding: 0;
+      margin: 0 0 10px;
+      background: var(--color-bg-alt);
+      overflow: hidden;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .quiz-field.is-open {
+      border-color: var(--color-primary);
+      box-shadow: 0 8px 20px -12px rgba(var(--color-primary-rgb), 0.35);
+    }
+
+    .quiz-field.is-answered:not(.is-open) {
+      border-color: var(--color-primary-tint);
+      background: var(--color-primary-wash);
+    }
+
+    .quiz-field.is-invalid {
+      border-color: #fca5a5;
+      box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.15);
+    }
+
+    .quiz-field__header {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 14px;
+      background: transparent;
+      border: none;
+      margin: 0;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .quiz-field__num {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-alt) 100%);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      transition: background 0.2s ease;
+    }
+
+    .quiz-field.is-answered .quiz-field__num {
+      background: linear-gradient(135deg, var(--color-secondary-alt) 0%, var(--color-secondary) 100%);
+    }
+
+    .quiz-field__qtext {
+      flex: 1;
+      min-width: 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    .quiz-field__qtext em {
+      color: #ef4444;
+      font-style: normal;
+    }
+
+    .quiz-field__answer {
+      display: none;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--color-text-muted);
+      margin-top: 2px;
+    }
+
+    .quiz-field.is-answered:not(.is-open) .quiz-field__answer {
+      display: block;
+    }
+
+    .quiz-field__chevron {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      color: var(--color-text-subtle);
+      transition: transform 0.3s ease;
+    }
+
+    .quiz-field.is-open .quiz-field__chevron {
+      transform: rotate(180deg);
+      color: var(--color-primary);
+    }
+
+    .quiz-panel {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .quiz-field.is-open .quiz-panel {
+      grid-template-rows: 1fr;
+    }
+
+    .quiz-panel__inner {
+      overflow: hidden;
+      min-height: 0;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 2px 14px 14px;
+    }
+
+    .quiz-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      border: 1.5px solid var(--color-border);
+      border-radius: 10px;
+      background: var(--color-bg-alt);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--color-text-body);
+      cursor: pointer;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .quiz-option:hover { border-color: var(--color-primary-tint); background: var(--color-primary-mist); }
+
+    .quiz-option input[type="radio"] {
+      margin-top: 2px;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      accent-color: var(--color-primary);
+    }
+
+    .quiz-option:has(input:checked) {
+      border-color: var(--color-primary);
+      background: var(--color-primary-soft);
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .c-footer {
+      text-align: center;
+      padding: 0 16px 40px;
+      color: var(--color-text-subtle);
+      font-size: 13px;
+    }
+
+    .c-footer a {
+      color: var(--color-primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .c-wrap {
+        gap: 20px;
+        margin-top: -72px;
+      }
+
+      .c-hero { padding: 36px 16px 104px; }
+    }
+
+    @media (max-width: 680px) {
+      .c-info { padding: 28px 18px 18px; }
+      .c-methods { grid-template-columns: 1fr; gap: 10px; margin-bottom: 24px; }
+      .c-method { flex-direction: row; align-items: center; padding: 14px; }
+      .c-method__cta { margin: 0 0 0 auto; }
+
+      .c-steps-box { padding: 22px 18px; }
+      .c-steps__title { text-align: left; }
+      .c-steps { grid-template-columns: 1fr; gap: 0; }
+      .c-step {
+        display: grid;
+        grid-template-columns: 44px 1fr;
+        column-gap: 14px;
+        padding-bottom: 20px;
+        text-align: left;
+      }
+      .c-step:last-child { padding-bottom: 0; }
+      .c-step::before { grid-row: span 2; margin: 0; }
+      .c-step:not(:last-child)::after {
+        top: 54px;
+        bottom: 6px;
+        left: 21px;
+        right: auto;
+        border-top: 0;
+        border-left: 2px dashed var(--color-border);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .c-form__row { grid-template-columns: 1fr; }
+      .c-form-card { padding: 22px 16px; }
+      .c-form__head { flex-direction: column; }
+      .c-hero__sub { font-size: 15px; }
+    }
+
+    @media (max-width: 380px) {
+      .c-topbar__brand span { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .quiz-panel,
+      .c-submit,
+      .c-method { transition: none; }
+      .c-online__dot::after { animation: none; }
+    }
+  </style>
+</head>
+<body class="contact-page">
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PZ2P9PPL"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <header class="c-topbar">
+    <a class="c-topbar__back" href="index.html" aria-label="Back to home">Back</a>
+    <a class="c-topbar__brand" href="index.html">
+      <img src="img/logo.png" alt="">
+      <span>AI Web Crafts</span>
+    </a>
+  </header>
+
+  <main>
+    <section class="c-hero" aria-labelledby="c-hero-title">
+      <p class="c-hero__eyebrow"><span class="c-hero__eyebrow-dot" aria-hidden="true"></span>1-on-1 Mentorship</p>
+      <h1 class="c-hero__title" id="c-hero-title">Contact Us</h1>
+      <p class="c-hero__sub">Book your consultation below and let’s discuss how you can start and grow your e-commerce journey.</p>
+    </section>
+
+    <div class="c-wrap">
+      <section class="c-card c-form-card" aria-labelledby="c-form-title">
+        <div class="c-form__head">
+          <div>
+            <h2 class="c-form__title" id="c-form-title">Fill the Form</h2>
+            <p class="c-form__sub">Sirf 1 minute lagega.</p>
+          </div>
+          <span class="c-progress" id="c-progress" aria-live="polite">0 / 4 answered</span>
+        </div>
+
+        <form class="c-form" id="contactForm" action="#" method="post" novalidate>
+          <div class="c-form__row">
+            <div class="d-field">
+              <label class="d-field__label" for="c-name">Name <em>*</em></label>
+              <input class="d-field__input" type="text" id="c-name" name="name" placeholder="Enter your name" autocomplete="name" maxlength="120">
+              <p class="form-error" id="c-name-error" role="alert" hidden></p>
+            </div>
+            <div class="d-field">
+              <label class="d-field__label" for="c-phone">Phone <em>*</em></label>
+              <input class="d-field__input" type="tel" id="c-phone" name="phone" placeholder="03001234567" inputmode="numeric" autocomplete="tel" maxlength="20">
+              <p class="form-error" id="c-phone-error" role="alert" hidden></p>
+            </div>
+          </div>
+          <div class="d-field">
+            <label class="d-field__label" for="c-email">Email <span style="color: var(--color-text-subtle); font-weight: 400;">(optional)</span></label>
+            <input class="d-field__input" type="email" id="c-email" name="email" placeholder="you@example.com" autocomplete="email" maxlength="120">
+            <p class="form-error" id="c-email-error" role="alert" hidden></p>
+          </div>
+
+          <div class="c-form__divider">A few quick questions</div>
+
+          <fieldset class="quiz-field">
+            <legend class="sr-only">Aap E-commerce kyun seekhna chahte hain?</legend>
+            <button type="button" class="quiz-field__header" aria-expanded="true" aria-controls="c-quiz-panel-1">
+              <span class="quiz-field__num" aria-hidden="true">1</span>
+              <span class="quiz-field__qtext">Aap E-commerce kyun seekhna chahte hain? <em>*</em>
+                <span class="quiz-field__answer"></span>
+              </span>
+              <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="quiz-panel" id="c-quiz-panel-1">
+              <div class="quiz-panel__inner">
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="c-q1-reason" value="Apna online business start karna hai" required><span>Apna online business start karna hai</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q1-reason" value="Existing business ko online grow karna hai"><span>Existing business ko online grow karna hai</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q1-reason" value="Part-time income source banana hai"><span>Part-time income source banana hai</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q1-reason" value="Sirf information lena chahta/chahti hoon"><span>Sirf information lena chahta/chahti hoon</span></label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-field">
+            <legend class="sr-only">Aapka E-commerce/Shopify ka experience kitna hai?</legend>
+            <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="c-quiz-panel-2">
+              <span class="quiz-field__num" aria-hidden="true">2</span>
+              <span class="quiz-field__qtext">Aapka E-commerce/Shopify ka experience kitna hai? <em>*</em>
+                <span class="quiz-field__answer"></span>
+              </span>
+              <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="quiz-panel" id="c-quiz-panel-2">
+              <div class="quiz-panel__inner">
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="c-q2-experience" value="Bilkul beginner hoon" required><span>Bilkul beginner hoon</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q2-experience" value="Thora bohat experience hai"><span>Thora bohat experience hai</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q2-experience" value="Pehle Shopify/Dropshipping try ki hai"><span>Pehle Shopify/Dropshipping try ki hai</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q2-experience" value="Already online business kar raha/rahi hoon"><span>Already online business kar raha/rahi hoon</span></label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-field">
+            <legend class="sr-only">Aap training kab start karna chahte hain?</legend>
+            <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="c-quiz-panel-3">
+              <span class="quiz-field__num" aria-hidden="true">3</span>
+              <span class="quiz-field__qtext">Aap training kab start karna chahte hain? <em>*</em>
+                <span class="quiz-field__answer"></span>
+              </span>
+              <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="quiz-panel" id="c-quiz-panel-3">
+              <div class="quiz-panel__inner">
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="c-q3-timeline" value="Abhi / isi week" required><span>Abhi / isi week</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q3-timeline" value="1–2 weeks mein"><span>1–2 weeks mein</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q3-timeline" value="Is month mein"><span>Is month mein</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q3-timeline" value="Abhi sirf information chahiye"><span>Abhi sirf information chahiye</span></label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset class="quiz-field">
+            <legend class="sr-only">1-on-1 mentorship ki fee Rs. 15,000 hai. Kya aap is investment ke liye ready hain?</legend>
+            <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="c-quiz-panel-4">
+              <span class="quiz-field__num" aria-hidden="true">4</span>
+              <span class="quiz-field__qtext">1-on-1 mentorship ki fee Rs. 15,000 hai. Agar training aapke liye suitable ho, kya aap is investment ke liye ready hain? <em>*</em>
+                <span class="quiz-field__answer"></span>
+              </span>
+              <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+            <div class="quiz-panel" id="c-quiz-panel-4">
+              <div class="quiz-panel__inner">
+                <div class="quiz-options">
+                  <label class="quiz-option"><input type="radio" name="c-q4-budget" value="Ji, main serious hoon" required><span>Ji, main serious hoon</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q4-budget" value="Pehle complete details samajhna chahta/chahti hoon"><span>Pehle complete details samajhna chahta/chahti hoon</span></label>
+                  <label class="quiz-option"><input type="radio" name="c-q4-budget" value="Abhi budget available nahi hai"><span>Abhi budget available nahi hai</span></label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <button type="submit" class="c-submit form-submit" id="contactSubmit" aria-busy="false">
+            <span class="form-submit__text">Submit</span>
+            <span class="form-submit__spinner" aria-hidden="true"></span>
+          </button>
+          <p class="c-form__note">Aapki details sirf aap se contact karne ke liye use hongi.</p>
+        </form>
+      </section>
+
+      <aside class="c-info" aria-labelledby="c-info-title">
+        <div class="c-info__head">
+          <p class="c-info__eyebrow">Prefer to talk?</p>
+          <div class="c-info__title-row">
+            <h2 class="c-info__title" id="c-info-title">Get in touch directly</h2>
+            <span class="c-online"><span class="c-online__dot" aria-hidden="true"></span>WhatsApp par available</span>
+          </div>
+          <p class="c-info__sub">Form ke ilawa aap direct WhatsApp ya call par bhi baat kar sakte hain.</p>
+        </div>
+
+        <ul class="c-methods">
+          <li>
+            <a class="c-method" href="https://wa.me/923293412618" target="_blank" rel="noopener">
+              <span class="c-method__icon c-method__icon--wa" aria-hidden="true">
+                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/></svg>
+              </span>
+              <span>
+                <span class="c-method__label">WhatsApp</span>
+                <span class="c-method__value">+92 329 3412618</span>
+              </span>
+              <span class="c-method__cta">Chat now</span>
+            </a>
+          </li>
+          <li>
+            <a class="c-method" href="tel:+923321319363">
+              <span class="c-method__icon c-method__icon--call" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+              <span>
+                <span class="c-method__label">Call</span>
+                <span class="c-method__value">+92 332 1319363</span>
+              </span>
+              <span class="c-method__cta">Call now</span>
+            </a>
+          </li>
+          <li>
+            <div class="c-method">
+              <span class="c-method__icon c-method__icon--loc" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0119 9.5C19 14.8 12 21 12 21z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9.5" r="2.5" stroke="currentColor" stroke-width="1.8"/></svg>
+              </span>
+              <span>
+                <span class="c-method__label">Location</span>
+                <span class="c-method__value">Karachi, Pakistan</span>
+              </span>
+            </div>
+          </li>
+        </ul>
+
+        <div class="c-steps-box">
+          <h3 class="c-steps__title">What happens next?</h3>
+          <ol class="c-steps">
+            <li class="c-step">
+              <p class="c-step__title">Form submit karein</p>
+              <p class="c-step__text">Apni details aur 4 chhote sawalon ke jawab dein.</p>
+            </li>
+            <li class="c-step">
+              <p class="c-step__title">Team contact karegi</p>
+              <p class="c-step__text">Aapke goals samajh kar mentorship ki details share karegi.</p>
+            </li>
+            <li class="c-step">
+              <p class="c-step__title">Mentorship start</p>
+              <p class="c-step__text">Enrollment confirm hone par aapki 1-on-1 training shuru.</p>
+            </li>
+          </ol>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="c-footer">
+    <p>© 2026 <a href="index.html">AI Web Crafts</a>. All rights reserved.</p>
+  </footer>
+
+  <div class="thank-modal" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="thankModalTitle" hidden>
+    <div class="thank-modal__backdrop" id="thankYouModalBackdrop"></div>
+    <div class="thank-modal__dialog" role="document">
+      <span style="font-size: 44px; display: block; margin-bottom: 8px;" aria-hidden="true">✅</span>
+      <h2 class="thank-modal__title" id="thankModalTitle">Thank You!</h2>
+      <p class="thank-modal__text">We have received your details and our team will contact you shortly.</p>
+      <button type="button" class="thank-modal__close" id="thankYouModalClose">Close</button>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var GOOGLE_FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSeuFBMI1v-zEHZpEVw_YA1qRP7WGmPOdaGY8KEkToEZKVrpEA/formResponse";
+      var PHONE_DIGITS_ONLY = /^\d+$/;
+      var EMAIL_FORMAT = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      var GROUPS = ["c-q1-reason", "c-q2-experience", "c-q3-timeline", "c-q4-budget"];
+
+      var form = document.getElementById("contactForm");
+      var nameEl = document.getElementById("c-name");
+      var phoneEl = document.getElementById("c-phone");
+      var emailEl = document.getElementById("c-email");
+      var nameErr = document.getElementById("c-name-error");
+      var phoneErr = document.getElementById("c-phone-error");
+      var emailErr = document.getElementById("c-email-error");
+      var submitBtn = document.getElementById("contactSubmit");
+      var progressEl = document.getElementById("c-progress");
+
+      var items = GROUPS.map(function (name) {
+        var input = form.querySelector('input[name="' + name + '"]');
+        return input ? input.closest(".quiz-field") : null;
+      });
+
+      function getRadioValue(name) {
+        var el = form.querySelector('input[name="' + name + '"]:checked');
+        return el ? el.value : "";
+      }
+
+      function updateProgress() {
+        var answered = GROUPS.filter(function (name) { return getRadioValue(name) !== ""; }).length;
+        progressEl.textContent = answered + " / " + GROUPS.length + " answered";
+        progressEl.classList.toggle("is-complete", answered === GROUPS.length);
+      }
+
+      function setOpen(fs, open) {
+        if (!fs) return;
+        fs.classList.toggle("is-open", open);
+        var header = fs.querySelector(".quiz-field__header");
+        if (header) header.setAttribute("aria-expanded", open ? "true" : "false");
+      }
+
+      function openOnly(target) {
+        items.forEach(function (fs) { setOpen(fs, fs === target); });
+      }
+
+      items.forEach(function (fs, idx) {
+        if (!fs) return;
+        var header = fs.querySelector(".quiz-field__header");
+        var answerEl = fs.querySelector(".quiz-field__answer");
+
+        header.addEventListener("click", function () {
+          if (fs.classList.contains("is-open")) setOpen(fs, false);
+          else openOnly(fs);
+        });
+
+        fs.querySelectorAll('input[type="radio"]').forEach(function (radio) {
+          radio.addEventListener("change", function () {
+            fs.classList.add("is-answered");
+            fs.classList.remove("is-invalid");
+            if (answerEl) answerEl.textContent = radio.value;
+            updateProgress();
+            var next = items[idx + 1];
+            setTimeout(function () {
+              if (next && !next.classList.contains("is-answered")) {
+                openOnly(next);
+                next.scrollIntoView({ behavior: "smooth", block: "center" });
+              } else {
+                setOpen(fs, false);
+              }
+            }, 260);
+          });
+        });
+      });
+
+      openOnly(items[0]);
+
+      function hideError(el) { if (el) { el.textContent = ""; el.setAttribute("hidden", ""); } }
+      function showError(el, message) { if (el) { el.textContent = message; el.removeAttribute("hidden"); } }
+
+      function clearErrors() {
+        hideError(nameErr); hideError(phoneErr); hideError(emailErr);
+        [nameEl, phoneEl, emailEl].forEach(function (el) { el.removeAttribute("aria-invalid"); });
+      }
+
+      [[nameEl, nameErr], [phoneEl, phoneErr], [emailEl, emailErr]].forEach(function (pair) {
+        pair[0].addEventListener("input", function () {
+          hideError(pair[1]);
+          pair[0].removeAttribute("aria-invalid");
+        });
+      });
+
+      function validateFields() {
+        var name = nameEl.value.trim();
+        var phone = phoneEl.value.replace(/[\s-]/g, "");
+        var email = emailEl.value.trim();
+        var firstInvalid = null;
+
+        clearErrors();
+
+        if (name.length < 3) {
+          showError(nameErr, name.length === 0 ? "Please enter your name." : "Name must be at least 3 characters.");
+          nameEl.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || nameEl;
+        }
+
+        if (phone.length === 0) {
+          showError(phoneErr, "Please enter your phone number.");
+          phoneEl.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || phoneEl;
+        } else if (!PHONE_DIGITS_ONLY.test(phone)) {
+          showError(phoneErr, "Phone must contain only numbers.");
+          phoneEl.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || phoneEl;
+        } else if (phone.length < 7) {
+          showError(phoneErr, "Please enter at least 7 digits.");
+          phoneEl.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || phoneEl;
+        }
+
+        if (email.length > 0 && !EMAIL_FORMAT.test(email)) {
+          showError(emailErr, "Please enter a valid email address.");
+          emailEl.setAttribute("aria-invalid", "true");
+          firstInvalid = firstInvalid || emailEl;
+        }
+
+        if (firstInvalid) {
+          firstInvalid.focus();
+          return false;
+        }
+        return true;
+      }
+
+      function validateQuestions() {
+        var firstMissing = null;
+        items.forEach(function (fs, idx) {
+          var missing = getRadioValue(GROUPS[idx]) === "";
+          fs.classList.toggle("is-invalid", missing);
+          if (missing && !firstMissing) firstMissing = fs;
+        });
+        if (firstMissing) {
+          openOnly(firstMissing);
+          firstMissing.scrollIntoView({ behavior: "smooth", block: "center" });
+          return false;
+        }
+        return true;
+      }
+
+      function setBusy(busy) {
+        submitBtn.classList.toggle("is-loading", busy);
+        submitBtn.setAttribute("aria-busy", busy ? "true" : "false");
+        submitBtn.disabled = busy;
+        [nameEl, phoneEl, emailEl].forEach(function (el) { el.disabled = busy; });
+        form.querySelectorAll("fieldset").forEach(function (fs) { fs.disabled = busy; });
+      }
+
+      function resetForm() {
+        form.reset();
+        clearErrors();
+        items.forEach(function (fs) {
+          fs.classList.remove("is-answered", "is-invalid");
+          var answerEl = fs.querySelector(".quiz-field__answer");
+          if (answerEl) answerEl.textContent = "";
+        });
+        openOnly(items[0]);
+        updateProgress();
+      }
+
+      var thankModal = document.getElementById("thankYouModal");
+      var thankClose = document.getElementById("thankYouModalClose");
+
+      function openThankModal() {
+        thankModal.removeAttribute("hidden");
+        document.body.classList.add("modal-open");
+        thankClose.focus();
+      }
+
+      function closeThankModal() {
+        thankModal.setAttribute("hidden", "");
+        document.body.classList.remove("modal-open");
+      }
+
+      thankClose.addEventListener("click", closeThankModal);
+      document.getElementById("thankYouModalBackdrop").addEventListener("click", closeThankModal);
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && !thankModal.hasAttribute("hidden")) closeThankModal();
+      });
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        if (!validateFields()) return;
+        if (!validateQuestions()) return;
+
+        var name = nameEl.value.trim();
+        var phone = phoneEl.value.replace(/[\s-]/g, "");
+        var email = emailEl.value.trim();
+        var q1 = getRadioValue(GROUPS[0]);
+        var q2 = getRadioValue(GROUPS[1]);
+        var q3 = getRadioValue(GROUPS[2]);
+        var q4 = getRadioValue(GROUPS[3]);
+
+        setBusy(true);
+
+        var params = new URLSearchParams();
+        params.append("entry.2007658999", name);
+        params.append("entry.1341104541", phone);
+        params.append("entry.1004741489", email);
+        // TODO: replace these placeholder entry IDs with the real ones from your
+        // Google Form once you add the 4 qualifying questions to it (Form > ⋮ > Get pre-filled link).
+        params.append("entry.QUESTION1_REASON", q1);
+        params.append("entry.QUESTION2_EXPERIENCE", q2);
+        params.append("entry.QUESTION3_TIMELINE", q3);
+        params.append("entry.QUESTION4_BUDGET", q4);
+
+        fetch(GOOGLE_FORM_ACTION, {
+          method: "POST",
+          mode: "no-cors",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: params,
+        })
+          .then(function () {
+            setBusy(false);
+            resetForm();
+
+            if (typeof gtag === 'function') {
+              gtag('event', 'conversion', {
+                'send_to': 'AW-16499475514/QVraCJrchuIcELqlyLs9',
+                'value': 1.0,
+                'currency': 'PKR'
+              });
+            }
+
+            var leadUniqueId = 'lead_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              'event': 'generate_lead',
+              'eventId': leadUniqueId,
+              'user_data': { 'email': email, 'phone': phone, 'name': name },
+              'qualifying_answers': {
+                'reason': q1,
+                'experience': q2,
+                'timeline': q3,
+                'budget_ready': q4
+              }
+            });
+
+            if (typeof fbq === 'function') {
+              fbq('track', 'Lead', {
+                content_name: 'Ecom Mentorship',
+                currency: 'PKR',
+                value: 15000
+              }, { eventID: leadUniqueId });
+            }
+
+            openThankModal();
+          })
+          .catch(function () {
+            setBusy(false);
+            window.alert("Something went wrong. Please try again.");
+          });
+      });
+    })();
+  </script>
+</body>
+</html>
