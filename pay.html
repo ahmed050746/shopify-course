@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Enroll Now | Pay Rs. 15,000 | AI Web Crafts Mentorship</title>
+  <title>Enroll Now | Pay Rs. 3,900 | AI Web Crafts Mentorship</title>
   <meta name="description" content="Secure your spot in the 1-on-1 e-commerce mentorship. Pay via Bank Transfer or EasyPaisa and confirm your enrollment.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,18 +31,96 @@
   <style>
     body.pay-page {
       min-height: 100vh;
-      background:
-        radial-gradient(ellipse 100% 60% at 50% 0%, rgba(var(--color-primary-rgb), 0.08) 0%, transparent 50%),
-        var(--color-bg);
+      background: var(--color-bg);
+    }
+
+    .pay-step {
+      padding: 32px 16px;
+    }
+
+    .pay-step--method {
+      background: var(--color-bg-alt);
+      border-bottom: 1px solid var(--color-border-light);
+    }
+
+    .pay-step--confirm {
+      background: var(--color-bg);
+      padding-bottom: 48px;
+    }
+
+    .pay-step__inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .pay-step__head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .pay-step__num {
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--color-primary-mid) 0%, var(--color-primary) 45%, var(--color-primary-alt) 100%);
+      color: var(--color-bg-alt);
+      font-size: 16px;
+      font-weight: 800;
+      box-shadow: 0 8px 16px -8px rgba(var(--color-primary-rgb), 0.6);
+    }
+
+    .pay-step__kicker {
+      margin: 0;
+      font-size: 11px;
+      line-height: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+    }
+
+    .pay-step__title {
+      margin: 2px 0 0;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+    }
+
+    @media (min-width: 900px) {
+      .pay-step {
+        padding: 56px 32px;
+      }
+
+      .pay-step--confirm {
+        padding-bottom: 72px;
+      }
+
+      .pay-step__num {
+        width: 44px;
+        height: 44px;
+        font-size: 18px;
+      }
+
+      .pay-step__title {
+        font-size: 24px;
+        line-height: 30px;
+      }
     }
 
     .pay-topbar {
       position: sticky;
       top: 0;
       z-index: 50;
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
       gap: 12px;
       padding: 12px 16px;
       background: rgba(255, 255, 255, 0.92);
@@ -70,21 +148,18 @@
       color: var(--color-primary);
     }
 
-    .pay-topbar__brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      color: var(--color-text);
-      font-weight: 800;
-      font-size: 16px;
-      letter-spacing: -0.02em;
+    .pay-topbar__back {
+      justify-self: start;
     }
 
-    .pay-topbar__brand img {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
+    .pay-topbar__title {
+      margin: 0;
+      font-size: 17px;
+      line-height: 24px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      white-space: nowrap;
     }
 
     .pay-section-wrap {
@@ -295,10 +370,10 @@
 
     .confirm-card {
       background: var(--color-bg-alt);
-      border: 1px solid rgba(var(--color-primary-rgb), 0.3);
+      border: 1px solid var(--color-border);
       border-radius: 20px;
       padding: 28px;
-      box-shadow: 0 10px 25px rgba(var(--color-primary-rgb), 0.12);
+      box-shadow: 0 14px 32px -24px rgba(var(--color-text-rgb), 0.35);
     }
 
     .upload-area {
@@ -471,7 +546,6 @@
         font-size: 13px;
       }
 
-      .pay-topbar__brand span { display: none; }
     }
   </style>
 </head>
@@ -481,35 +555,19 @@
 
   <header class="pay-topbar">
     <a class="pay-topbar__back" href="index.html" aria-label="Back to home">Back</a>
-    <a class="pay-topbar__brand" href="index.html">
-      <img src="img/logo.png" alt="">
-      <span>AI Web Crafts</span>
-    </a>
+    <h1 class="pay-topbar__title">Enroll Now</h1>
   </header>
 
   <main>
-    <section class="pay-section-wrap" id="payment-section">
-      <div class="pay-header-block">
-        <h1 class="pay-page-title">Enroll Now</h1>
-        <p class="pay-page-sub">Secure your spot in the 1-on-1 mentorship program today.</p>
-      </div>
-
-      <div class="pay-grid">
-        <div class="pay-left">
-          <div class="price-card">
-            <div class="price-save-tag">🔥 70% OFF — Act Fast!</div>
-            <div class="price-row">
-              <span class="price-original">Rs. 50,000</span>
-              <span class="price-discount">Rs. 15,000</span>
+    <section class="pay-step pay-step--method" id="payment-section" aria-labelledby="pay-step-1-title">
+      <div class="pay-step__inner">
+          <header class="pay-step__head">
+            <span class="pay-step__num" aria-hidden="true">1</span>
+            <div>
+              <p class="pay-step__kicker">Step 1</p>
+              <h2 id="pay-step-1-title" class="pay-step__title">Select Payment Method</h2>
             </div>
-          </div>
-
-          <div class="sec-label">
-            <span class="sec-label__icon" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 9h18M7 3v2m10-2v2M6.2 21h11.6A2.2 2.2 0 0020 18.8V7.2A2.2 2.2 0 0017.8 5H6.2A2.2 2.2 0 004 7.2v11.6A2.2 2.2 0 006.2 21z" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </span>
-            Select Payment Method
-          </div>
+          </header>
 
           <div class="pay-tabs" role="tablist">
             <button type="button" class="pay-tab active" onclick="showTab('bank')" id="tab-bank" role="tab" aria-selected="true">
@@ -547,7 +605,7 @@
             </div>
             <div class="detail-row">
               <span class="detail-lbl">Amount</span>
-              <span class="detail-val detail-val--accent">Rs. 15,000</span>
+              <span class="detail-val detail-val--accent">Rs. 3,900</span>
             </div>
             <div class="method-note">💡 After transfer, take a screenshot and upload it in the form.</div>
           </div>
@@ -566,20 +624,24 @@
             </div>
             <div class="detail-row">
               <span class="detail-lbl">Amount</span>
-              <span class="detail-val detail-val--accent">Rs. 15,000</span>
+              <span class="detail-val detail-val--accent">Rs. 3,900</span>
             </div>
             <div class="method-note">💚 Use EasyPaisa app or *786# to send. Take a screenshot and upload below.</div>
           </div>
-        </div>
+      </div>
+    </section>
 
-        <div class="pay-right">
-          <div class="confirm-card">
-            <div class="sec-label" style="margin-bottom: 24px;">
-              <span class="sec-label__icon" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-              Confirm Your Payment
+    <section class="pay-step pay-step--confirm" aria-labelledby="pay-step-2-title">
+      <div class="pay-step__inner">
+          <header class="pay-step__head">
+            <span class="pay-step__num" aria-hidden="true">2</span>
+            <div>
+              <p class="pay-step__kicker">Step 2</p>
+              <h2 id="pay-step-2-title" class="pay-step__title">Confirm Your Payment</h2>
             </div>
+          </header>
+
+          <div class="confirm-card">
 
             <div class="d-field">
               <label class="d-field__label" for="c-name">Full Name *</label>
@@ -620,7 +682,6 @@
               <span class="btn-text">Send Confirmation</span>
             </button>
           </div>
-        </div>
       </div>
     </section>
   </main>
@@ -807,9 +868,9 @@
         user_data: { phone: cleanPhone, name: name },
         ecommerce: {
           transaction_id: purchaseUniqueId,
-          value: 15000,
+          value: 3900,
           currency: 'PKR',
-          items: [{ item_name: 'E-Commerce Mentorship', price: 15000, quantity: 1 }]
+          items: [{ item_name: 'E-Commerce Mentorship', price: 3900, quantity: 1 }]
         }
       });
 
@@ -817,14 +878,14 @@
         fbq('track', 'Purchase', {
           content_name: 'E-Commerce Mentorship',
           currency: 'PKR',
-          value: 15000
+          value: 3900
         }, { eventID: purchaseUniqueId });
       }
 
       if (typeof gtag === 'function') {
         gtag('event', 'conversion', {
           send_to: 'AW-16499475514/RrpICJCXmOIcELqIyLs9',
-          value: 15000.0,
+          value: 3900.0,
           currency: 'PKR',
           transaction_id: purchaseUniqueId
         });
