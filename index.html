@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="style.css?v=20261015zj">
+  <link rel="stylesheet" href="style.css?v=20261029footergray">
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -652,17 +652,21 @@
   <!-- Mobile layout (Figma 390px) -->
   <div class="layout layout--mobile" id="layout-mobile">
     <div class="m-shell">
+      <div class="m-stage">
       <header class="m-header">
         <div class="m-header__inner">
           <a class="m-logo" href="#" aria-label="AI Web Crafts home">
             <img src="/img/logo.png" alt="" width="24" height="24" class="m-logo__img">
             <span class="m-logo__text">AI Web Crafts</span>
           </a>
-          <a href="pay.html" class="nav-enroll">Enroll Now</a>
+          <a href="pay.html" class="nav-enroll">
+            <span class="nav-enroll__dot" aria-hidden="true"></span>
+            <span class="nav-enroll__label">Enroll Now</span>
+            <span class="nav-enroll__arrow" aria-hidden="true"></span>
+          </a>
         </div>
       </header>
 
-      <main class="m-main">
         <section class="m-hero" aria-labelledby="m-hero-title">
           <div class="m-hero__decor" aria-hidden="true">
             <span class="m-hero__grid"></span>
@@ -670,12 +674,10 @@
 
           <div class="m-hero__inner">
             <div class="m-hero__content">
-              <p class="m-hero__hook">
-                <span class="m-hero__hook-dot" aria-hidden="true"></span>
-                Education Trap Se Aage Barhein
-              </p>
               <h1 id="m-hero-title" class="m-hero__title">
-                <span class="m-hero__title-line m-hero__title-line--accent">Product se <br class="m-hero__br-phone">Sale Tak</span>
+                <span class="m-hero__lead">Sirf Store Banana Nahi,</span>
+                <span class="m-hero__punch"><span class="m-hero__mark">Sales</span> Lana</span>
+                <span class="m-hero__bang">Bhi Seekhein!</span>
               </h1>
               <p class="m-hero__desc">
                 <span class="m-hero__desc-phone">Woh strategies seekhein jin se aap apni products sell kar sakte hain.</span>
@@ -703,7 +705,9 @@
             </div>
           </div>
         </section>
+      </div>
 
+      <main class="m-main">
         <!-- Student Stories: add each YouTube video ID in data-video, plus name / course / quote -->
         <section class="m-testi" aria-labelledby="m-testi-title">
           <div class="m-testi__head">
@@ -774,9 +778,7 @@
         <section class="m-fit" aria-labelledby="m-fit-title">
           <div class="m-fit__inner">
             <header class="m-fit__head">
-              <span class="m-fit__eyebrow">Self-check</span>
               <h2 id="m-fit-title" class="m-fit__title">Kya yeh mentorship <span class="m-fit__title-accent">aap ke liye</span> hai?</h2>
-              <p class="m-fit__sub">Dekhein, kya aap in mein se kisi situation mein hain?</p>
             </header>
 
             <div class="m-fit__yes">
@@ -837,7 +839,6 @@
             </div>
 
             <div class="m-fit__cta">
-              <p class="m-fit__cta-text">Upar kisi situation mein khud ko dekha?</p>
               <a href="pay.html" class="m-btn m-btn--submit m-fit__btn" data-highlight-enroll>Haan, yeh mere liye hai</a>
             </div>
           </div>
@@ -1079,24 +1080,24 @@
 
   <!-- Desktop layout -->
   <div class="layout layout--desktop" id="layout-desktop">
+    <div class="d-stage">
     <header class="d-nav">
       <div class="d-nav__inner">
         <a class="d-logo" href="#" aria-label="AI Web Crafts home">
           <span class="d-logo" aria-hidden="true"><img src="/img/logo.png" alt="logo AI web crafts" style="width: 32px;" ></span>
           <span class="d-logo__text">AI Web Crafts</span>
         </a>
-        <a href="pay.html" class="nav-enroll">Enroll Now</a>
+        <a href="pay.html" class="nav-enroll">
+          <span class="nav-enroll__dot" aria-hidden="true"></span>
+          <span class="nav-enroll__label">Enroll Now</span>
+          <span class="nav-enroll__arrow" aria-hidden="true"></span>
+        </a>
       </div>
     </header>
 
-    <main class="d-main">
       <section class="d-hero" aria-labelledby="d-hero-title">
         <div class="d-hero__inner">
           <div class="d-hero__copy">
-            <p class="d-hero__hook">
-              <span class="d-hero__hook-dot" aria-hidden="true"></span>
-              Education Trap Se Aage Barhein
-            </p>
             <h1 id="d-hero-title" class="d-hero__title"><span class="d-hero__title-accent">Product se<br>Sale Tak</span></h1>
             <p class="d-hero__desc">Shopify par apna store kaise banana hai, winning products kaise choose karne hain aur apni products ko sell kaise karna hai — yeh sab seekhein, step by step.</p>
             <ul class="d-hero__chips" aria-label="Highlights">
@@ -1125,7 +1126,9 @@
           </div>
         </div>
       </section>
+    </div>
 
+    <main class="d-main">
       <section class="d-testi" aria-labelledby="d-testi-title">
         <div class="d-testi__inner">
           <header class="d-testi__head">
@@ -2068,6 +2071,7 @@
                 });
             }
             dots.forEach((d, i) => d.classList.toggle("is-active", i === active));
+            track.classList.toggle("is-at-end", track.scrollLeft >= maxScroll);
             if (prev) prev.disabled = track.scrollLeft <= 1;
             if (next) next.disabled = track.scrollLeft >= maxScroll;
         };
@@ -2083,6 +2087,18 @@
     }
     initStoryCarousel("mTestiTrack", "mTestiDots");
     initStoryCarousel("dTestiTrack", "dTestiDots", "dTestiPrev", "dTestiNext");
+
+    (function () {
+      var headers = document.querySelectorAll(".m-header, .d-nav");
+      var onScroll = function () {
+        var scrolled = window.scrollY > 8;
+        headers.forEach(function (header) {
+          header.classList.toggle("is-scrolled", scrolled);
+        });
+      };
+      onScroll();
+      window.addEventListener("scroll", onScroll, { passive: true });
+    })();
 
     document.querySelectorAll("[data-highlight-enroll]").forEach(btn => {
         btn.addEventListener("click", e => {
