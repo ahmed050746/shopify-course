@@ -1,26 +1,40 @@
-/* Desktop hero — split layout, stage photo, layered overlays */
+/* Desktop hero — full-bleed background image, copy overlaid on negative space */
 
-#layout-desktop .d-hero {
+#layout-desktop .d-hero.d-hero--fullbg {
   position: relative;
   isolation: isolate;
   overflow: hidden;
+  /* One viewport-tall hero; nav is first child (fixed) — bg extends under it */
+  padding-top: 73px;
+  box-sizing: border-box;
+  min-height: min(720px, 100vh);
+  min-height: min(720px, 100dvh);
   background: #050508;
+}
+
+#layout-desktop .d-hero__bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: #050508;
+  background-image: url("img/hero-bg-full.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 #layout-desktop .d-hero__backdrop {
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
   pointer-events: none;
-}
-
-#layout-desktop .d-hero__mesh {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 80% 60% at 12% 0%, rgba(122, 108, 248, 0.28) 0%, transparent 55%),
-    radial-gradient(ellipse 50% 45% at 88% 100%, rgba(255, 90, 31, 0.15) 0%, transparent 50%),
-    #050508;
 }
 
 #layout-desktop .d-hero__overlay {
@@ -28,14 +42,16 @@
   pointer-events: none;
 }
 
+/* Readability over left-side copy; lighter toward right where portrait sits */
 #layout-desktop .d-hero__overlay--page {
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     90deg,
-    rgba(5, 5, 8, 0.98) 0%,
-    rgba(5, 5, 8, 0.88) 42%,
-    rgba(5, 5, 8, 0.45) 62%,
-    rgba(5, 5, 8, 0.15) 100%
+    rgba(5, 8, 18, 0.92) 0%,
+    rgba(5, 8, 18, 0.55) 38%,
+    rgba(5, 8, 18, 0.18) 58%,
+    rgba(5, 8, 18, 0.02) 100%
   );
 }
 
@@ -43,33 +59,26 @@
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100px;
+  height: 120px;
+  z-index: 2;
   background: linear-gradient(180deg, transparent, var(--color-bg-alt));
 }
 
 #layout-desktop .d-hero__container {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   max-width: 1240px;
   margin: 0 auto;
-  padding: 48px 40px 64px;
-  min-height: min(760px, calc(100vh - 73px));
-  min-height: min(760px, calc(100dvh - 73px));
+  padding: 24px 40px 72px;
+  min-height: inherit;
   display: flex;
   align-items: center;
   box-sizing: border-box;
 }
 
-#layout-desktop .d-hero__grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(300px, 440px);
-  align-items: center;
-  gap: clamp(32px, 5vw, 64px);
-  width: 100%;
-}
-
 #layout-desktop .d-hero__main {
   position: relative;
+  max-width: min(100%, 520px);
   padding-left: 20px;
   border-left: 3px solid transparent;
   border-image: linear-gradient(180deg, #8b7cff, #ff6b2c) 1;
@@ -77,12 +86,12 @@
 
 #layout-desktop .d-hero__eyebrow {
   display: inline-block;
-  margin: 0 0 16px;
+  margin: 0 0 22px;
   padding: 6px 12px;
   border-radius: 9999px;
-  background: rgba(122, 108, 248, 0.15);
-  border: 1px solid rgba(167, 154, 255, 0.35);
-  color: #dcd6ff;
+  background: rgba(122, 108, 248, 0.2);
+  border: 1px solid rgba(167, 154, 255, 0.45);
+  color: #e8e4ff;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -93,16 +102,19 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 18px;
 }
 
 #layout-desktop .d-hero__lead {
   position: relative;
-  display: inline-block;
-  font-size: 18px;
+  display: block;
+  margin: 0;
+  font-size: clamp(17px, 1.15vw, 20px);
   font-weight: 500;
-  line-height: 1.4;
-  color: #a8a8b3;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.88);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
 }
 
 #layout-desktop .d-hero__lead::after {
@@ -131,16 +143,18 @@
 #layout-desktop .d-hero__headline {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  margin-top: 2px;
 }
 
 #layout-desktop .d-hero__line {
   display: block;
-  font-size: clamp(42px, 4.6vw, 64px);
+  font-size: clamp(40px, 4.2vw, 60px);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.04em;
   color: #fff;
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.5);
 }
 
 #layout-desktop .d-hero__line--accent {
@@ -148,77 +162,64 @@
 }
 
 #layout-desktop .d-hero__mark {
-  position: relative;
   display: inline-block;
-  color: #b5a9ff;
-}
-
-#layout-desktop .d-hero__mark::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: -4px;
-  right: -6px;
-  bottom: 0.06em;
-  height: 0.32em;
-  border-radius: 6px;
-  background: linear-gradient(90deg, rgba(122, 108, 248, 0.55), rgba(255, 107, 44, 0.3));
-  transform: rotate(-1.2deg);
+  color: #c4b8ff;
 }
 
 #layout-desktop .d-hero__seek {
   position: relative;
   display: inline-block;
   margin-left: 0.12em;
-  color: #ff6b2c;
+  color: #ff8f5c;
 }
 
-#layout-desktop .d-hero__mark .m-seek__ch,
+/* “Drive Sales” stays static; only “Too!” loops */
+#layout-desktop .d-hero__mark .m-seek__ch {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  color: #c4b8ff;
+  -webkit-text-fill-color: #c4b8ff;
+}
+
 #layout-desktop .d-hero__seek .m-seek__ch {
   display: inline-block;
   opacity: 0;
-  animation: d-hero-char-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-#layout-desktop .d-hero__mark .m-seek__ch {
-  color: #b5a9ff;
-  -webkit-text-fill-color: #b5a9ff;
-}
-
-#layout-desktop .d-hero__seek .m-seek__ch {
-  color: #ff6b2c;
-  -webkit-text-fill-color: #ff6b2c;
+  color: #ff8f5c;
+  -webkit-text-fill-color: #ff8f5c;
+  animation: d-hero-char-loop 4.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
 }
 
 #layout-desktop .m-seek__ch--gap {
   width: 0.28em;
 }
 
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(1) { animation-delay: 0.05s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(2) { animation-delay: 0.17s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(3) { animation-delay: 0.29s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(4) { animation-delay: 0.41s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(5) { animation-delay: 0.53s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(6) { animation-delay: 0.65s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(7) { animation-delay: 0.77s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(8) { animation-delay: 0.89s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(9) { animation-delay: 1.01s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(10) { animation-delay: 1.13s; }
-#layout-desktop .d-hero__mark .m-seek__ch:nth-child(11) { animation-delay: 1.25s; }
+#layout-desktop .d-hero__seek .m-seek__ch:nth-child(1) { animation-delay: 0s; }
+#layout-desktop .d-hero__seek .m-seek__ch:nth-child(2) { animation-delay: 0.08s; }
+#layout-desktop .d-hero__seek .m-seek__ch:nth-child(3) { animation-delay: 0.16s; }
+#layout-desktop .d-hero__seek .m-seek__ch:nth-child(4) { animation-delay: 0.24s; }
 
-#layout-desktop .d-hero__seek .m-seek__ch:nth-child(1) { animation-delay: 1.45s; }
-#layout-desktop .d-hero__seek .m-seek__ch:nth-child(2) { animation-delay: 1.57s; }
-#layout-desktop .d-hero__seek .m-seek__ch:nth-child(3) { animation-delay: 1.69s; }
-#layout-desktop .d-hero__seek .m-seek__ch:nth-child(4) { animation-delay: 1.81s; }
-
-@keyframes d-hero-char-in {
-  from {
+@keyframes d-hero-char-loop {
+  /* Wave in → hold → wave out → brief pause → repeat */
+  0% {
     opacity: 0;
-    transform: translateY(0.25em);
+    transform: translateY(0.28em);
   }
-  to {
+  10% {
     opacity: 1;
     transform: translateY(0);
+  }
+  35% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  42% {
+    opacity: 0;
+    transform: translateY(0.2em);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0.28em);
   }
 }
 
@@ -239,32 +240,8 @@
   max-width: 48ch;
   font-size: 18px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.76);
-}
-
-#layout-desktop .d-hero__highlights {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin: 22px 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-#layout-desktop .d-hero__highlights li {
-  padding: 8px 14px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-#layout-desktop .d-hero__highlights li::before {
-  content: "✓ ";
-  color: #9d8fff;
-  font-weight: 800;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
 }
 
 #layout-desktop .d-hero__actions {
@@ -301,97 +278,11 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.48);
+  color: rgba(255, 255, 255, 0.78);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 
-#layout-desktop .d-hero__stage {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-#layout-desktop .d-hero__frame {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  max-height: min(68vh, 560px);
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow:
-    0 40px 80px -32px rgba(0, 0, 0, 0.75),
-    0 0 0 1px rgba(122, 108, 248, 0.15) inset;
-}
-
-#layout-desktop .d-hero__frame::before {
-  content: "";
-  position: absolute;
-  inset: -40% -20% auto;
-  height: 70%;
-  background: radial-gradient(circle, rgba(122, 108, 248, 0.35) 0%, transparent 70%);
-  z-index: 0;
-  pointer-events: none;
-}
-
-#layout-desktop .d-hero__photo {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 18%;
-  z-index: 1;
-}
-
-#layout-desktop .d-hero__overlay--photo {
-  inset: 0;
-  z-index: 2;
-  background: linear-gradient(
-    180deg,
-    rgba(5, 5, 8, 0.08) 0%,
-    rgba(5, 5, 8, 0) 35%,
-    rgba(5, 5, 8, 0.55) 78%,
-    rgba(5, 5, 8, 0.92) 100%
-  );
-}
-
-#layout-desktop .d-hero__overlay--shine {
-  inset: 0;
-  z-index: 3;
-  background: linear-gradient(
-    125deg,
-    rgba(255, 255, 255, 0.12) 0%,
-    transparent 42%,
-    transparent 100%
-  );
-  mix-blend-mode: soft-light;
-}
-
-#layout-desktop .d-hero__badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin: 0;
-  padding: 10px 16px;
-  border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(5, 5, 8, 0.65);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 13px;
-  font-weight: 600;
-}
-
-#layout-desktop .d-hero__badge-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 12px rgba(34, 197, 94, 0.65);
-}
-
+/* Transparent nav over hero: white wordmark + light logo (scrolled bar uses default colors from style.css) */
 #layout-desktop .d-nav:not(.is-scrolled) .d-logo__text {
   color: #fff;
 }
@@ -400,8 +291,14 @@
   filter: brightness(0) invert(1);
 }
 
+/* Enroll hidden at top of page; shown as soon as user scrolls (.is-scrolled) */
+#layout-desktop .d-nav:not(.is-scrolled) .nav-enroll {
+  display: none;
+}
+
 #layout-desktop .d-stage {
-  background: #050508;
+  /* Hero fills viewport; avoid a solid band above/beside full-bleed image */
+  background: transparent;
 }
 
 /* Neutralize legacy hero rules */
@@ -411,29 +308,31 @@
   all: unset;
 }
 
-@media (max-width: 1100px) {
-  #layout-desktop .d-hero__grid {
-    grid-template-columns: 1fr;
-  }
-
-  #layout-desktop .d-hero__stage {
-    order: -1;
-    max-width: 360px;
-    margin: 0 auto;
+@media (max-width: 900px) {
+  #layout-desktop .d-hero.d-hero--fullbg {
+    min-height: 0;
   }
 
   #layout-desktop .d-hero__container {
-    min-height: 0;
-    padding: 32px 24px 48px;
+    padding: 36px 24px 56px;
+    align-items: flex-end;
+  }
+
+  #layout-desktop .d-hero__bg {
+    background-position: 70% center;
   }
 
   #layout-desktop .d-hero__overlay--page {
     background: linear-gradient(
       180deg,
-      rgba(5, 5, 8, 0.92) 0%,
-      rgba(5, 5, 8, 0.7) 50%,
-      rgba(5, 5, 8, 0.95) 100%
+      rgba(5, 8, 18, 0.15) 0%,
+      rgba(5, 8, 18, 0.75) 55%,
+      rgba(5, 8, 18, 0.94) 100%
     );
+  }
+
+  #layout-desktop .d-hero__main {
+    max-width: 100%;
   }
 }
 
@@ -443,7 +342,6 @@
     content: none;
   }
 
-  #layout-desktop .d-hero__mark .m-seek__ch,
   #layout-desktop .d-hero__seek .m-seek__ch {
     opacity: 1;
     animation: none;
