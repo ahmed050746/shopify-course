@@ -27,41 +27,20 @@
   background-repeat: no-repeat;
 }
 
-#layout-desktop .d-hero__backdrop {
+/* Gradient scrim: dark left for copy, lighter primary tint on right for photo */
+#layout-desktop .d-hero.d-hero--fullbg .d-hero__overlay {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  pointer-events: none;
-}
-
-#layout-desktop .d-hero__overlay {
-  position: absolute;
-  pointer-events: none;
-}
-
-/* Readability over left-side copy; lighter toward right where portrait sits */
-#layout-desktop .d-hero__overlay--page {
   inset: 0;
   z-index: 1;
+  pointer-events: none;
   background: linear-gradient(
     90deg,
-    rgba(5, 8, 18, 0.92) 0%,
-    rgba(5, 8, 18, 0.55) 38%,
-    rgba(5, 8, 18, 0.18) 58%,
-    rgba(5, 8, 18, 0.02) 100%
+    rgba(5, 8, 18, 0.85) 0%,
+    rgba(5, 8, 18, 0.55) 34%,
+    rgba(var(--color-primary-rgb), 0.38) 56%,
+    rgba(var(--color-primary-rgb), 0.18) 76%,
+    rgba(0, 0, 0, 0.15) 100%
   );
-}
-
-#layout-desktop .d-hero__overlay--fade {
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 120px;
-  z-index: 2;
-  background: linear-gradient(180deg, transparent, var(--color-bg-alt));
 }
 
 #layout-desktop .d-hero__container {
@@ -76,11 +55,11 @@
   box-sizing: border-box;
 }
 
-#layout-desktop .d-hero__main {
+#layout-desktop .d-hero.d-hero--fullbg .d-hero__main {
   position: relative;
-  max-width: min(100%, 520px);
-  padding-left: 20px;
-  border-left: 3px solid transparent;
+  max-width: min(100%, 640px);
+  padding-left: 24px;
+  border-left: 4px solid transparent;
   border-image: linear-gradient(180deg, #8b7cff, #ff6b2c) 1;
 }
 
@@ -98,58 +77,78 @@
   text-transform: uppercase;
 }
 
-#layout-desktop .d-hero__title {
+#layout-desktop .d-hero.d-hero--fullbg .d-hero__title {
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 22px;
+  max-width: none;
 }
 
-#layout-desktop .d-hero__lead {
+#layout-desktop .d-hero.d-hero--fullbg .d-hero__lead {
   position: relative;
   display: block;
   margin: 0;
-  font-size: clamp(17px, 1.15vw, 20px);
+  font-size: clamp(20px, 1.65vw, 28px);
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: 0.01em;
   color: rgba(255, 255, 255, 0.88);
   text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
 }
 
-#layout-desktop .d-hero__lead::after {
+#layout-desktop .d-hero.d-hero--fullbg .d-hero__lead::after {
   content: attr(data-shine);
   position: absolute;
   left: 0;
   top: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   white-space: nowrap;
+  font: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
   background-image: linear-gradient(
-    115deg,
+    105deg,
     transparent 0%,
-    transparent 38%,
-    rgba(255, 255, 255, 0.92) 50%,
-    transparent 62%,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 38%,
+    rgba(255, 255, 255, 0.95) 50%,
+    rgba(196, 184, 255, 0.9) 52%,
+    rgba(255, 255, 255, 0.25) 62%,
+    transparent 70%,
     transparent 100%
   );
-  background-size: 220% 100%;
+  background-size: 240% 100%;
+  background-repeat: no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
-  animation: m-hero-lead-shine 3.4s ease-in-out infinite;
+  animation: d-hero-lead-shine 3s ease-in-out infinite;
 }
 
-#layout-desktop .d-hero__headline {
+@keyframes d-hero-lead-shine {
+  0%, 35% {
+    background-position: 125% 0;
+  }
+  100% {
+    background-position: -35% 0;
+  }
+}
+
+#layout-desktop .d-hero.d-hero--fullbg .d-hero__headline {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  margin-top: 2px;
+  gap: 10px;
+  margin-top: 4px;
 }
 
-#layout-desktop .d-hero__line {
+#layout-desktop .d-hero.d-hero--fullbg .d-hero__line {
   display: block;
-  font-size: clamp(40px, 4.2vw, 60px);
+  font-size: clamp(48px, 5.5vw, 76px);
   font-weight: 800;
   line-height: 1;
   letter-spacing: -0.04em;
@@ -244,34 +243,52 @@
   text-shadow: 0 1px 14px rgba(0, 0, 0, 0.45);
 }
 
-#layout-desktop .d-hero__actions {
+#layout-desktop .d-hero.d-hero--fullbg .d-hero__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 18px 28px;
-  margin-top: 32px;
+  margin-top: 40px;
 }
 
-#layout-desktop .d-hero__cta {
+/* Hero CTA: white pill on photo for clear contrast */
+#layout-desktop .d-hero__actions .d-hero__enroll {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  min-height: 56px;
-  padding: 0 34px;
-  border-radius: 9999px;
-  background: linear-gradient(100deg, #8b7cff 0%, #5b4df0 55%, #6e5efc 100%);
-  color: #fff;
-  font-size: 17px;
-  font-weight: 700;
+  width: auto;
+  min-width: 340px;
+  min-height: 76px;
+  padding: 24px 52px;
   text-decoration: none;
-  box-shadow: 0 20px 44px -18px rgba(91, 77, 240, 0.95);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-size: 19px;
+  line-height: 28px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  color: var(--color-primary);
+  background: #fff !important;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 20px 48px -14px rgba(0, 0, 0, 0.45),
+    0 8px 20px -8px rgba(0, 0, 0, 0.25);
+  text-shadow: none;
 }
 
-#layout-desktop .d-hero__cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 26px 52px -16px rgba(91, 77, 240, 1);
+#layout-desktop .d-hero__actions .d-hero__enroll:hover {
+  color: var(--color-primary-alt);
+  background: #f8f8fc !important;
+  border-color: #fff;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 24px 52px -12px rgba(0, 0, 0, 0.42),
+    0 10px 24px -8px rgba(var(--color-primary-rgb), 0.2);
+}
+
+#layout-desktop .d-hero__actions .d-hero__enroll:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
 #layout-desktop .d-hero__note {
@@ -282,13 +299,9 @@
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Transparent nav over hero: white wordmark + light logo (scrolled bar uses default colors from style.css) */
+/* Wordmark readable over hero; logo image stays default (same as scrolled) */
 #layout-desktop .d-nav:not(.is-scrolled) .d-logo__text {
   color: #fff;
-}
-
-#layout-desktop .d-nav:not(.is-scrolled) .d-logo img {
-  filter: brightness(0) invert(1);
 }
 
 /* Enroll hidden at top of page; shown as soon as user scrolls (.is-scrolled) */
@@ -322,22 +335,13 @@
     background-position: 70% center;
   }
 
-  #layout-desktop .d-hero__overlay--page {
-    background: linear-gradient(
-      180deg,
-      rgba(5, 8, 18, 0.15) 0%,
-      rgba(5, 8, 18, 0.75) 55%,
-      rgba(5, 8, 18, 0.94) 100%
-    );
-  }
-
   #layout-desktop .d-hero__main {
     max-width: 100%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  #layout-desktop .d-hero__lead::after {
+  #layout-desktop .d-hero.d-hero--fullbg .d-hero__lead::after {
     animation: none;
     content: none;
   }

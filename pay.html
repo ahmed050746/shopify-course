@@ -43,9 +43,24 @@
       border-bottom: 1px solid var(--color-border-light);
     }
 
-    .pay-step--confirm {
+    .pay-step--details {
       background: var(--color-bg);
       padding-bottom: 48px;
+    }
+
+    .pay-step--method-panel {
+      background: var(--color-primary-wash);
+      border-bottom: 1px solid var(--color-border-light);
+      padding-bottom: 32px;
+    }
+
+    .pay-step--upload {
+      background: var(--color-bg-alt);
+      padding-bottom: 48px;
+    }
+
+    .pay-step[hidden] {
+      display: none !important;
     }
 
     .pay-step__inner {
@@ -98,8 +113,13 @@
         padding: 56px 32px;
       }
 
-      .pay-step--confirm {
+      .pay-step--details,
+      .pay-step--upload {
         padding-bottom: 72px;
+      }
+
+      .pay-step--method-panel {
+        padding-bottom: 40px;
       }
 
       .pay-step__num {
@@ -112,6 +132,7 @@
         font-size: 24px;
         line-height: 30px;
       }
+
     }
 
     .pay-topbar {
@@ -368,12 +389,70 @@
       line-height: 1.45;
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
     .confirm-card {
       background: var(--color-bg-alt);
       border: 1px solid var(--color-border);
       border-radius: 20px;
       padding: 28px;
       box-shadow: 0 14px 32px -24px rgba(var(--color-text-rgb), 0.35);
+    }
+
+    .pay-name-row {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .pay-name-row .d-field__input {
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media (max-width: 480px) {
+      .pay-name-row {
+        flex-direction: column;
+      }
+    }
+
+    .pay-phone-row {
+      display: flex;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .pay-phone-country {
+      flex: 0 1 11.5rem;
+      min-width: 7.5rem;
+      max-width: 12.5rem;
+      padding: 12px 10px;
+      font-size: 13px;
+    }
+
+    .pay-phone-row .pay-phone-number {
+      flex: 1;
+      min-width: 0;
+    }
+
+    @media (max-width: 480px) {
+      .pay-phone-row {
+        flex-wrap: wrap;
+      }
+
+      .pay-phone-country {
+        flex: 1 1 100%;
+      }
     }
 
     .upload-area {
@@ -467,39 +546,6 @@
       font-weight: 600;
     }
 
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 500;
-      display: flex;
-      justify-content: center;
-      padding: 24px;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .modal-overlay[hidden] { display: none !important; }
-
-    .modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(var(--color-text-rgb), 0.45);
-      backdrop-filter: blur(4px);
-    }
-
-    .modal-dialog {
-      position: relative;
-      z-index: 1;
-      width: 100%;
-      max-width: 400px;
-      margin: auto;
-      background: var(--color-bg-alt);
-      border-radius: 20px;
-      padding: 32px 24px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    }
-
     /* Mobile responsive */
     @media (max-width: 900px) {
       .pay-grid {
@@ -559,13 +605,75 @@
   </header>
 
   <main>
-    <section class="pay-step pay-step--method" id="payment-section" aria-labelledby="pay-step-1-title">
+    <section class="pay-step pay-step--details" id="pay-step-contact" aria-labelledby="pay-step-1-title">
       <div class="pay-step__inner">
           <header class="pay-step__head">
             <span class="pay-step__num" aria-hidden="true">1</span>
             <div>
               <p class="pay-step__kicker">Step 1</p>
-              <h2 id="pay-step-1-title" class="pay-step__title">Select Payment Method</h2>
+              <h2 id="pay-step-1-title" class="pay-step__title">Your Details</h2>
+            </div>
+          </header>
+
+          <div class="confirm-card">
+            <div class="d-field">
+              <span class="d-field__label">Name *</span>
+              <div class="pay-name-row">
+                <div>
+                  <label class="sr-only" for="c-fn">First name</label>
+                  <input class="d-field__input" type="text" id="c-fn" placeholder="First name" autocomplete="given-name" maxlength="60" aria-describedby="err-fn">
+                  <p class="form-error" id="err-fn" hidden>Please enter your first name.</p>
+                </div>
+                <div>
+                  <label class="sr-only" for="c-ln">Last name</label>
+                  <input class="d-field__input" type="text" id="c-ln" placeholder="Last name" autocomplete="family-name" maxlength="60" aria-describedby="err-ln">
+                  <p class="form-error" id="err-ln" hidden>Please enter your last name.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-field">
+              <label class="d-field__label" for="c-phone">Phone Number *</label>
+              <div class="pay-phone-row">
+                <select class="d-field__input pay-phone-country" id="c-phone-country" aria-label="Phone country">
+                  <option value="PK" selected>Pakistan</option>
+                  <option value="SA">Saudi Arabia</option>
+                  <option value="AE">United Arab Emirates</option>
+                  <option value="QA">Qatar</option>
+                  <option value="OM">Oman</option>
+                  <option value="GB">United Kingdom</option>
+                </select>
+                <input class="d-field__input pay-phone-number" type="tel" id="c-phone" placeholder="03321319363" inputmode="tel" autocomplete="tel" maxlength="20">
+              </div>
+              <p class="form-error" id="err-phone" hidden>Enter a valid number for the selected country (not another country’s format).</p>
+            </div>
+
+            <div class="d-field">
+              <label class="d-field__label" for="c-email">Email *</label>
+              <input class="d-field__input" type="email" id="c-email" placeholder="you@example.com" autocomplete="email" maxlength="120">
+              <p class="form-error" id="err-email" hidden>Please enter a valid email address.</p>
+            </div>
+
+            <div class="d-field">
+              <label class="d-field__label" for="c-city">City *</label>
+              <input class="d-field__input" type="text" id="c-city" placeholder="e.g. Karachi" autocomplete="address-level2" maxlength="80">
+              <p class="form-error" id="err-city" hidden>Please enter your city.</p>
+            </div>
+
+            <button class="submit-pay-btn" id="contact-next-btn" type="button" onclick="goToPaymentStep()">
+              <span class="btn-text">Next</span>
+            </button>
+          </div>
+      </div>
+    </section>
+
+    <section class="pay-step pay-step--method-panel" id="payment-section" aria-labelledby="pay-step-2-title" hidden>
+      <div class="pay-step__inner">
+          <header class="pay-step__head">
+            <span class="pay-step__num" aria-hidden="true">2</span>
+            <div>
+              <p class="pay-step__kicker">Step 2</p>
+              <h2 id="pay-step-2-title" class="pay-step__title">Payment Method</h2>
             </div>
           </header>
 
@@ -607,7 +715,7 @@
               <span class="detail-lbl">Amount</span>
               <span class="detail-val detail-val--accent">Rs. 4,500</span>
             </div>
-            <div class="method-note">💡 After transfer, take a screenshot and upload it in the form.</div>
+            <div class="method-note">💡 After transfer, take a screenshot and upload it below.</div>
           </div>
 
           <div class="pay-detail" id="detail-easy" hidden>
@@ -631,32 +739,19 @@
       </div>
     </section>
 
-    <section class="pay-step pay-step--confirm" aria-labelledby="pay-step-2-title">
+    <section class="pay-step pay-step--upload" id="pay-step-upload" aria-labelledby="pay-step-3-title" hidden>
       <div class="pay-step__inner">
           <header class="pay-step__head">
-            <span class="pay-step__num" aria-hidden="true">2</span>
+            <span class="pay-step__num" aria-hidden="true">3</span>
             <div>
-              <p class="pay-step__kicker">Step 2</p>
-              <h2 id="pay-step-2-title" class="pay-step__title">Confirm Your Payment</h2>
+              <p class="pay-step__kicker">Step 3</p>
+              <h2 id="pay-step-3-title" class="pay-step__title">Upload Payment Screenshot / Image</h2>
             </div>
           </header>
 
           <div class="confirm-card">
-
             <div class="d-field">
-              <label class="d-field__label" for="c-name">Full Name *</label>
-              <input class="d-field__input" type="text" id="c-name" placeholder="Enter your full name" autocomplete="name" maxlength="120">
-              <p class="form-error" id="err-name" hidden>Please enter your name.</p>
-            </div>
-
-            <div class="d-field">
-              <label class="d-field__label" for="c-phone">Phone Number *</label>
-              <input class="d-field__input" type="tel" id="c-phone" placeholder="0300-XXXXXXX" inputmode="numeric" autocomplete="tel" maxlength="20">
-              <p class="form-error" id="err-phone" hidden>Please enter a valid phone number.</p>
-            </div>
-
-            <div class="d-field">
-              <label class="d-field__label">Payment Screenshot *</label>
+              <label class="d-field__label" for="c-screenshot">Payment Screenshot *</label>
               <div class="upload-area" id="upload-area">
                 <input type="file" id="c-screenshot" accept="image/*" onchange="handleFileSelect(event)" aria-label="Upload payment screenshot">
                 <span class="upload-icon" aria-hidden="true">📸</span>
@@ -670,14 +765,7 @@
               <p class="form-error" id="err-screenshot" hidden>Please upload payment screenshot.</p>
             </div>
 
-            <div class="d-field">
-              <label class="d-field__label" for="c-code">Confirmation Code *</label>
-              <input class="d-field__input code-field-input" type="text" id="c-code" placeholder="e.g. AWC001" autocomplete="off" maxlength="20" style="text-transform: uppercase; letter-spacing: 1px;">
-              <p class="form-hint">Yeh code hamari team ny aapko contact confirm karny k baad diya hoga.</p>
-              <p class="form-error" id="err-code" hidden>Please enter a valid confirmation code (e.g. AWC001).</p>
-            </div>
-
-            <button class="submit-pay-btn" id="confirm-btn" type="button" onclick="submitConfirmation()" disabled>
+            <button class="submit-pay-btn" id="confirm-btn" type="button" onclick="submitConfirmation()">
               <span class="loading-spinner" aria-hidden="true"></span>
               <span class="btn-text">Send Confirmation</span>
             </button>
@@ -690,36 +778,220 @@
     <p>© 2026 <a href="index.html">AI Web Crafts</a>. All rights reserved.</p>
   </footer>
 
-  <div class="modal-overlay" id="paymentSuccessModal" role="dialog" aria-modal="true" aria-labelledby="payModalTitle" hidden>
-    <div class="modal-backdrop" id="payModalBackdrop"></div>
-    <div class="modal-dialog" role="document">
-      <span style="font-size: 48px; display: block; margin-bottom: 12px;" aria-hidden="true">✅</span>
-      <h2 id="payModalTitle" style="font-size: 24px; margin: 0 0 8px; color: var(--color-text);">Payment Submitted!</h2>
-      <p style="font-size: 14px; margin: 0 0 20px; color: var(--color-text-muted);">Thank you! We will verify your payment and confirm your enrollment within 24 hours.</p>
-      <button class="m-btn m-btn--primary" id="payModalCloseBtn" type="button" style="width: 100%;">Got it!</button>
+  <div class="thank-modal" id="paymentSuccessModal" role="dialog" aria-modal="true" aria-labelledby="payModalTitle" hidden>
+    <div class="thank-modal__backdrop" id="payModalBackdrop"></div>
+    <div class="thank-modal__dialog" role="document">
+      <span class="thank-modal__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5" opacity="0.25"/>
+          <path d="M8 12.5l2.75 2.75L16 9.5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <h2 class="thank-modal__title" id="payModalTitle">Payment Submitted!</h2>
+      <p class="thank-modal__text">Thank you! We will verify your payment and confirm your enrollment within 24 hours.</p>
+      <button type="button" class="thank-modal__close" id="payModalCloseBtn">Got it!</button>
     </div>
   </div>
 
   <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKuSLup7ht_lXCrxbvFyNqeNgPZ8VI0FAdMW1BL1eh53nUi3nTl3ogqcBobf5Xa-OV/exec";
+    const PAYMENT_VALUE_PKR = 4500;
     let selectedFile = null;
     let screenshotBase64 = null;
-    const CONFIRM_CODE_PATTERN = /^[A-Z]{2,5}\d{2,5}$/;
+    const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    function validateCodeField() {
-      const codeEl = document.getElementById('c-code');
-      const btn = document.getElementById('confirm-btn');
-      if (!codeEl || !btn) return false;
-      const valid = CONFIRM_CODE_PATTERN.test((codeEl.value || '').trim().toUpperCase());
-      btn.disabled = !valid;
-      return valid;
+    const PHONE_COUNTRY_CONFIG = {
+      PK: { dial: '92', placeholder: '03321319363' },
+      SA: { dial: '966', placeholder: '512345678' },
+      AE: { dial: '971', placeholder: '501234567' },
+      QA: { dial: '974', placeholder: '33123456' },
+      OM: { dial: '968', placeholder: '92123456' },
+      GB: { dial: '44', placeholder: '07123456789' }
+    };
+
+    function getPhoneCountry() {
+      return document.getElementById('c-phone-country')?.value || 'PK';
     }
 
-    document.getElementById('c-code').addEventListener('input', () => {
-      clearPayErr('err-code');
-      validateCodeField();
-    });
-    validateCodeField();
+    function phoneDigitsOnly(raw) {
+      let s = (raw || '').trim().replace(/[\s\-().]/g, '');
+      if (s.startsWith('+')) s = s.slice(1);
+      return s.replace(/\D/g, '');
+    }
+
+    function stripDialCode(digits, dial) {
+      if (digits.startsWith('00' + dial)) return digits.slice(2 + dial.length);
+      if (digits.startsWith(dial)) return digits.slice(dial.length);
+      return digits;
+    }
+
+    const PHONE_DIAL_BY_COUNTRY = {
+      PK: '92',
+      SA: '966',
+      AE: '971',
+      QA: '974',
+      OM: '968',
+      GB: '44'
+    };
+
+    /** Reject obvious wrong-country formats (e.g. UAE selected + 03… Pakistan number). */
+    function isPhoneWrongCountry(selected, raw) {
+      const digits = phoneDigitsOnly(raw);
+      if (!digits) return false;
+
+      for (const [code, dial] of Object.entries(PHONE_DIAL_BY_COUNTRY)) {
+        if (code === selected) continue;
+        if (digits.startsWith('00' + dial)) return true;
+        if (digits.startsWith(dial) && digits.length > dial.length + 5) return true;
+      }
+
+      if (selected !== 'PK') {
+        if (digits.startsWith('03')) return true;
+        if (parsePakistanMobilePhone(raw)) return true;
+      } else {
+        for (const [code, dial] of Object.entries(PHONE_DIAL_BY_COUNTRY)) {
+          if (code === 'PK') continue;
+          if (digits.startsWith('00' + dial)) return true;
+          if (digits.startsWith(dial) && digits.length > dial.length + 5) return true;
+        }
+      }
+
+      return false;
+    }
+
+    function parsePakistanMobilePhone(raw) {
+      let digits = phoneDigitsOnly(raw);
+      digits = stripDialCode(digits, '92');
+      let local = null;
+
+      if (/^03\d{9}$/.test(digits)) {
+        local = digits;
+      } else if (/^3\d{9}$/.test(digits)) {
+        local = '0' + digits;
+      }
+
+      return local && /^03\d{9}$/.test(local) ? local : null;
+    }
+
+    /** { local, e164 } for selected country — local stored in sheet `phone`, e164 in `phone_e164`. */
+    function parsePhoneForCountry(country, raw) {
+      const cfg = PHONE_COUNTRY_CONFIG[country];
+      if (!cfg) return null;
+      if (isPhoneWrongCountry(country, raw)) return null;
+
+      let digits = stripDialCode(phoneDigitsOnly(raw), cfg.dial);
+
+      if (country === 'PK') {
+        const local = parsePakistanMobilePhone(raw);
+        if (!local) return null;
+        return { local, e164: '+92' + local.slice(1) };
+      }
+
+      if (country === 'SA') {
+        if (digits.startsWith('0')) digits = digits.slice(1);
+        if (!/^5\d{8}$/.test(digits)) return null;
+        return { local: '0' + digits, e164: '+966' + digits };
+      }
+
+      if (country === 'AE') {
+        if (digits.startsWith('0')) digits = digits.slice(1);
+        if (!/^5\d{8}$/.test(digits)) return null;
+        return { local: '0' + digits, e164: '+971' + digits };
+      }
+
+      if (country === 'QA') {
+        if (!/^\d{8}$/.test(digits)) return null;
+        return { local: digits, e164: '+974' + digits };
+      }
+
+      if (country === 'OM') {
+        if (!/^\d{8}$/.test(digits)) return null;
+        return { local: digits, e164: '+968' + digits };
+      }
+
+      if (country === 'GB') {
+        if (digits.startsWith('0')) digits = digits.slice(1);
+        if (!/^7\d{9}$/.test(digits)) return null;
+        return { local: '0' + digits, e164: '+44' + digits };
+      }
+
+      return null;
+    }
+
+    function syncPhonePlaceholder() {
+      const country = getPhoneCountry();
+      const phoneEl = document.getElementById('c-phone');
+      const cfg = PHONE_COUNTRY_CONFIG[country];
+      if (phoneEl && cfg) phoneEl.placeholder = cfg.placeholder;
+    }
+
+    function getFullNameFromFields() {
+      const fn = document.getElementById('c-fn').value.trim();
+      const ln = document.getElementById('c-ln').value.trim();
+      return [fn, ln].filter(Boolean).join(' ');
+    }
+
+    function validateContactFields() {
+      const fn = document.getElementById('c-fn').value.trim();
+      const ln = document.getElementById('c-ln').value.trim();
+      const phone = document.getElementById('c-phone').value.trim();
+      const email = document.getElementById('c-email').value.trim();
+      const city = document.getElementById('c-city').value.trim();
+      let isValid = true;
+
+      clearPayErr('err-fn');
+      clearPayErr('err-ln');
+      clearPayErr('err-phone');
+      clearPayErr('err-email');
+      clearPayErr('err-city');
+
+      if (fn.length < 2) {
+        showPayErr('err-fn');
+        document.getElementById('c-fn').setAttribute('aria-invalid', 'true');
+        isValid = false;
+      }
+      if (ln.length < 1) {
+        showPayErr('err-ln');
+        document.getElementById('c-ln').setAttribute('aria-invalid', 'true');
+        isValid = false;
+      }
+      if (!parsePhoneForCountry(getPhoneCountry(), phone)) {
+        showPayErr('err-phone');
+        document.getElementById('c-phone').setAttribute('aria-invalid', 'true');
+        isValid = false;
+      }
+      if (!EMAIL_PATTERN.test(email)) {
+        showPayErr('err-email');
+        document.getElementById('c-email').setAttribute('aria-invalid', 'true');
+        isValid = false;
+      }
+      if (city.length < 2) {
+        showPayErr('err-city');
+        document.getElementById('c-city').setAttribute('aria-invalid', 'true');
+        isValid = false;
+      }
+      return isValid;
+    }
+
+    function setPaymentStepsVisible(visible) {
+      const methodSection = document.getElementById('payment-section');
+      const uploadSection = document.getElementById('pay-step-upload');
+      if (visible) {
+        methodSection.removeAttribute('hidden');
+        uploadSection.removeAttribute('hidden');
+      } else {
+        methodSection.setAttribute('hidden', '');
+        uploadSection.setAttribute('hidden', '');
+      }
+    }
+
+    function goToPaymentStep() {
+      if (!validateContactFields()) return;
+      document.getElementById('pay-step-contact').setAttribute('hidden', '');
+      setPaymentStepsVisible(true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      document.getElementById('payment-section').querySelector('.pay-tab.active')?.focus();
+    }
 
     function showTab(tab) {
       const bankDetail = document.getElementById('detail-bank');
@@ -797,42 +1069,40 @@
     function openPayModal() {
       const m = document.getElementById('paymentSuccessModal');
       m.removeAttribute('hidden');
-      document.body.style.overflow = 'hidden';
+      document.body.classList.add('modal-open');
       document.getElementById('payModalCloseBtn').focus();
     }
 
     function closePayModal() {
       document.getElementById('paymentSuccessModal').setAttribute('hidden', '');
-      document.body.style.overflow = '';
+      document.body.classList.remove('modal-open');
     }
 
     document.getElementById('payModalCloseBtn').addEventListener('click', closePayModal);
     document.getElementById('payModalBackdrop').addEventListener('click', closePayModal);
 
     async function submitConfirmation() {
-      const name = document.getElementById('c-name').value.trim();
+      const fn = document.getElementById('c-fn').value.trim();
+      const ln = document.getElementById('c-ln').value.trim();
+      const name = getFullNameFromFields();
       const phone = document.getElementById('c-phone').value.trim();
-      const code = (document.getElementById('c-code').value || '').trim().toUpperCase();
+      const email = document.getElementById('c-email').value.trim();
+      const city = document.getElementById('c-city').value.trim();
+      const parsedPhone = parsePhoneForCountry(getPhoneCountry(), phone);
+      const cleanPhone = parsedPhone ? parsedPhone.local : '';
+      const phoneE164 = parsedPhone ? parsedPhone.e164 : '';
+      const orderId = 'pur_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
       let isValid = true;
 
-      clearPayErr('err-name');
-      clearPayErr('err-phone');
       clearPayErr('err-screenshot');
-      clearPayErr('err-code');
 
-      if (name.length < 2) {
-        showPayErr('err-name');
-        document.getElementById('c-name').setAttribute('aria-invalid', 'true');
-        isValid = false;
-      }
-      const cleanPhone = phone.replace(/[-\s]/g, '');
-      if (!/^\d{7,}$/.test(cleanPhone)) {
-        showPayErr('err-phone');
-        document.getElementById('c-phone').setAttribute('aria-invalid', 'true');
+      if (!validateContactFields()) {
+        setPaymentStepsVisible(false);
+        document.getElementById('pay-step-contact').removeAttribute('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
         isValid = false;
       }
       if (!selectedFile) { showPayErr('err-screenshot'); isValid = false; }
-      if (!CONFIRM_CODE_PATTERN.test(code)) { showPayErr('err-code'); isValid = false; }
       if (!isValid) return;
 
       const btn = document.getElementById('confirm-btn');
@@ -841,8 +1111,14 @@
 
       const formData = new URLSearchParams();
       formData.append('name', name);
+      formData.append('fn', fn);
+      formData.append('ln', ln);
       formData.append('phone', cleanPhone);
-      formData.append('code', code);
+      formData.append('phone_e164', phoneE164);
+      formData.append('phone_country', getPhoneCountry());
+      formData.append('email', email);
+      formData.append('city', city);
+      formData.append('order_id', orderId);
       if (screenshotBase64) formData.append('screenshot', screenshotBase64);
 
       try {
@@ -860,56 +1136,83 @@
         console.log('Submit ping did not complete (continuing anyway):', err);
       }
 
-      var purchaseUniqueId = 'pur_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: 'purchase_complete',
-        eventId: purchaseUniqueId,
-        user_data: { phone: cleanPhone, name: name },
+        event: 'initiate_checkout',
+        eventId: orderId,
+        user_data: { phone: phoneE164, name: name, first_name: fn, last_name: ln, email: email, city: city },
         ecommerce: {
-          transaction_id: purchaseUniqueId,
-          value: 4500,
+          transaction_id: orderId,
+          value: PAYMENT_VALUE_PKR,
           currency: 'PKR',
-          items: [{ item_name: 'E-Commerce Mentorship', price: 4500, quantity: 1 }]
+          items: [{ item_name: 'E-Commerce Mentorship', price: PAYMENT_VALUE_PKR, quantity: 1 }]
         }
       });
 
       if (typeof fbq === 'function') {
-        fbq('track', 'Purchase', {
+        fbq('track', 'InitiateCheckout', {
           content_name: 'E-Commerce Mentorship',
           currency: 'PKR',
-          value: 4500
-        }, { eventID: purchaseUniqueId });
+          value: PAYMENT_VALUE_PKR
+        }, { eventID: orderId });
       }
 
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-          send_to: 'AW-16499475514/RrpICJCXmOIcELqIyLs9',
-          value: 4500.0,
-          currency: 'PKR',
-          transaction_id: purchaseUniqueId
-        });
-      }
-
-      document.getElementById('c-name').value = '';
+      document.getElementById('c-fn').value = '';
+      document.getElementById('c-ln').value = '';
+      document.getElementById('c-phone-country').value = 'PK';
+      syncPhonePlaceholder();
       document.getElementById('c-phone').value = '';
-      document.getElementById('c-code').value = '';
+      document.getElementById('c-email').value = '';
+      document.getElementById('c-city').value = '';
       document.getElementById('c-screenshot').value = '';
       selectedFile = null;
       screenshotBase64 = null;
       document.getElementById('upload-preview').classList.remove('visible');
-      validateCodeField();
+      setPaymentStepsVisible(false);
+      document.getElementById('pay-step-contact').removeAttribute('hidden');
       openPayModal();
       btn.classList.remove('loading');
     }
 
-    document.getElementById('c-name').addEventListener('input', () => {
-      clearPayErr('err-name');
-      document.getElementById('c-name').removeAttribute('aria-invalid');
+    document.getElementById('c-fn').addEventListener('input', () => {
+      clearPayErr('err-fn');
+      document.getElementById('c-fn').removeAttribute('aria-invalid');
+    });
+    document.getElementById('c-ln').addEventListener('input', () => {
+      clearPayErr('err-ln');
+      document.getElementById('c-ln').removeAttribute('aria-invalid');
     });
     document.getElementById('c-phone').addEventListener('input', () => {
       clearPayErr('err-phone');
       document.getElementById('c-phone').removeAttribute('aria-invalid');
+    });
+    document.getElementById('c-phone').addEventListener('blur', () => {
+      const phone = document.getElementById('c-phone').value.trim();
+      if (!phone) return;
+      if (!parsePhoneForCountry(getPhoneCountry(), phone)) {
+        showPayErr('err-phone');
+        document.getElementById('c-phone').setAttribute('aria-invalid', 'true');
+      }
+    });
+    document.getElementById('c-phone-country').addEventListener('change', () => {
+      syncPhonePlaceholder();
+      const phone = document.getElementById('c-phone').value.trim();
+      if (phone && !parsePhoneForCountry(getPhoneCountry(), phone)) {
+        showPayErr('err-phone');
+        document.getElementById('c-phone').setAttribute('aria-invalid', 'true');
+      } else {
+        clearPayErr('err-phone');
+        document.getElementById('c-phone').removeAttribute('aria-invalid');
+      }
+    });
+    syncPhonePlaceholder();
+    document.getElementById('c-email').addEventListener('input', () => {
+      clearPayErr('err-email');
+      document.getElementById('c-email').removeAttribute('aria-invalid');
+    });
+    document.getElementById('c-city').addEventListener('input', () => {
+      clearPayErr('err-city');
+      document.getElementById('c-city').removeAttribute('aria-invalid');
     });
   </script>
 </body>

@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css?v=20261106dlearn4">
-  <link rel="stylesheet" href="style-desktop-hero.css?v=20261106heroNav4">
+  <link rel="stylesheet" href="style-desktop-hero.css?v=20261109navLogoWhite">
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -673,7 +673,6 @@
 
           <div class="m-hero__inner">
             <div class="m-hero__content">
-              <p class="m-hero__eyebrow">Mentorship</p>
               <h1 id="m-hero-title" class="m-hero__title">
                 <span class="m-hero__lead" data-shine="Don't just build a store,">Don't just build a store,</span>
                 <span class="m-hero__punch">
@@ -686,7 +685,7 @@
                 <span class="m-hero__desc-wide">Build your Shopify store, choose winning products, and learn to sell step by step.</span>
               </p>
               <hr class="m-hero__rule">
-              <a class="m-hero__cta" href="pay.html">Enroll Now <span aria-hidden="true">→</span></a>
+              <a class="m-hero__cta" href="pay.html">Enroll Now</a>
               <p class="m-hero__note">2,000+ students successfully trained.</p>
             </div>
           </div>
@@ -698,8 +697,8 @@
         <section class="m-testi" aria-labelledby="m-testi-title">
           <div class="m-testi__head">
             <span class="m-testi__eyebrow">Social proof</span>
-            <h2 id="m-testi-title" class="m-testi__title">Student Stories</h2>
-            <p class="m-testi__sub">Hear what our students say</p>
+            <h2 id="m-testi-title" class="m-testi__title">What Others Say</h2>
+            <p class="m-testi__sub">Hear from students &amp; professionals.</p>
           </div>
 
           <div class="m-testi__track" id="mTestiTrack">
@@ -1096,14 +1095,10 @@
       </header>
       <section class="d-hero d-hero--fullbg" aria-labelledby="d-hero-title">
         <div class="d-hero__bg" aria-hidden="true"></div>
-        <div class="d-hero__backdrop" aria-hidden="true">
-          <span class="d-hero__overlay d-hero__overlay--page"></span>
-          <span class="d-hero__overlay d-hero__overlay--fade"></span>
-        </div>
+        <div class="d-hero__overlay" aria-hidden="true"></div>
 
         <div class="d-hero__container">
           <div class="d-hero__main">
-            <p class="d-hero__eyebrow">Mentorship</p>
             <h1 id="d-hero-title" class="d-hero__title">
               <span class="d-hero__lead" data-shine="Don't just build a store,">Don't just build a store,</span>
               <span class="d-hero__headline">
@@ -1114,10 +1109,8 @@
                 </span>
               </span>
             </h1>
-            <p class="d-hero__desc">Build your Shopify store, choose winning products, and learn to sell step by step.</p>
             <div class="d-hero__actions">
-              <a class="d-hero__cta" href="pay.html">Enroll Now <span aria-hidden="true">→</span></a>
-              <p class="d-hero__note">2,000+ students successfully trained.</p>
+              <a href="pay.html" class="d-btn d-btn--submit d-hero__enroll">Enroll Now</a>
             </div>
           </div>
         </div>
@@ -1130,8 +1123,8 @@
           <header class="d-testi__head">
             <div>
               <span class="d-testi__eyebrow">Social proof</span>
-              <h2 id="d-testi-title" class="d-testi__title">Student Stories</h2>
-              <p class="d-testi__sub">Hear what our students say</p>
+              <h2 id="d-testi-title" class="d-testi__title">What Others Say</h2>
+              <p class="d-testi__sub">Hear from students &amp; professionals.</p>
             </div>
             <div class="d-testi__nav">
               <button type="button" class="d-testi__arrow" id="dTestiPrev" aria-label="Previous stories">←</button>
@@ -1509,97 +1502,19 @@
 
   <!-- Bottom FAB: WhatsApp (right) -->
   <div class="fab-bar" aria-label="Quick actions">
-    <button type="button" class="fab-whatsapp" onclick="openWaModal()" aria-label="Chat on WhatsApp" title="WhatsApp">
+    <a
+      class="fab-whatsapp"
+      href="https://wa.me/923293412618?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20AI%20Web%20Crafts%20e-commerce%20mentorship%20(Rs.%204%2C500)."
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      title="WhatsApp"
+      onclick="trackWhatsAppFabClick()"
+    >
       <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
         <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
       </svg>
-    </button>
-  </div>
-
-  <!-- WhatsApp Lead Form Modal -->
-  <div id="waLeadModal" class="thank-modal" role="dialog" aria-modal="true" hidden>
-    <div class="thank-modal__backdrop" onclick="closeWaModal()"></div>
-    <div class="thank-modal__dialog" role="document">
-      <h2 class="thank-modal__title">Start WhatsApp Chat</h2>
-      <p class="thank-modal__text">Please enter your details to connect with our mentor on WhatsApp.</p>
-      
-      <form id="waModalForm" onsubmit="handleWaModalSubmit(event)">
-        <div class="m-field" style="margin-bottom: 12px; text-align: left;">
-          <label class="m-field__label" for="wa-name">Name *</label>
-          <input class="m-field__input" type="text" id="wa-name" required placeholder="Enter your name">
-        </div>
-        <div class="m-field" style="margin-bottom: 16px; text-align: left;">
-          <label class="m-field__label" for="wa-phone">WhatsApp Number *</label>
-          <input class="m-field__input" type="tel" id="wa-phone" required placeholder="03XXXXXXXXX">
-        </div>
-
-        <fieldset class="m-field quiz-field" style="margin-bottom: 12px; text-align: left;">
-          <legend class="sr-only">Why do you want to learn e-commerce?</legend>
-          <button type="button" class="quiz-field__header" aria-expanded="true" aria-controls="wa-quiz-panel-1">
-            <span class="quiz-field__num" aria-hidden="true">1</span>
-            <span class="quiz-field__qtext">Why do you want to learn e-commerce? <em>*</em>
-              <span class="quiz-field__answer"></span>
-            </span>
-            <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="quiz-panel" id="wa-quiz-panel-1">
-            <div class="quiz-panel__inner">
-              <div class="quiz-options">
-                <label class="quiz-option"><input type="radio" name="wa-q1-reason" value="Start an online business" required><span>Start an online business</span></label>
-                <label class="quiz-option"><input type="radio" name="wa-q1-reason" value="Part-time income"><span>Part-time income</span></label>
-                <label class="quiz-option"><input type="radio" name="wa-q1-reason" value="Grow an existing business"><span>Grow an existing business</span></label>
-                <label class="quiz-option"><input type="radio" name="wa-q1-reason" value="Just gathering information"><span>Just gathering information</span></label>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="m-field quiz-field" style="margin-bottom: 12px; text-align: left;">
-          <legend class="sr-only">What is your current level?</legend>
-          <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="wa-quiz-panel-2">
-            <span class="quiz-field__num" aria-hidden="true">2</span>
-            <span class="quiz-field__qtext">What is your current level? <em>*</em>
-              <span class="quiz-field__answer"></span>
-            </span>
-            <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="quiz-panel" id="wa-quiz-panel-2">
-            <div class="quiz-panel__inner">
-              <div class="quiz-options">
-                <label class="quiz-option"><input type="radio" name="wa-q2-level" value="Beginner" required><span>Beginner</span></label>
-                <label class="quiz-option"><input type="radio" name="wa-q2-level" value="Some experience"><span>Some experience</span></label>
-                <label class="quiz-option"><input type="radio" name="wa-q2-level" value="Already running a business"><span>Already running a business</span></label>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <fieldset class="m-field quiz-field" style="margin-bottom: 12px; text-align: left;">
-          <legend class="sr-only">The 1-on-1 mentorship fee is Rs. 4,500. Are you interested?</legend>
-          <button type="button" class="quiz-field__header" aria-expanded="false" aria-controls="wa-quiz-panel-3">
-            <span class="quiz-field__num" aria-hidden="true">3</span>
-            <span class="quiz-field__qtext">The 1-on-1 mentorship fee is Rs. 4,500. Are you interested? <em>*</em>
-              <span class="quiz-field__answer"></span>
-            </span>
-            <svg class="quiz-field__chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </button>
-          <div class="quiz-panel" id="wa-quiz-panel-3">
-            <div class="quiz-panel__inner">
-              <div class="quiz-options">
-                <label class="quiz-option"><input type="radio" name="wa-q3-fee" value="Yes, I am serious" required><span>Yes, I am serious</span></label>
-                <label class="quiz-option"><input type="radio" name="wa-q3-fee" value="Need more details first"><span>Need more details first</span></label>
-                <label class="quiz-option"><input type="radio" name="wa-q3-fee" value="Budget not available right now"><span>Budget not available right now</span></label>
-              </div>
-            </div>
-          </div>
-        </fieldset>
-
-        <button type="submit" class="m-btn m-btn--submit" style="background-color: #25D366; width: 100%;">
-          Connect on WhatsApp
-        </button>
-      </form>
-      <button type="button" class="thank-modal__close" onclick="closeWaModal()" style="margin-top: 10px;">Cancel</button>
-    </div>
+    </a>
   </div>
 
   <div class="thank-modal" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="thankModalTitle" hidden>
@@ -1975,8 +1890,6 @@
         });
       }
 
-      initQuizAccordion("waModalForm", ["wa-q1-reason", "wa-q2-level", "wa-q3-fee"]);
-
       // Pay Now Button Tracking — disabled (initiate_checkout event should not fire on click)
 
     })();
@@ -2128,85 +2041,12 @@
         });
     });
 
-    // WhatsApp Modal Logic
-    function openWaModal() {
-      var modal = document.getElementById("waLeadModal");
-      if (modal) {
-        modal.removeAttribute("hidden");
-        document.body.classList.add("modal-open");
-      }
-    }
-
-    function closeWaModal() {
-      var modal = document.getElementById("waLeadModal");
-      if (modal) {
-        modal.setAttribute("hidden", "");
-        document.body.classList.remove("modal-open");
-      }
-    }
-
-    function handleWaModalSubmit(e) {
-      e.preventDefault();
-
-      var form = document.getElementById("waModalForm");
-      var nameEl = document.getElementById("wa-name");
-      var phoneEl = document.getElementById("wa-phone");
-
-      var name = nameEl ? nameEl.value.trim() : "";
-      var phone = phoneEl ? phoneEl.value.trim() : "";
-
-      if (name.length < 3 || phone.length < 7) {
-        alert("Please enter valid Name and Phone Number.");
-        return;
-      }
-
-      var waQuestionGroups = ["wa-q1-reason", "wa-q2-level", "wa-q3-fee"];
-      if (form && !validateRadioGroups(form, waQuestionGroups)) {
-        alert("Please answer all the questions before continuing.");
-        return;
-      }
-
-      var q1 = form ? getRadioValue(form, "wa-q1-reason") : "";
-      var q2 = form ? getRadioValue(form, "wa-q2-level") : "";
-      var q3 = form ? getRadioValue(form, "wa-q3-fee") : "";
-
-      var waLeadUniqueId = 'wa_modal_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-
+    function trackWhatsAppFabClick() {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        'event': 'generate_lead',
-        'eventId': waLeadUniqueId,
-        'user_data': {
-          'phone': phone,
-          'name': name
-        },
-        'lead_type': 'whatsapp_modal_form',
-        'qualifying_answers': {
-          'reason': q1,
-          'level': q2,
-          'fee_interest': q3
-        }
+        event: "whatsapp_click",
+        lead_type: "whatsapp_fab_direct"
       });
-
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead', {
-          content_name: 'WhatsApp Form Lead',
-          currency: 'PKR',
-          value: 4500
-        }, { eventID: waLeadUniqueId });
-      }
-
-      var waNumber = "923293412618";
-      var preText = encodeURIComponent(
-        "Hi, my name is " + name + ".\n" +
-        "1) " + q1 + "\n" +
-        "2) " + q2 + "\n" +
-        "3) " + q3 + "\n" +
-        "I have submitted my form and need details about mentorship."
-      );
-
-      closeWaModal();
-      window.location.href = "https://wa.me/" + waNumber + "?text=" + preText;
     }
 
   </script>
