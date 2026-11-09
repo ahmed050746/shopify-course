@@ -2042,11 +2042,25 @@
     });
 
     function trackWhatsAppFabClick() {
+      var leadUniqueId = 'lead_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: "whatsapp_click",
+        eventId: leadUniqueId,
         lead_type: "whatsapp_fab_direct"
       });
+      window.dataLayer.push({
+        event: 'generate_lead',
+        eventId: leadUniqueId,
+        lead_source: 'whatsapp_fab'
+      });
+      if (typeof fbq === 'function') {
+        fbq('track', 'Lead', {
+          content_name: 'Ecom Mentorship - WhatsApp FAB',
+          currency: 'PKR',
+          value: 4500
+        }, { eventID: leadUniqueId });
+      }
     }
 
   </script>
