@@ -65,23 +65,23 @@ h1,
   font-family: var(--font-body);
 }
 
-/* —— Primary CTAs: coral everywhere except hero enroll —— */
-html.page-v2 .layout--desktop .d-btn--submit:not(.d-hero__enroll),
+/* —— Primary CTAs: coral (accent) —— */
+html.page-v2 .layout--desktop .d-btn--submit,
 html.page-v2 .layout--desktop .d-btn--primary,
-.layout--desktop .d-btn--submit:not(.d-hero__enroll) {
+.layout--desktop .d-btn--submit {
   color: var(--bg-card) !important;
   background: var(--accent) !important;
   box-shadow: 0 12px 28px -8px rgba(var(--accent-rgb), 0.45),
     0 4px 12px -4px rgba(var(--accent-rgb), 0.25) !important;
 }
 
-html.page-v2 .layout--desktop .d-btn--submit:not(.d-hero__enroll):hover,
+html.page-v2 .layout--desktop .d-btn--submit:hover,
 html.page-v2 .layout--desktop .d-btn--primary:hover {
   transform: translateY(-3px);
   filter: brightness(1.02);
 }
 
-html.page-v2 .layout--desktop .d-btn--submit:not(.d-hero__enroll):focus-visible,
+html.page-v2 .layout--desktop .d-btn--submit:focus-visible,
 html.page-v2 .layout--desktop .d-btn--primary:focus-visible,
 .nav-enroll:focus-visible,
 .d-hero__enroll:focus-visible,
@@ -386,16 +386,15 @@ a:not([class]) {
   }
 }
 
-/* Desktop hero CTA stays white on the photo */
+/* Desktop hero CTA: same coral as pricing */
 #layout-desktop .d-hero__enroll {
-  background: var(--bg-card) !important;
-  color: var(--primary) !important;
-  border: 2px solid rgba(255, 255, 255, 0.95);
+  background: var(--accent) !important;
+  color: var(--bg-card) !important;
+  border: 0 !important;
   border-radius: 8px;
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.12),
-    0 20px 48px -14px rgba(0, 0, 0, 0.45),
-    0 8px 20px -8px rgba(0, 0, 0, 0.25) !important;
+    0 12px 28px -8px rgba(var(--accent-rgb), 0.45),
+    0 4px 12px -4px rgba(var(--accent-rgb), 0.25) !important;
   font-family: var(--font-body);
   font-weight: 700;
   text-shadow: none;
@@ -429,13 +428,13 @@ a:not([class]) {
 }
 
 #layout-desktop .d-hero__enroll:hover {
-  color: var(--color-primary-alt, var(--primary)) !important;
-  background: #f8f8fc !important;
-  border-color: #fff;
+  color: var(--bg-card) !important;
+  background: var(--accent) !important;
+  border-color: transparent;
+  filter: brightness(1.02);
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.1),
-    0 24px 52px -12px rgba(0, 0, 0, 0.42),
-    0 10px 24px -8px rgba(var(--color-primary-rgb), 0.2) !important;
+    0 12px 28px -8px rgba(var(--accent-rgb), 0.45),
+    0 4px 12px -4px rgba(var(--accent-rgb), 0.25) !important;
   transform: translateY(-3px);
 }
 

@@ -51,10 +51,148 @@
   background-position: 62% center;
 }
 
-#layout-desktop .d-hero.d-hero--bg-only .d-hero__overlay,
-#layout-desktop .d-hero.d-hero--fullbg.d-hero--bg-only .d-hero__overlay {
-  display: none !important;
-  background: none !important;
+/* Hero overlay — cinematic scrim, soft spotlight, rim light (bg-only) */
+#layout-desktop .d-hero.d-hero--fullbg.d-hero--bg-only .d-hero__overlay--creative {
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse 125% 92% at -4% 52%,
+      rgba(5, 11, 28, 0.93) 0%,
+      rgba(7, 18, 44, 0.58) 36%,
+      rgba(10, 28, 62, 0.2) 58%,
+      transparent 78%
+    ),
+    linear-gradient(
+      112deg,
+      rgba(0, 36, 68, 0.48) 0%,
+      rgba(0, 148, 188, 0.16) 46%,
+      rgba(var(--color-primary-rgb), 0.08) 68%,
+      transparent 90%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(2, 8, 22, 0.55) 0%,
+      transparent 18%,
+      transparent 72%,
+      rgba(2, 10, 26, 0.38) 100%
+    ),
+    radial-gradient(
+      ellipse 85% 80% at 100% 45%,
+      transparent 35%,
+      rgba(0, 0, 0, 0.12) 100%
+    );
+}
+
+#layout-desktop .d-hero__overlay--creative::before {
+  content: "";
+  position: absolute;
+  left: -8%;
+  top: 30%;
+  width: 58%;
+  height: 42%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse 100% 95% at 28% 50%,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(0, 196, 228, 0.05) 42%,
+    transparent 72%
+  );
+  filter: blur(14px);
+  pointer-events: none;
+}
+
+#layout-desktop .d-hero__overlay--creative::after {
+  content: "";
+  position: absolute;
+  right: 6%;
+  top: 18%;
+  width: min(42vw, 380px);
+  height: min(52vh, 440px);
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      ellipse 70% 80% at 55% 45%,
+      rgba(0, 232, 255, 0.18) 0%,
+      rgba(0, 175, 215, 0.06) 45%,
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 70% 70%,
+      rgba(var(--accent-rgb), 0.08) 0%,
+      transparent 70%
+    );
+  filter: blur(22px);
+  animation: d-hero-overlay-glow 9s ease-in-out infinite;
+}
+
+#layout-desktop .d-hero__overlay-mesh,
+#layout-desktop .d-hero__overlay-beam {
+  position: absolute;
+  pointer-events: none;
+}
+
+#layout-desktop .d-hero__overlay-mesh {
+  left: -5%;
+  right: 55%;
+  bottom: -12%;
+  height: 48%;
+  opacity: 0.5;
+  background-image:
+    linear-gradient(rgba(0, 220, 245, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 220, 245, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+  transform: perspective(780px) rotateX(64deg);
+  transform-origin: 18% 100%;
+  -webkit-mask-image: radial-gradient(ellipse 90% 65% at 16% 92%, #000 5%, transparent 70%);
+  mask-image: radial-gradient(ellipse 90% 65% at 16% 92%, #000 5%, transparent 70%);
+}
+
+#layout-desktop .d-hero__overlay-beam {
+  top: -20%;
+  left: -18%;
+  width: 70%;
+  height: 140%;
+  opacity: 0.65;
+  background: conic-gradient(
+    from 210deg at 38% 50%,
+    transparent 0deg,
+    rgba(0, 200, 235, 0.2) 48deg,
+    rgba(120, 110, 255, 0.1) 100deg,
+    rgba(var(--accent-rgb), 0.09) 140deg,
+    transparent 215deg
+  );
+  filter: blur(52px);
+  animation: d-hero-overlay-aurora 20s ease-in-out infinite alternate;
+}
+
+@keyframes d-hero-overlay-aurora {
+  0% {
+    transform: translate(0, 0) rotate(-4deg) scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate(2%, 1.5%) rotate(3deg) scale(1.02);
+    opacity: 0.72;
+  }
+}
+
+@keyframes d-hero-overlay-glow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #layout-desktop .d-hero__overlay-beam,
+  #layout-desktop .d-hero__overlay--creative::after {
+    animation: none;
+  }
 }
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__bg::before,
@@ -78,8 +216,8 @@
   font-weight: 500;
   line-height: 1.6;
   letter-spacing: 0;
-  color: rgba(255, 255, 255, 0.92);
-  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
+  color: rgba(255, 255, 255, 0.96);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
 }
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__title {
@@ -93,16 +231,38 @@
   font-weight: 800;
   letter-spacing: -0.02em;
   color: #fff;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.28);
 }
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__mark {
   color: var(--hero-drive-sales);
+  text-shadow: 0 0 28px rgba(139, 124, 255, 0.35);
 }
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__main {
+  position: relative;
+  z-index: 1;
   padding-left: 24px;
   border-left: 4px solid transparent;
   border-image: linear-gradient(180deg, var(--hero-stripe-start), var(--hero-stripe-end)) 1;
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__main::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -18px;
+  right: -24px;
+  bottom: -18px;
+  left: -28px;
+  border-radius: 14px;
+  background: radial-gradient(
+    ellipse 95% 85% at 0% 50%,
+    rgba(4, 10, 24, 0.42) 0%,
+    rgba(4, 10, 24, 0.12) 55%,
+    transparent 78%
+  );
+  pointer-events: none;
 }
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__actions {
@@ -358,7 +518,7 @@
   margin-top: 40px;
 }
 
-/* Hero CTA: white pill on photo for clear contrast */
+/* Hero CTA: coral accent — matches pricing enroll */
 #layout-desktop .d-hero__actions .d-hero__enroll {
   display: inline-flex;
   align-items: center;
@@ -373,28 +533,28 @@
   border-radius: 8px;
   position: relative;
   z-index: 1;
-  color: var(--primary);
-  background: var(--bg-card) !important;
-  border: 2px solid rgba(255, 255, 255, 0.95);
+  color: var(--bg-card) !important;
+  background: var(--accent) !important;
+  border: 0;
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.12),
-    0 20px 48px -14px rgba(0, 0, 0, 0.45),
-    0 8px 20px -8px rgba(0, 0, 0, 0.25);
+    0 12px 28px -8px rgba(var(--accent-rgb), 0.45),
+    0 4px 12px -4px rgba(var(--accent-rgb), 0.25);
   text-shadow: none;
+  transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
 }
 
 #layout-desktop .d-hero__actions .d-hero__enroll:hover {
-  color: var(--color-primary-alt);
-  background: #f8f8fc !important;
-  border-color: #fff;
+  color: var(--bg-card) !important;
+  background: var(--accent) !important;
+  filter: brightness(1.02);
+  transform: translateY(-3px);
   box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.1),
-    0 24px 52px -12px rgba(0, 0, 0, 0.42),
-    0 10px 24px -8px rgba(var(--color-primary-rgb), 0.2);
+    0 14px 32px -8px rgba(var(--accent-rgb), 0.52),
+    0 6px 14px -4px rgba(var(--accent-rgb), 0.3);
 }
 
 #layout-desktop .d-hero__actions .d-hero__enroll:focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
