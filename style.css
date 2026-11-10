@@ -4509,8 +4509,6 @@ button[type="submit"]:disabled {
   padding: 5px 12px;
   font-size: 12px;
   line-height: 16px;
-  background: rgba(109, 94, 252, 0.22);
-  color: #c4bfff;
 }
 
 #layout-desktop .d-learn__title {

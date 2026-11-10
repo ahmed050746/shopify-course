@@ -134,9 +134,12 @@ button:focus-visible {
   background: var(--primary-soft);
 }
 
-#layout-desktop .d-learn__eyebrow {
-  background: var(--accent-soft);
+#layout-desktop .d-learn__eyebrow,
+#layout-desktop .price .price__eyebrow {
+  background: var(--bg-card);
   color: var(--primary);
+  border: 1px solid rgba(var(--primary-rgb), 0.22);
+  box-shadow: 0 1px 2px rgba(24, 24, 27, 0.05);
 }
 
 #layout-desktop .d-learn__title,
@@ -273,6 +276,14 @@ a:not([class]) {
   }
 
   #layout-mobile .m-learn__eyebrow {
+    background: var(--bg-card) !important;
+    color: var(--primary) !important;
+    border: 1px solid rgba(var(--primary-rgb), 0.18);
+    padding: 5px 12px;
+    box-shadow: 0 6px 16px -10px rgba(var(--primary-rgb), 0.35);
+  }
+
+  #layout-mobile .price .price__eyebrow {
     background: var(--bg-card) !important;
     color: var(--primary) !important;
     border: 1px solid rgba(var(--primary-rgb), 0.18);
