@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="design-tokens.css?v=20261110ds1">
-  <link rel="stylesheet" href="style.css?v=20261110mHeroGrid">
+  <link rel="stylesheet" href="style.css?v=20261110fabWa">
   <link rel="stylesheet" href="design-system.css?v=20261110priceEyebrow">
   <link rel="stylesheet" href="style-desktop-hero.css?v=20261110ds1">
 
@@ -1488,21 +1488,63 @@
     </footer>
   </div>
 
-  <!-- Bottom FAB: WhatsApp (right) -->
+  <!-- Bottom FAB: WhatsApp (right) — compose here, then open WhatsApp on Send -->
   <div class="fab-bar" aria-label="Quick actions">
-    <a
-      class="fab-whatsapp"
-      href="https://wa.me/923293412618?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20the%20AI%20Web%20Crafts%20e-commerce%20mentorship%20(Rs.%204%2C500)."
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="Chat on WhatsApp"
-      title="WhatsApp"
-      onclick="trackWhatsAppFabClick()"
-    >
-      <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
-        <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
-      </svg>
-    </a>
+    <div class="fab-wa-wrap">
+      <div
+        class="fab-wa-panel"
+        id="fabWaPanel"
+        role="dialog"
+        aria-modal="false"
+        aria-labelledby="fabWaTitle"
+        hidden
+      >
+        <header class="fab-wa-panel__head">
+          <div class="fab-wa-panel__brand">
+            <span class="fab-wa-panel__avatar" aria-hidden="true">
+              <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
+              </svg>
+            </span>
+            <div>
+              <h2 class="fab-wa-panel__title" id="fabWaTitle">AI Web Crafts</h2>
+              <p class="fab-wa-panel__status">Typically replies within a day</p>
+            </div>
+          </div>
+          <button type="button" class="fab-wa-panel__close" id="fabWaClose" aria-label="Close chat">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18.3 5.71a1 1 0 0 0-1.41 0L12 10.59 7.11 5.7A1 1 0 0 0 5.7 7.11L10.59 12l-4.89 4.89a1 1 0 1 0 1.41 1.42L12 13.41l4.89 4.89a1 1 0 0 0 1.42-1.41L13.41 12l4.89-4.89a1 1 0 0 0-.01-1.4z"/></svg>
+          </button>
+        </header>
+        <div class="fab-wa-panel__body">
+          <p class="fab-wa-panel__hint">Write your message — we’ll open WhatsApp so you can send it from there.</p>
+          <label class="fab-wa-panel__label" for="fabWaMessage">Your message</label>
+          <textarea
+            id="fabWaMessage"
+            class="fab-wa-panel__input"
+            rows="4"
+            placeholder="Hi, I’d like to know more about the mentorship…"
+          >Hi, I'd like to know more about the AI Web Crafts e-commerce mentorship (Rs. 4,500).</textarea>
+        </div>
+        <footer class="fab-wa-panel__foot">
+          <button type="button" class="fab-wa-panel__send" id="fabWaSend">
+            Send on WhatsApp
+          </button>
+        </footer>
+      </div>
+      <button
+        type="button"
+        class="fab-whatsapp"
+        id="fabWaToggle"
+        aria-label="Chat on WhatsApp"
+        aria-expanded="false"
+        aria-controls="fabWaPanel"
+        title="WhatsApp"
+      >
+        <svg viewBox="0 0 32 32" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+          <path fill="currentColor" d="M16.003 3C9.374 3 4 8.373 4 14.883c0 2.496.65 4.93 1.887 7.073L4 29l7.16-1.87a11.9 11.9 0 005.84 1.51h.005c6.63 0 12.003-5.372 12.003-11.882C28.008 8.373 22.633 3 16.003 3zm6.96 16.9c-.3.84-1.68 1.55-2.33 1.65-.6.1-1.37.11-2.22-.1-.51-.11-1.17-.35-2.02-.69-3.56-1.53-5.87-5.1-6.05-5.34-.18-.24-1.45-1.93-1.45-3.68s.92-2.62 1.25-2.98c.33-.36.72-.45.96-.45s.48 0 .69.01c.22 0 .52-.08.81.62l1.11 2.7c.07.15.12.33-.02.53-.14.2-.26.33-.51.51l-.69.48c-.21.16-.45.35-.19.69.26.33 1.15 1.9 2.48 3.06 1.7 1.52 3.13 2 3.57 2.23.44.22.7.19.96-.12.26-.31 1.1-1.28 1.39-1.72.29-.44.48-.37.81-.22.33.15 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.88-.21 1.72z"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <div class="thank-modal" id="thankYouModal" role="dialog" aria-modal="true" aria-labelledby="thankModalTitle" hidden>
@@ -2029,27 +2071,115 @@
         });
     });
 
-    function trackWhatsAppFabClick() {
-      var leadUniqueId = 'lead_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+    var FAB_WA_PHONE = "923293412618";
+    var FAB_WA_DEFAULT =
+      "Hi, I'd like to know more about the AI Web Crafts e-commerce mentorship (Rs. 4,500).";
+
+    function pushWhatsAppFabAnalytics(leadType) {
+      var leadUniqueId = "lead_" + Date.now() + "_" + Math.floor(Math.random() * 1000);
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
-        event: "whatsapp_click",
+        event: leadType === "whatsapp_fab_send" ? "whatsapp_send" : "whatsapp_click",
         eventId: leadUniqueId,
-        lead_type: "whatsapp_fab_direct"
+        lead_type: leadType
       });
-      window.dataLayer.push({
-        event: 'generate_lead',
-        eventId: leadUniqueId,
-        lead_source: 'whatsapp_fab'
-      });
-      if (typeof fbq === 'function') {
-        fbq('track', 'Lead', {
-          content_name: 'Ecom Mentorship - WhatsApp FAB',
-          currency: 'PKR',
-          value: 4500
-        }, { eventID: leadUniqueId });
+      if (leadType === "whatsapp_fab_send") {
+        window.dataLayer.push({
+          event: "generate_lead",
+          eventId: leadUniqueId,
+          lead_source: "whatsapp_fab"
+        });
+        if (typeof fbq === "function") {
+          fbq(
+            "track",
+            "Lead",
+            {
+              content_name: "Ecom Mentorship - WhatsApp FAB",
+              currency: "PKR",
+              value: 4500
+            },
+            { eventID: leadUniqueId }
+          );
+        }
       }
     }
+
+    (function initFabWhatsAppChat() {
+      var panel = document.getElementById("fabWaPanel");
+      var toggle = document.getElementById("fabWaToggle");
+      var closeBtn = document.getElementById("fabWaClose");
+      var sendBtn = document.getElementById("fabWaSend");
+      var messageEl = document.getElementById("fabWaMessage");
+      if (!panel || !toggle || !sendBtn || !messageEl) return;
+
+      function setPanelOpen(open) {
+        panel.hidden = !open;
+        toggle.setAttribute("aria-expanded", open ? "true" : "false");
+        if (open) {
+          pushWhatsAppFabAnalytics("whatsapp_fab_open");
+          window.setTimeout(function () {
+            messageEl.focus();
+            messageEl.setSelectionRange(messageEl.value.length, messageEl.value.length);
+          }, 80);
+        }
+      }
+
+      function isPanelOpen() {
+        return !panel.hidden;
+      }
+
+      toggle.addEventListener("click", function () {
+        setPanelOpen(!isPanelOpen());
+      });
+
+      if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+          setPanelOpen(false);
+          toggle.focus();
+        });
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && isPanelOpen()) {
+          setPanelOpen(false);
+          toggle.focus();
+        }
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!isPanelOpen()) return;
+        var wrap = toggle.closest(".fab-wa-wrap");
+        if (wrap && !wrap.contains(e.target)) {
+          setPanelOpen(false);
+        }
+      });
+
+      function openWhatsAppWithMessage() {
+        var text = (messageEl.value || "").trim();
+        if (!text) {
+          messageEl.focus();
+          return;
+        }
+        pushWhatsAppFabAnalytics("whatsapp_fab_send");
+        var url =
+          "https://wa.me/" + FAB_WA_PHONE + "?text=" + encodeURIComponent(text);
+        window.open(url, "_blank", "noopener,noreferrer");
+        setPanelOpen(false);
+      }
+
+      sendBtn.addEventListener("click", openWhatsAppWithMessage);
+
+      messageEl.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) {
+          e.preventDefault();
+          openWhatsAppWithMessage();
+        }
+      });
+
+      if (!messageEl.value.trim()) {
+        messageEl.value = FAB_WA_DEFAULT;
+      }
+    })();
 
   </script>
 </body>
