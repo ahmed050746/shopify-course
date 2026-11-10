@@ -1,0 +1,441 @@
+/* AI Web Crafts — design system application layer */
+
+/* —— Typography —— */
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-body);
+  background: var(--bg-page);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.d-testi__title,
+.d-fit__title,
+.d-learn__title,
+.d-diff__title,
+.d-curr__title,
+.m-testi__title,
+.m-fit__title,
+.m-learn__title,
+.m-diff__title,
+.m-curr__title,
+.lec__title,
+.price__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--text-heading);
+  letter-spacing: -0.02em;
+}
+
+h1,
+.d-hero__title .d-hero__line,
+#layout-mobile .m-hero__punch,
+#layout-mobile .m-hero__punch-top,
+#layout-mobile .m-hero__punch-bottom {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* Mobile layout — same stack as desktop (Inter body, Plus Jakarta headings) */
+.layout--mobile,
+#layout-mobile {
+  font-family: var(--font-body);
+}
+
+#layout-mobile .m-logo__text,
+#layout-mobile .m-hero__lead,
+#layout-mobile .m-testi__sub,
+#layout-mobile .m-fit__sub,
+#layout-mobile .m-learn__sub,
+#layout-mobile .m-learn__item-title,
+#layout-mobile .m-learn__item-text,
+#layout-mobile .m-btn,
+#layout-mobile .nav-enroll,
+#layout-mobile .m-hero__cta,
+#layout-mobile .price__btn,
+#layout-mobile [class*="__eyebrow"],
+#layout-mobile [class*="__sub"] {
+  font-family: var(--font-body);
+}
+
+/* —— Primary CTAs: coral everywhere except hero enroll —— */
+html.page-v2 .layout--desktop .d-btn--submit:not(.d-hero__enroll),
+html.page-v2 .layout--desktop .d-btn--primary,
+.layout--desktop .d-btn--submit:not(.d-hero__enroll) {
+  color: var(--bg-card) !important;
+  background: var(--accent) !important;
+  box-shadow: 0 12px 28px -8px rgba(var(--accent-rgb), 0.45),
+    0 4px 12px -4px rgba(var(--accent-rgb), 0.25) !important;
+}
+
+html.page-v2 .layout--desktop .d-btn--submit:not(.d-hero__enroll):hover,
+html.page-v2 .layout--desktop .d-btn--primary:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.02);
+}
+
+html.page-v2 .layout--desktop .d-btn--submit:not(.d-hero__enroll):focus-visible,
+html.page-v2 .layout--desktop .d-btn--primary:focus-visible,
+.nav-enroll:focus-visible,
+.d-hero__enroll:focus-visible,
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* Nav enroll (when visible on scroll) */
+#layout-desktop .d-nav.is-scrolled .nav-enroll,
+#layout-mobile .m-header .nav-enroll {
+  background: var(--accent) !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+  color: var(--bg-card) !important;
+  box-shadow: 0 8px 22px -8px rgba(var(--accent-rgb), 0.55) !important;
+}
+
+/* —— Section rhythm (desktop) —— */
+#layout-desktop .d-main > .d-testi {
+  background: var(--bg-page);
+}
+
+#layout-desktop .d-main > .d-fit {
+  background: var(--primary-tint);
+}
+
+#layout-desktop .d-main > .d-learn {
+  background: var(--primary-soft);
+  border-top-color: var(--border);
+  color: var(--text-body);
+}
+
+#layout-desktop .d-main > .d-diff {
+  background: var(--bg-page);
+}
+
+#layout-desktop .d-main > .d-curr {
+  background: var(--primary-tint);
+}
+
+#layout-desktop .d-main > .lec {
+  background: var(--bg-page);
+}
+
+#layout-desktop .d-main > .price {
+  background: var(--primary-soft);
+}
+
+#layout-desktop .d-learn__eyebrow {
+  background: var(--accent-soft);
+  color: var(--primary);
+}
+
+#layout-desktop .d-learn__title,
+#layout-desktop .d-learn__item-title {
+  color: var(--text-heading);
+}
+
+#layout-desktop .d-learn__sub,
+#layout-desktop .d-learn__item-text {
+  color: var(--text-body);
+}
+
+#layout-desktop .d-learn__item {
+  border-top-color: var(--border);
+}
+
+#layout-desktop .d-learn__num {
+  color: rgba(var(--primary-rgb), 0.35);
+}
+
+#layout-desktop .d-learn__item:hover .d-learn__num {
+  color: var(--primary);
+}
+
+/* Cards */
+#layout-desktop .d-testi__card,
+#layout-mobile .m-testi__card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 32px -24px rgba(24, 24, 27, 0.12);
+}
+
+/* Links & brand accents */
+a:not([class]) {
+  color: var(--primary);
+}
+
+#layout-desktop .d-testi__eyebrow,
+#layout-mobile .m-testi__eyebrow {
+  color: var(--primary);
+}
+
+/* Highlight: stars / small badges only */
+.rating-star,
+.badge--highlight,
+[class*="star"] {
+  color: var(--highlight);
+}
+
+/* —— Mobile hero: full mentor image, copy + CTA anchored near bottom —— */
+@media (max-width: 899px) {
+  #layout-mobile .m-hero {
+    justify-content: flex-end;
+    padding-bottom: 8px !important;
+  }
+
+  #layout-mobile .m-hero__inner {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 18px 0;
+    margin: 0;
+  }
+
+  #layout-mobile .m-hero__content {
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  #layout-mobile .m-hero__title {
+    align-items: center;
+    text-align: center;
+  }
+
+  #layout-mobile .m-hero__punch {
+    align-items: center;
+  }
+
+  #layout-mobile .m-hero__punch-top,
+  #layout-mobile .m-hero__punch-bottom {
+    text-align: center;
+  }
+
+  #layout-mobile .m-hero__rule {
+    margin: 10px 0 8px;
+  }
+
+  #layout-mobile .m-hero__cta {
+    margin-bottom: 0;
+  }
+
+  #layout-mobile .m-main > .m-testi {
+    background: var(--bg-page);
+  }
+
+  #layout-mobile .m-main > .m-fit {
+    background: var(--primary-tint);
+  }
+
+  #layout-mobile .m-main > .m-learn {
+    background: var(--primary-soft);
+  }
+
+  #layout-mobile .m-main > .m-diff {
+    background: var(--bg-page);
+  }
+
+  #layout-mobile .m-main > .lec,
+  #layout-mobile .m-main > .m-curr {
+    background: var(--primary-tint);
+  }
+
+  #layout-mobile .m-main > .price {
+    background: var(--primary-soft);
+  }
+
+  #layout-mobile .m-learn {
+    padding: 40px 0 44px !important;
+    background: var(--primary-soft) !important;
+  }
+
+  #layout-mobile .m-learn__inner {
+    max-width: 420px;
+    padding: 0 18px;
+  }
+
+  #layout-mobile .m-learn__head {
+    margin-bottom: 22px;
+    text-align: left;
+  }
+
+  #layout-mobile .m-learn__eyebrow {
+    background: var(--bg-card) !important;
+    color: var(--primary) !important;
+    border: 1px solid rgba(var(--primary-rgb), 0.18);
+    padding: 5px 12px;
+    box-shadow: 0 6px 16px -10px rgba(var(--primary-rgb), 0.35);
+  }
+
+  #layout-mobile .m-learn__title {
+    margin-top: 14px;
+    text-align: left;
+    font-size: clamp(22px, 6.4vw, 28px);
+    line-height: 1.22;
+    color: var(--text-heading) !important;
+  }
+
+  #layout-mobile .m-learn__title-accent {
+    color: var(--primary) !important;
+  }
+
+  #layout-mobile .m-learn__sub {
+    margin: 10px 0 0;
+    max-width: none;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-body) !important;
+  }
+
+  #layout-mobile .m-learn__list {
+    gap: 12px;
+  }
+
+  #layout-mobile .m-learn__item {
+    border: 1px solid var(--border) !important;
+    background: var(--bg-card) !important;
+    border-radius: 14px;
+    box-shadow: 0 12px 32px -24px rgba(var(--primary-rgb), 0.55);
+    overflow: hidden;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  #layout-mobile .m-learn__item:first-child {
+    border-top: 1px solid var(--border) !important;
+  }
+
+  #layout-mobile .m-learn__item:has(.m-learn__details[open]) {
+    border-color: rgba(var(--primary-rgb), 0.38) !important;
+    box-shadow: 0 16px 40px -22px rgba(var(--primary-rgb), 0.45);
+  }
+
+  #layout-mobile .m-learn__summary {
+    padding: 14px 16px;
+    gap: 12px;
+  }
+
+  #layout-mobile .m-learn__num {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: var(--primary-tint) !important;
+    color: var(--primary) !important;
+    border: 1px solid rgba(var(--primary-rgb), 0.14);
+    font-size: 13px;
+  }
+
+  #layout-mobile .m-learn__details[open] .m-learn__num {
+    background: var(--primary) !important;
+    color: #fff !important;
+    border-color: transparent;
+  }
+
+  #layout-mobile .m-learn__item-title {
+    color: var(--text-heading) !important;
+    font-size: 15px;
+    line-height: 1.35;
+    font-weight: 700;
+  }
+
+  #layout-mobile .m-learn__chev {
+    width: 9px;
+    height: 9px;
+    border-color: var(--text-muted);
+  }
+
+  #layout-mobile .m-learn__details[open] .m-learn__chev {
+    border-color: var(--primary);
+  }
+
+  #layout-mobile .m-learn__item-text {
+    margin: 0;
+    padding: 12px 16px 16px 66px;
+    border-top: 1px solid var(--border);
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text-body) !important;
+  }
+
+  #layout-mobile .m-learn__summary:focus-visible {
+    outline-color: var(--primary);
+  }
+}
+
+/* Hero CTAs: square white btn (desktop + mobile), matching d-hero__enroll */
+#layout-mobile .m-hero__cta,
+#layout-desktop .d-hero__enroll {
+  background: var(--bg-card) !important;
+  color: var(--primary) !important;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 20px 48px -14px rgba(0, 0, 0, 0.45),
+    0 8px 20px -8px rgba(0, 0, 0, 0.25) !important;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-shadow: none;
+}
+
+#layout-mobile .m-hero__cta {
+  width: 100%;
+  text-align: center;
+  justify-content: center;
+}
+
+#layout-mobile .m-hero__cta:hover,
+#layout-desktop .d-hero__enroll:hover {
+  color: var(--color-primary-alt, var(--primary)) !important;
+  background: #f8f8fc !important;
+  border-color: #fff;
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.1),
+    0 24px 52px -12px rgba(0, 0, 0, 0.42),
+    0 10px 24px -8px rgba(var(--color-primary-rgb), 0.2) !important;
+  transform: translateY(-3px);
+}
+
+/* Mobile pricing CTA: same square coral as desktop price enroll */
+#layout-mobile .price .price__btn.m-btn--submit {
+  border: 0;
+  border-radius: 8px;
+  padding: 19px 24px 20px;
+  min-height: 60px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  color: var(--bg-card) !important;
+  background: var(--accent) !important;
+  box-shadow:
+    0 12px 28px -8px rgba(var(--accent-rgb), 0.45),
+    0 4px 12px -4px rgba(var(--accent-rgb), 0.25) !important;
+}
+
+html.page-v2 #layout-mobile .price .price__btn.m-btn--submit {
+  background: var(--accent) !important;
+}
+
+#layout-mobile .price .price__btn.m-btn--submit:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.02);
+}
+
+/* Learn band: remap dark text to design tokens when on soft purple */
+#layout-desktop .d-learn__title,
+#layout-desktop .d-learn__item-title {
+  color: var(--text-heading);
+}
+
+#layout-desktop .d-learn__item-desc {
+  color: var(--text-body);
+}

@@ -1,0 +1,58 @@
+/* AI Web Crafts — design tokens (single source of truth) */
+
+:root {
+  --primary: #5B52E1;
+  --primary-soft: #EEEDFC;
+  --primary-tint: #FBFAFF;
+  --accent: #FF7343;
+  --accent-soft: #FFD4C4;
+  --highlight: #FCD036;
+  --text-heading: #18181B;
+  --text-body: #3F3F46;
+  --text-muted: #71717A;
+  --bg-page: #FAFAFC;
+  --bg-card: #FFFFFF;
+  --border: #E4E4E7;
+
+  --primary-rgb: 91, 82, 225;
+  --accent-rgb: 255, 115, 67;
+
+  --font-heading: "Plus Jakarta Sans", system-ui, "Segoe UI", sans-serif;
+  --font-body: "Inter", system-ui, "Segoe UI", sans-serif;
+
+  --hero-drive-sales: #C4B8FF;
+  --hero-stripe-start: #8B7CFF;
+  --hero-stripe-end: #FF6B2C;
+
+  /* Legacy aliases — keep existing CSS working */
+  --color-primary: var(--primary);
+  --color-primary-alt: var(--primary);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-2: var(--primary-soft);
+  --color-primary-light: var(--primary-soft);
+  --color-primary-mid: var(--primary);
+  --color-primary-pale: var(--primary-soft);
+  --color-primary-tint: var(--primary-soft);
+  --color-primary-wash: var(--primary-tint);
+  --color-primary-mist: var(--primary-tint);
+  --color-primary-rgb: var(--primary-rgb);
+  --color-secondary: var(--accent);
+  --color-secondary-alt: var(--accent);
+  --color-secondary-soft: var(--accent-soft);
+  --color-secondary-rgb: var(--accent-rgb);
+  --color-accent: var(--highlight);
+  --color-accent-alt: var(--highlight);
+  --color-accent-soft: var(--highlight);
+  --color-text: var(--text-heading);
+  --color-text-alt: var(--text-heading);
+  --color-text-body: var(--text-body);
+  --color-text-muted: var(--text-muted);
+  --color-text-subtle: var(--text-muted);
+  --color-text-rgb: 24, 24, 27;
+  --color-bg: var(--bg-page);
+  --color-bg-alt: var(--bg-card);
+  --color-border: var(--border);
+  --color-border-light: var(--border);
+
+  --m-header-height: 56px;
+}

@@ -22,9 +22,11 @@
   margin-top: 0;
   isolation: auto;
   background: transparent;
-  min-height: min(680px, 100vh);
-  min-height: min(680px, 100dvh);
-  max-height: 860px;
+  height: 75vh;
+  height: 75dvh;
+  min-height: 75vh;
+  min-height: 75dvh;
+  max-height: none;
 }
 
 #layout-desktop:has(.d-hero--bg-only) .d-nav:not(.is-scrolled) {
@@ -37,10 +39,11 @@
 
 #layout-desktop:has(.d-hero--bg-only) .d-nav.is-scrolled {
   background: rgba(255, 255, 255, 0.96);
-  border-bottom: 1px solid rgba(var(--color-text-rgb), 0.08);
-  box-shadow: 0 8px 24px -20px rgba(var(--color-text-rgb), 0.18);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 8px 24px -20px rgba(24, 24, 27, 0.12);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  transition: background-color 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__bg {
@@ -70,11 +73,12 @@
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__sub {
   margin: 0 0 14px;
+  font-family: var(--font-body);
   font-size: clamp(18px, 1.65vw, 26px);
   font-weight: 500;
-  line-height: 1.5;
-  letter-spacing: 0.01em;
-  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.92);
   text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
 }
 
@@ -84,7 +88,21 @@
 }
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__line {
+  font-family: var(--font-heading);
   font-size: clamp(40px, 4.8vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__mark {
+  color: var(--hero-drive-sales);
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__main {
+  padding-left: 24px;
+  border-left: 4px solid transparent;
+  border-image: linear-gradient(180deg, var(--hero-stripe-start), var(--hero-stripe-end)) 1;
 }
 
 #layout-desktop .d-hero.d-hero--bg-only .d-hero__actions {
@@ -107,8 +125,10 @@
   left: 0;
   z-index: 0;
   pointer-events: none;
-  background-color: #050508;
-  background-image: url("img/hero-bg-full.jpg?v=20261110b2");
+  background-color: var(--primary);
+  background-image:
+    url("img/hero-bg-full.jpg?v=20261110b2"),
+    linear-gradient(120deg, var(--primary) 0%, #4339c9 45%, #2f2a8c 100%);
   background-size: cover;
   background-position: 58% center;
   background-repeat: no-repeat;
@@ -353,8 +373,8 @@
   border-radius: 8px;
   position: relative;
   z-index: 1;
-  color: var(--color-primary);
-  background: #fff !important;
+  color: var(--primary);
+  background: var(--bg-card) !important;
   border: 2px solid rgba(255, 255, 255, 0.95);
   box-shadow:
     0 0 0 1px rgba(0, 0, 0, 0.12),
@@ -391,7 +411,7 @@
 }
 
 #layout-desktop .d-nav.is-scrolled .d-logo__text {
-  color: var(--color-text);
+  color: var(--text-heading);
 }
 
 /* Enroll hidden at top of page; shown as soon as user scrolls (.is-scrolled) */

@@ -4,48 +4,7 @@
    - Desktop block matches desktop Figma export (min-width: 900px)
    ============================================================================= */
 
-:root {
-  /* Primary Blue / Purple — buttons, hero accents, banners, CTAs */
-  --color-primary: #5B52E1;
-  --color-primary-alt: #5653E2;
-  --color-primary-soft: #EEEDFC;
-  --color-primary-soft-2: #E0DFFA;
-  --color-primary-light: #A8A3F0;
-  --color-primary-mid: #7B74E8;
-  --color-primary-pale: #C5C2F5;
-  --color-primary-tint: #C7BCFF;
-  --color-primary-wash: #FBFAFF;
-  --color-primary-mist: #FAF9FF;
-  --color-primary-rgb: 91, 82, 225;
-
-  /* Secondary Orange / Coral — accent cards, CTAs, badges */
-  --color-secondary: #FF7343;
-  --color-secondary-alt: #FF7A4A;
-  --color-secondary-soft: #FFD4C4;
-  --color-secondary-rgb: 255, 115, 67;
-
-  /* Accent Yellow — decorative shapes & star accents */
-  --color-accent: #FCD036;
-  --color-accent-alt: #FFC837;
-  --color-accent-soft: #FFF4C2;
-
-  /* Dark Neutral — headings & body text */
-  --color-text: #18181B;
-  --color-text-alt: #111111;
-  --color-text-body: #3F3F46;
-  --color-text-muted: #71717A;
-  --color-text-subtle: #A1A1AA;
-  --color-text-rgb: 24, 24, 27;
-
-  /* Light Background — page & cards */
-  --color-bg: #FAFAFC;
-  --color-bg-alt: #FFFFFF;
-  --color-border: #E4E4E7;
-  --color-border-light: #F4F4F5;
-
-  /* Mobile sticky header — Material app-bar height (56px) */
-  --m-header-height: 56px;
-}
+/* Tokens: design-tokens.css */
 
 *,
 *::before,
@@ -60,9 +19,6 @@ html {
 
 body {
   margin: 0;
-  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  background: linear-gradient(0deg, var(--color-bg), var(--color-bg)), var(--color-bg-alt);
-  color: var(--color-text);
   overflow-x: hidden;
 }
 
@@ -859,7 +815,7 @@ input {
   color: var(--color-bg-alt);
   background: var(--color-secondary);
   border-radius: 8px;
-  font-family: inter;
+  font-family: var(--font-body);
   font-weight: 700;
   margin-right: 24px;
   box-shadow: 0 20px 25px -5px rgba(var(--color-secondary-rgb), 0.2), 0 8px 10px -6px rgba(var(--color-secondary-rgb), 0.2);
@@ -2731,7 +2687,7 @@ button[type="submit"]:disabled {
   position: relative;
   overflow: hidden;
   isolation: isolate;
-  padding: 28px 0 40px;
+  padding: 0;
   background: transparent;
 }
 
@@ -2874,12 +2830,8 @@ button[type="submit"]:disabled {
 }
 
 @media (max-width: 599px) {
-  #layout-mobile .m-hero__desc-phone {
-    display: inline;
-  }
-
   #layout-mobile .m-hero__desc-wide {
-    display: none;
+    display: inline;
   }
 
   #layout-mobile .m-hero {
@@ -6062,11 +6014,13 @@ html.page-v2 #layout-mobile .m-header.is-scrolled {
   position: relative;
   isolation: isolate;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: stretch;
   box-sizing: border-box;
   min-height: 75vh;
   min-height: 75dvh;
-  padding: 0 0 18px;
+  padding: 0 0 10px;
   overflow: hidden;
   background: #07070b;
 }
@@ -6153,12 +6107,8 @@ html.page-v2 #layout-mobile .m-header.is-scrolled {
   gap: 0;
 }
 
-#layout-mobile .m-hero__desc-phone {
-  display: inline;
-}
-
 #layout-mobile .m-hero__desc-wide {
-  display: none;
+  display: inline;
 }
 
 #layout-mobile .m-hero__desc {
@@ -6174,25 +6124,25 @@ html.page-v2 #layout-mobile .m-header.is-scrolled {
 #layout-mobile .m-hero__rule {
   width: 100%;
   height: 1px;
-  margin: 16px 0 14px;
+  margin: 12px 0 10px;
   border: 0;
   background: rgba(255, 255, 255, 0.16);
 }
 
 #layout-mobile .m-hero__cta {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   width: 100%;
-  min-height: 52px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, #7a6cf8 0%, #5b4df0 100%);
-  color: #fff;
-  font-size: 16px;
+  box-sizing: border-box;
+  min-height: 60px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  font-size: 17px;
+  line-height: 1.25;
   font-weight: 700;
   text-decoration: none;
-  box-shadow: 0 10px 24px -12px rgba(91, 77, 240, 0.9);
 }
 
 #layout-mobile .m-hero__note {
@@ -6258,7 +6208,7 @@ html.page-v2 #layout-desktop .d-nav {
 #layout-desktop .d-nav.is-scrolled,
 html.page-v2 #layout-desktop .d-nav.is-scrolled {
   background: rgba(255, 255, 255, 0.96);
-  border-bottom: 1px solid rgba(var(--color-text-rgb), 0.08);
+  border-bottom: 1px solid var(--border);
   box-shadow: 0 8px 24px -20px rgba(var(--color-text-rgb), 0.18);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
