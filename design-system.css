@@ -94,10 +94,13 @@ button:focus-visible {
 /* Nav enroll (when visible on scroll) */
 #layout-desktop .d-nav.is-scrolled .nav-enroll,
 #layout-mobile .m-header .nav-enroll {
+  border-radius: 8px !important;
   background: var(--accent) !important;
   border-color: rgba(255, 255, 255, 0.35) !important;
   color: var(--bg-card) !important;
-  box-shadow: 0 8px 22px -8px rgba(var(--accent-rgb), 0.55) !important;
+  box-shadow:
+    0 12px 28px -8px rgba(var(--accent-rgb), 0.45),
+    0 4px 12px -4px rgba(var(--accent-rgb), 0.25) !important;
 }
 
 /* —— Section rhythm (desktop) —— */

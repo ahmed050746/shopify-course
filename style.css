@@ -5792,12 +5792,19 @@ html.page-v2 #layout-mobile .m-header {
 }
 
 #layout-mobile .m-header.is-scrolled,
-html.page-v2 #layout-mobile .m-header.is-scrolled {
-  background: rgba(20, 17, 32, 0.9);
-  border-bottom-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 10px 28px -16px rgba(0, 0, 0, 0.7);
+html.page-v2 #layout-mobile .m-header.is-scrolled,
+#layout-mobile .m-header.is-past-hero {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 8px 24px -20px rgba(24, 24, 27, 0.12);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+}
+
+#layout-mobile .m-header.is-scrolled .m-logo__text,
+#layout-mobile .m-header.is-past-hero .m-logo__text {
+  color: var(--text-heading);
+  text-shadow: none;
 }
 
 #layout-mobile .m-logo__text {
