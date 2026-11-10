@@ -22,10 +22,10 @@
   margin-top: 0;
   isolation: auto;
   background: transparent;
-  height: 75vh;
-  height: 75dvh;
-  min-height: 75vh;
-  min-height: 75dvh;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100vh;
+  min-height: 100dvh;
   max-height: none;
 }
 
@@ -127,7 +127,7 @@
   pointer-events: none;
   background-color: var(--primary);
   background-image:
-    url("img/hero-bg-full.jpg?v=20261110b2"),
+    url("img/hero-bg-full.png?v=20261110d1"),
     linear-gradient(120deg, var(--primary) 0%, #4339c9 45%, #2f2a8c 100%);
   background-size: cover;
   background-position: 58% center;
