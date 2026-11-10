@@ -4,12 +4,99 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  /* One viewport-tall hero; nav is first child (fixed) — bg extends under it */
   padding-top: 73px;
   box-sizing: border-box;
   min-height: min(720px, 100vh);
   min-height: min(720px, 100dvh);
   background: #050508;
+}
+
+/* Hero from top; fixed nav sits on top of the hero image */
+#layout-desktop .d-stage:has(.d-hero--bg-only) {
+  padding-top: 0;
+  background: transparent;
+}
+
+#layout-desktop .d-hero.d-hero--fullbg.d-hero--bg-only {
+  padding-top: 0;
+  margin-top: 0;
+  isolation: auto;
+  background: transparent;
+  min-height: min(680px, 100vh);
+  min-height: min(680px, 100dvh);
+  max-height: 860px;
+}
+
+#layout-desktop:has(.d-hero--bg-only) .d-nav:not(.is-scrolled) {
+  background: transparent;
+  border-bottom-color: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+#layout-desktop:has(.d-hero--bg-only) .d-nav.is-scrolled {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(var(--color-text-rgb), 0.08);
+  box-shadow: 0 8px 24px -20px rgba(var(--color-text-rgb), 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__bg {
+  background-color: transparent;
+  background-position: 62% center;
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__overlay,
+#layout-desktop .d-hero.d-hero--fullbg.d-hero--bg-only .d-hero__overlay {
+  display: none !important;
+  background: none !important;
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__bg::before,
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__bg::after,
+#layout-desktop .d-hero.d-hero--bg-only::before,
+#layout-desktop .d-hero.d-hero--bg-only::after {
+  content: none !important;
+  display: none !important;
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__container {
+  padding: calc(73px + 32px) 40px 48px;
+  min-height: inherit;
+  box-sizing: border-box;
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__sub {
+  margin: 0 0 14px;
+  font-size: clamp(18px, 1.65vw, 26px);
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.45);
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__title {
+  display: block;
+  gap: 0;
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__line {
+  font-size: clamp(40px, 4.8vw, 64px);
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__actions {
+  margin-top: 28px;
+}
+
+#layout-desktop .d-hero.d-hero--bg-only .d-hero__actions .d-hero__enroll {
+  min-width: 260px;
+  min-height: 60px;
+  padding: 16px 40px;
+  font-size: 18px;
+  line-height: 1.25;
 }
 
 #layout-desktop .d-hero__bg {
@@ -21,9 +108,9 @@
   z-index: 0;
   pointer-events: none;
   background-color: #050508;
-  background-image: url("img/hero-bg-full.jpg");
+  background-image: url("img/hero-bg-full.jpg?v=20261110b2");
   background-size: cover;
-  background-position: center center;
+  background-position: 58% center;
   background-repeat: no-repeat;
 }
 
@@ -299,14 +386,21 @@
   text-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 
-/* Wordmark readable over hero; logo image stays default (same as scrolled) */
 #layout-desktop .d-nav:not(.is-scrolled) .d-logo__text {
   color: #fff;
+}
+
+#layout-desktop .d-nav.is-scrolled .d-logo__text {
+  color: var(--color-text);
 }
 
 /* Enroll hidden at top of page; shown as soon as user scrolls (.is-scrolled) */
 #layout-desktop .d-nav:not(.is-scrolled) .nav-enroll {
   display: none;
+}
+
+#layout-desktop .d-main > section {
+  scroll-margin-top: 88px;
 }
 
 #layout-desktop .d-stage {

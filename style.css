@@ -6257,8 +6257,8 @@ html.page-v2 #layout-desktop .d-nav {
 
 #layout-desktop .d-nav.is-scrolled,
 html.page-v2 #layout-desktop .d-nav.is-scrolled {
-  background: rgba(255, 255, 255, 0.94);
-  border-bottom-color: transparent;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid rgba(var(--color-text-rgb), 0.08);
   box-shadow: 0 8px 24px -20px rgba(var(--color-text-rgb), 0.18);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
