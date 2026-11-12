@@ -5328,12 +5328,31 @@ button[type="submit"]:disabled {
   box-shadow: 0 18px 40px -24px rgba(var(--color-text-rgb), 0.6);
 }
 
-.lec .lec__media img,
-.lec .lec__media iframe {
+.lec .lec__media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 0;
+}
+
+.lec .lec__media > img,
+.lec .lec__media > iframe {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 0;
+}
+
+#layout-mobile .lec .lec__media.is-playing,
+#layout-desktop .lec .lec__media.is-playing,
+#layout-mobile .lec .lec__media:has(> .play-button:only-child),
+#layout-desktop .lec .lec__media:has(> .play-button:only-child),
+#layout-mobile .lec .lec__media:has(> iframe),
+#layout-desktop .lec .lec__media:has(> iframe) {
+  background: #000;
 }
 
 .lec .lec__media .play-button {
@@ -5498,6 +5517,11 @@ button[type="submit"]:disabled {
 #layout-desktop .lec__thumb {
   background-color: var(--color-primary);
   background-image: linear-gradient(135deg, var(--color-primary-mid) 0%, var(--color-primary) 45%, var(--color-primary-alt) 100%);
+}
+
+#layout-mobile .lec__btn[data-thumb] .lec__thumb,
+#layout-desktop .lec__btn[data-thumb] .lec__thumb {
+  background-color: transparent;
 }
 
 #layout-mobile .lec__btn {
