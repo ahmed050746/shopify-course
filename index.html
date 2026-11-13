@@ -11,9 +11,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
   <link rel="stylesheet" href="design-tokens.css?v=20261110ds1">
-  <link rel="stylesheet" href="style.css?v=20261110fabWa">
+  <link rel="stylesheet" href="style.css?v=20261113shellAlign">
   <link rel="stylesheet" href="design-system.css?v=20261110heroOrange">
-  <link rel="stylesheet" href="style-desktop-hero.css?v=20261110overlayV3">
+  <link rel="stylesheet" href="style-desktop-hero.css?v=20261113stripeGap">
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -670,7 +670,7 @@
         <section class="m-hero" aria-labelledby="m-hero-title">
           <div class="m-hero__decor" aria-hidden="true">
             <span class="m-hero__grid" aria-hidden="true"></span>
-            <img class="m-hero__photo" src="img/hero-mentor.png" alt="" width="390" height="260" loading="lazy" decoding="async">
+            <img class="m-hero__photo" src="img/hero-mentor.png?v=20261113restore" alt="" width="390" height="260" loading="lazy" decoding="async">
             <span class="m-hero__shade"></span>
           </div>
 
@@ -1021,7 +1021,7 @@
                 <li><button type="button" class="lec__btn is-active" aria-pressed="true" data-video="bunny:786982/2b51c5e2-b7b1-4a26-ad4b-7f9aac767c18" data-thumb="img/lecture-01-thumb.png" data-title="Lecture 01 · How You will make Money"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 01</span><span class="lec__name">How You will make Money</span></span></button></li>
                 <li><button type="button" class="lec__btn" aria-pressed="false" data-video="bunny:786982/465064dc-438f-40f7-a7f4-b8f11ed68973" data-thumb="img/lecture-02-thumb.png" data-title="Lecture 02 · Discord Marketing Full Introduction"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 02</span><span class="lec__name">Discord Marketing Full Introduction</span></span></button></li>
                 <li><button type="button" class="lec__btn" aria-pressed="false" data-video="bunny:786982/14472577-1d3f-4e4e-a400-a6f6f2e946cc" data-thumb="img/lecture-03-thumb.png" data-title="Lecture 03 · WhatsApp Group Marketing Strategy"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 03</span><span class="lec__name">WhatsApp Group Marketing Strategy</span></span></button></li>
-                <li><button type="button" class="lec__btn" aria-pressed="false" data-video="bunny:786982/464f54e8-5302-4512-9dea-0fbc9e76dc94" data-thumb="img/lecture-04-thumb.png" data-title="Lecture 04 · Find Winning Product Under 5 Minuts"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 04</span><span class="lec__name">Find Winning Product Under 5 Minuts</span></span></button></li>
+                <li><button type="button" class="lec__btn" aria-pressed="false" data-video="bunny:786982/464f54e8-5302-4512-9dea-0fbc9e76dc94" data-thumb="img/lecture-04-thumb.png" data-title="Lecture 04 · Find Winning Product Under 5 Minutes"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 04</span><span class="lec__name">Find Winning Product Under 5 Minutes</span></span></button></li>
               </ol>
             </div>
           </div>
@@ -1075,7 +1075,7 @@
 
   <!-- Desktop layout -->
   <div class="layout layout--desktop" id="layout-desktop">
-    <div class="d-stage">
+    <div class="d-stage m-stage">
       <header class="d-nav">
         <div class="d-nav__inner">
           <a class="d-logo" href="#" aria-label="AI Web Crafts home">
@@ -1089,21 +1089,23 @@
           </a>
         </div>
       </header>
-      <section class="d-hero d-hero--fullbg d-hero--bg-only" aria-labelledby="d-hero-title">
-        <div class="d-hero__bg" aria-hidden="true"></div>
-        <div class="d-hero__overlay d-hero__overlay--creative" aria-hidden="true">
-          <span class="d-hero__overlay-mesh" aria-hidden="true"></span>
-          <span class="d-hero__overlay-beam" aria-hidden="true"></span>
+      <section class="m-hero" aria-labelledby="d-hero-title">
+        <div class="m-hero__decor" aria-hidden="true">
+          <span class="m-hero__grid" aria-hidden="true"></span>
+          <img class="m-hero__photo" src="img/hero-mentor.png?v=20261113restore" alt="" width="390" height="260" loading="lazy" decoding="async">
+          <span class="m-hero__shade"></span>
         </div>
-        <div class="d-hero__container">
-          <div class="d-hero__main">
-            <p class="d-hero__sub">Don't just build a store,</p>
-            <h1 id="d-hero-title" class="d-hero__title">
-              <span class="d-hero__line">Learn to <span class="d-hero__mark">Drive Sales</span></span>
+
+        <div class="m-hero__inner">
+          <div class="m-hero__content">
+            <h1 id="d-hero-title" class="m-hero__title">
+              <span class="m-hero__lead" data-shine="Don't just build a store,">Don't just build a store,</span>
+              <span class="m-hero__punch">
+                <span class="m-hero__punch-top">Learn to</span>
+                <span class="m-hero__punch-bottom"><span class="m-hero__mark"><span class="m-seek__sr">Drive Sales</span><span aria-hidden="true"><span class="m-seek__ch">D</span><span class="m-seek__ch">r</span><span class="m-seek__ch">i</span><span class="m-seek__ch">v</span><span class="m-seek__ch">e</span><span class="m-seek__ch m-seek__ch--gap"></span><span class="m-seek__ch">S</span><span class="m-seek__ch">a</span><span class="m-seek__ch">l</span><span class="m-seek__ch">e</span><span class="m-seek__ch">s</span></span></span></span>
+              </span>
             </h1>
-            <div class="d-hero__actions">
-              <a href="pay.html" class="d-btn d-btn--submit d-hero__enroll">Enroll Now</a>
-            </div>
+            <a class="m-hero__cta" href="pay.html">Enroll Now</a>
           </div>
         </div>
       </section>
@@ -1440,7 +1442,7 @@
               <li><button type="button" class="lec__btn is-active" aria-pressed="true" data-video="bunny:786982/2b51c5e2-b7b1-4a26-ad4b-7f9aac767c18" data-thumb="img/lecture-01-thumb.png" data-title="Lecture 01 · How You will make Money"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 01</span><span class="lec__name">How You will make Money</span></span></button></li>
               <li><button type="button" class="lec__btn" aria-pressed="false" data-video="bunny:786982/465064dc-438f-40f7-a7f4-b8f11ed68973" data-thumb="img/lecture-02-thumb.png" data-title="Lecture 02 · Discord Marketing Full Introduction"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 02</span><span class="lec__name">Discord Marketing Full Introduction</span></span></button></li>
               <li><button type="button" class="lec__btn" aria-pressed="false" data-video="bunny:786982/14472577-1d3f-4e4e-a400-a6f6f2e946cc" data-thumb="img/lecture-03-thumb.png" data-title="Lecture 03 · WhatsApp Group Marketing Strategy"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 03</span><span class="lec__name">WhatsApp Group Marketing Strategy</span></span></button></li>
-              <li><button type="button" class="lec__btn" aria-pressed="false" data-video="bunny:786982/464f54e8-5302-4512-9dea-0fbc9e76dc94" data-thumb="img/lecture-04-thumb.png" data-title="Lecture 04 · Find Winning Product Under 5 Minuts"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 04</span><span class="lec__name">Find Winning Product Under 5 Minuts</span></span></button></li>
+              <li><button type="button" class="lec__btn" aria-pressed="false" data-video="bunny:786982/464f54e8-5302-4512-9dea-0fbc9e76dc94" data-thumb="img/lecture-04-thumb.png" data-title="Lecture 04 · Find Winning Product Under 5 Minutes"><span class="lec__thumb" aria-hidden="true"><span class="lec__thumb-play">▶</span></span><span class="lec__meta"><span class="lec__num">Lecture 04</span><span class="lec__name">Find Winning Product Under 5 Minutes</span></span></button></li>
             </ol>
           </div>
         </div>
@@ -2104,14 +2106,23 @@
     })();
 
     (function () {
-      var mobileHeader = document.querySelector("#layout-mobile .m-header");
-      var hero = document.querySelector("#layout-mobile .m-hero");
-      if (!mobileHeader || !hero) return;
+      var pairs = [
+        {
+          header: document.querySelector("#layout-mobile .m-header"),
+          hero: document.querySelector("#layout-mobile .m-hero"),
+        },
+        {
+          header: document.querySelector("#layout-desktop .d-nav"),
+          hero: document.querySelector("#layout-desktop .m-hero"),
+        },
+      ];
 
       var syncHeroHeader = function () {
-        var rect = hero.getBoundingClientRect();
-        var pastHero = rect.bottom <= 0;
-        mobileHeader.classList.toggle("is-past-hero", pastHero);
+        pairs.forEach(function (pair) {
+          if (!pair.header || !pair.hero) return;
+          var pastHero = pair.hero.getBoundingClientRect().bottom <= 0;
+          pair.header.classList.toggle("is-past-hero", pastHero);
+        });
       };
 
       syncHeroHeader();

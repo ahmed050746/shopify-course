@@ -58,7 +58,7 @@ h1,
 #layout-mobile .m-learn__item-text,
 #layout-mobile .m-btn,
 #layout-mobile .nav-enroll,
-#layout-mobile .m-hero__cta,
+:is(#layout-mobile, #layout-desktop) .m-hero__cta,
 #layout-mobile .price__btn,
 #layout-mobile [class*="__eyebrow"],
 #layout-mobile [class*="__sub"] {
@@ -230,7 +230,7 @@ a:not([class]) {
     margin: 10px 0 8px;
   }
 
-  #layout-mobile .m-hero__cta {
+  :is(#layout-mobile, #layout-desktop) .m-hero__cta {
     margin-top: 18px !important;
     margin-bottom: 0;
   }
@@ -400,7 +400,7 @@ a:not([class]) {
   text-shadow: none;
 }
 
-#layout-mobile .m-hero__cta {
+:is(#layout-mobile, #layout-desktop) .m-hero__cta {
   width: 100%;
   box-sizing: border-box;
   min-height: 56px;
@@ -416,7 +416,7 @@ a:not([class]) {
     0 4px 12px -4px rgba(var(--accent-rgb), 0.25) !important;
 }
 
-#layout-mobile .m-hero__cta:hover {
+:is(#layout-mobile, #layout-desktop) .m-hero__cta:hover {
   color: var(--bg-card) !important;
   background: var(--accent) !important;
   border-color: transparent;
