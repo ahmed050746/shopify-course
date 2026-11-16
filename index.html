@@ -701,7 +701,7 @@
 
           <div class="m-testi__track" id="mTestiTrack">
             <article class="m-testi__card">
-              <div class="youtube-placeholder m-testi__media" data-video="">
+              <div class="youtube-placeholder m-testi__media" data-video="bunny:786982/3be219b1-35a9-4ddd-9d14-5fb8aea8dba4" data-thumb="img/testi-01-thumb.png">
                 <div class="play-button" aria-hidden="true">▶</div>
               </div>
               <div class="m-testi__body">
@@ -712,7 +712,7 @@
             </article>
 
             <article class="m-testi__card">
-              <div class="youtube-placeholder m-testi__media" data-video="">
+              <div class="youtube-placeholder m-testi__media" data-video="" data-thumb="img/testi-02-thumb.png">
                 <div class="play-button" aria-hidden="true">▶</div>
               </div>
               <div class="m-testi__body">
@@ -1098,7 +1098,7 @@
           <!-- Student Stories: add each YouTube video ID in data-video, plus name / course / quote -->
           <div class="d-testi__track" id="dTestiTrack">
             <article class="d-testi__card">
-              <div class="youtube-placeholder d-testi__media" data-video="">
+              <div class="youtube-placeholder d-testi__media" data-video="bunny:786982/3be219b1-35a9-4ddd-9d14-5fb8aea8dba4" data-thumb="img/testi-01-thumb.png">
                 <div class="play-button" aria-hidden="true">▶</div>
               </div>
               <div class="d-testi__body">
@@ -1897,32 +1897,125 @@
 
     })();
 
-    // YouTube Lazy Load (lecture player uses its own embed logic)
-    document.querySelectorAll(".youtube-placeholder:not(.lec__media)").forEach(el => {
+    const parseBunnyPlaceholder = id => {
+        if (!id?.startsWith("bunny:")) return null;
+        const [libraryId, videoId] = id.slice(6).split("/");
+        return libraryId && videoId ? { libraryId, videoId } : null;
+    };
+    const bunnyPlaceholderSrc = (libraryId, videoId, { autoplay, muted }) => {
+        const params = new URLSearchParams({
+            autoplay: autoplay ? "true" : "false",
+            loop: "false",
+            muted: muted ? "true" : "false",
+            preload: "true",
+            responsive: "true",
+        });
+        return `https://player.mediadelivery.net/embed/${libraryId}/${videoId}?${params}`;
+    };
+    const embedBunnyInPlaceholder = (el, autoplay, muted) => {
+        const bunny = parseBunnyPlaceholder(el.dataset.video);
+        if (!bunny) return false;
+        const src = bunnyPlaceholderSrc(bunny.libraryId, bunny.videoId, { autoplay, muted });
+        el.innerHTML = `<iframe src="${src}" title="Student story" loading="lazy" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture;fullscreen;" allowfullscreen="true"></iframe>`;
+        return true;
+    };
+    const prependStoryThumb = (el) => {
         const id = el.dataset.video;
-        if (id && !el.querySelector("img")) {
+        const bunny = parseBunnyPlaceholder(id);
+        const customThumb = el.dataset.thumb;
+        if (el.querySelector("img, iframe")) return;
+        if (customThumb) {
+            const thumb = document.createElement("img");
+            thumb.src = customThumb;
+            thumb.alt = "";
+            thumb.loading = "lazy";
+            el.prepend(thumb);
+        } else if (id && !bunny) {
             const thumb = document.createElement("img");
             thumb.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
             thumb.alt = "";
             thumb.loading = "lazy";
             el.prepend(thumb);
         }
-        el.addEventListener("click", function () {
-            const videoId = this.dataset.video;
-            if (!videoId) return;
-            this.innerHTML = `
+    };
+    const playStoryMedia = (el) => {
+        if (el.querySelector("iframe")) return;
+        const videoId = el.dataset.video;
+        if (!videoId) return;
+        if (embedBunnyInPlaceholder(el, true, false)) return;
+        el.innerHTML = `
                 <iframe 
                     width="100%" 
                     height="100%" 
-                    src="https://www.youtub.com/embed/${videoId}?autoplay=1&rel=0" 
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
                     title="Course Video" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                     allowfullscreen>
                 </iframe>
             `;
+    };
+    const setFeaturedStoryMedia = (featuredMedia, sourceMedia, { autoplay } = {}) => {
+        featuredMedia.dataset.video = sourceMedia.dataset.video || "";
+        if (sourceMedia.dataset.thumb) featuredMedia.dataset.thumb = sourceMedia.dataset.thumb;
+        else delete featuredMedia.dataset.thumb;
+        if (autoplay && featuredMedia.dataset.video) {
+            playStoryMedia(featuredMedia);
+            return;
+        }
+        featuredMedia.innerHTML = `<div class="play-button" aria-hidden="true">▶</div>`;
+        prependStoryThumb(featuredMedia);
+    };
+
+    function initMobileTestiGallery() {
+        const track = document.getElementById("mTestiTrack");
+        if (!track) return;
+        const cards = [...track.querySelectorAll(".m-testi__card")];
+        const featuredCard = cards[0];
+        const featuredMedia = featuredCard?.querySelector(".m-testi__media");
+        const featuredBody = featuredCard?.querySelector(".m-testi__body");
+        if (!featuredMedia || !featuredBody) return;
+
+        const selectStory = (card, autoplay) => {
+            const media = card.querySelector(".m-testi__media");
+            const body = card.querySelector(".m-testi__body");
+            if (!media) return;
+            if (media.dataset.video) {
+                featuredBody.innerHTML = body.innerHTML;
+                setFeaturedStoryMedia(featuredMedia, media, { autoplay });
+                cards.forEach((c) => c.classList.toggle("is-story-active", c === card));
+                return;
+            }
+            if (autoplay) playStoryMedia(featuredMedia);
+        };
+
+        cards.forEach((card, index) => {
+            const media = card.querySelector(".m-testi__media");
+            if (!media) return;
+            if (index === 0) prependStoryThumb(media);
+            else prependStoryThumb(media);
+            media.addEventListener("click", (e) => {
+                if (e.target.closest("iframe")) return;
+                if (index === 0) {
+                    playStoryMedia(featuredMedia);
+                    return;
+                }
+                selectStory(card, true);
+            });
+        });
+
+        cards[0]?.classList.add("is-story-active");
+    }
+
+    // YouTube / Bunny lazy load (lecture player uses its own embed logic)
+    document.querySelectorAll(".youtube-placeholder:not(.lec__media)").forEach(el => {
+        if (el.closest("#mTestiTrack")) return;
+        prependStoryThumb(el);
+        el.addEventListener("click", function () {
+            playStoryMedia(this);
         });
     });
+    initMobileTestiGallery();
 
     document.querySelectorAll(".lec").forEach(section => {
         const player = section.querySelector(".lec__player");
