@@ -712,7 +712,7 @@
             </article>
 
             <article class="m-testi__card">
-              <div class="youtube-placeholder m-testi__media" data-video="" data-thumb="img/testi-02-thumb.png">
+              <div class="youtube-placeholder m-testi__media" data-video="bunny:786982/3be219b1-35a9-4ddd-9d14-5fb8aea8dba4" data-thumb="img/testi-02-thumb.png">
                 <div class="play-button" aria-hidden="true">▶</div>
               </div>
               <div class="m-testi__body">
@@ -723,7 +723,7 @@
             </article>
 
             <article class="m-testi__card">
-              <div class="youtube-placeholder m-testi__media" data-video="">
+              <div class="youtube-placeholder m-testi__media" data-video="bunny:786982/5f8ee15c-968a-47b0-8a00-991b0216deb2" data-thumb="img/testi-03-thumb.jpg">
                 <div class="play-button" aria-hidden="true">▶</div>
               </div>
               <div class="m-testi__body">
@@ -734,7 +734,7 @@
             </article>
 
             <article class="m-testi__card">
-              <div class="youtube-placeholder m-testi__media" data-video="">
+              <div class="youtube-placeholder m-testi__media m-testi__media--idle" data-video="" data-static="true">
                 <div class="play-button" aria-hidden="true">▶</div>
               </div>
               <div class="m-testi__body">
@@ -745,7 +745,7 @@
             </article>
 
             <article class="m-testi__card">
-              <div class="youtube-placeholder m-testi__media" data-video="">
+              <div class="youtube-placeholder m-testi__media m-testi__media--idle" data-video="" data-static="true">
                 <div class="play-button" aria-hidden="true">▶</div>
               </div>
               <div class="m-testi__body">
@@ -1109,7 +1109,7 @@
             </article>
 
             <article class="d-testi__card">
-              <div class="youtube-placeholder d-testi__media" data-video="">
+              <div class="youtube-placeholder d-testi__media" data-video="bunny:786982/5f8ee15c-968a-47b0-8a00-991b0216deb2" data-thumb="img/testi-03-thumb.jpg">
                 <div class="play-button" aria-hidden="true">▶</div>
               </div>
               <div class="d-testi__body">
@@ -1938,11 +1938,17 @@
             el.prepend(thumb);
         }
     };
-    const playStoryMedia = (el) => {
-        if (el.querySelector("iframe")) return;
+    const playStoryMedia = (el, { replace = false, muted = false } = {}) => {
         const videoId = el.dataset.video;
         if (!videoId) return;
-        if (embedBunnyInPlaceholder(el, true, false)) return;
+        const bunny = parseBunnyPlaceholder(videoId);
+        const iframe = el.querySelector("iframe");
+        if (iframe) {
+            if (!replace && bunny && iframe.src.includes(bunny.videoId)) return;
+            if (!replace && !bunny) return;
+            el.innerHTML = "";
+        }
+        if (embedBunnyInPlaceholder(el, true, muted)) return;
         el.innerHTML = `
                 <iframe 
                     width="100%" 
@@ -1960,7 +1966,7 @@
         if (sourceMedia.dataset.thumb) featuredMedia.dataset.thumb = sourceMedia.dataset.thumb;
         else delete featuredMedia.dataset.thumb;
         if (autoplay && featuredMedia.dataset.video) {
-            playStoryMedia(featuredMedia);
+            playStoryMedia(featuredMedia, { replace: true, muted: false });
             return;
         }
         featuredMedia.innerHTML = `<div class="play-button" aria-hidden="true">▶</div>`;
@@ -1980,28 +1986,39 @@
             const media = card.querySelector(".m-testi__media");
             const body = card.querySelector(".m-testi__body");
             if (!media) return;
-            if (media.dataset.video) {
+            const storyVideo = media.getAttribute("data-video");
+            if (storyVideo) {
                 featuredBody.innerHTML = body.innerHTML;
                 setFeaturedStoryMedia(featuredMedia, media, { autoplay });
                 cards.forEach((c) => c.classList.toggle("is-story-active", c === card));
+                if (autoplay) {
+                    featuredCard.scrollIntoView({ behavior: "smooth", block: "nearest" });
+                }
                 return;
             }
-            if (autoplay) playStoryMedia(featuredMedia);
+            if (autoplay) playStoryMedia(featuredMedia, { replace: true, muted: false });
         };
 
-        cards.forEach((card, index) => {
+        cards.forEach((card) => {
             const media = card.querySelector(".m-testi__media");
-            if (!media) return;
-            if (index === 0) prependStoryThumb(media);
-            else prependStoryThumb(media);
-            media.addEventListener("click", (e) => {
-                if (e.target.closest("iframe")) return;
-                if (index === 0) {
-                    playStoryMedia(featuredMedia);
-                    return;
-                }
-                selectStory(card, true);
-            });
+            if (media) prependStoryThumb(media);
+        });
+
+        track.addEventListener("click", (e) => {
+            if (e.target.closest("iframe")) return;
+            const card = e.target.closest(".m-testi__card");
+            if (!card || !track.contains(card)) return;
+            const media = e.target.closest(".m-testi__media");
+            if (!media || !card.contains(media)) return;
+            if (media.dataset.static === "true") return;
+            if (card === featuredCard) {
+                playStoryMedia(featuredMedia, { muted: false });
+                return;
+            }
+            const storyVideo = media.getAttribute("data-video");
+            const storyThumb = media.getAttribute("data-thumb");
+            if (!storyVideo && !storyThumb) return;
+            selectStory(card, true);
         });
 
         cards[0]?.classList.add("is-story-active");

@@ -3436,6 +3436,11 @@ button[type="submit"]:disabled {
   border-radius: 12px;
 }
 
+#layout-mobile .m-testi__media--idle {
+  cursor: default;
+  pointer-events: none;
+}
+
 #layout-mobile .m-testi__card:not(:first-child).is-story-active {
   border-color: var(--color-primary);
   box-shadow: 0 0 0 2px var(--color-primary-soft);
