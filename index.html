@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="style.css?v=20261113shellAlign">
   <link rel="stylesheet" href="design-system.css?v=20261110heroOrange">
   <link rel="stylesheet" href="style-desktop-hero.css?v=20261113stripeGap">
+  <link rel="stylesheet" href="assets/desktop-hero/hero.css?v=20261116navSwitch">
 
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -1075,40 +1076,8 @@
 
   <!-- Desktop layout -->
   <div class="layout layout--desktop" id="layout-desktop">
-    <div class="d-stage m-stage">
-      <header class="d-nav">
-        <div class="d-nav__inner">
-          <a class="d-logo" href="#" aria-label="AI Web Crafts home">
-            <span class="d-logo" aria-hidden="true"><img src="/img/logo.png" alt="logo AI web crafts" style="width: 32px;" ></span>
-            <span class="d-logo__text">AI Web Crafts</span>
-          </a>
-          <a href="pay.html" class="nav-enroll">
-            <span class="nav-enroll__dot" aria-hidden="true"></span>
-            <span class="nav-enroll__label">Enroll Now</span>
-            <span class="nav-enroll__arrow" aria-hidden="true"></span>
-          </a>
-        </div>
-      </header>
-      <section class="m-hero" aria-labelledby="d-hero-title">
-        <div class="m-hero__decor" aria-hidden="true">
-          <span class="m-hero__grid" aria-hidden="true"></span>
-          <img class="m-hero__photo" src="img/hero-mentor.png?v=20261113restore" alt="" width="390" height="260" loading="lazy" decoding="async">
-          <span class="m-hero__shade"></span>
-        </div>
-
-        <div class="m-hero__inner">
-          <div class="m-hero__content">
-            <h1 id="d-hero-title" class="m-hero__title">
-              <span class="m-hero__lead" data-shine="Don't just build a store,">Don't just build a store,</span>
-              <span class="m-hero__punch">
-                <span class="m-hero__punch-top">Learn to</span>
-                <span class="m-hero__punch-bottom"><span class="m-hero__mark"><span class="m-seek__sr">Drive Sales</span><span aria-hidden="true"><span class="m-seek__ch">D</span><span class="m-seek__ch">r</span><span class="m-seek__ch">i</span><span class="m-seek__ch">v</span><span class="m-seek__ch">e</span><span class="m-seek__ch m-seek__ch--gap"></span><span class="m-seek__ch">S</span><span class="m-seek__ch">a</span><span class="m-seek__ch">l</span><span class="m-seek__ch">e</span><span class="m-seek__ch">s</span></span></span></span>
-              </span>
-            </h1>
-            <a class="m-hero__cta" href="pay.html">Enroll Now</a>
-          </div>
-        </div>
-      </section>
+    <div class="d-stage m-stage d-stage--react" id="desktop-hero-stage">
+      <div id="desktop-hero-root" class="desktop-hero-mount"></div>
     </div>
 
     <main class="d-main">
@@ -2111,10 +2080,6 @@
           header: document.querySelector("#layout-mobile .m-header"),
           hero: document.querySelector("#layout-mobile .m-hero"),
         },
-        {
-          header: document.querySelector("#layout-desktop .d-nav"),
-          hero: document.querySelector("#layout-desktop .m-hero"),
-        },
       ];
 
       var syncHeroHeader = function () {
@@ -2256,5 +2221,6 @@
     })();
 
   </script>
+  <script type="module" src="assets/desktop-hero/hero.js?v=20261116navSwitch"></script>
 </body>
 </html>

@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#desktop-hero-root {
+  min-height: 100dvh;
+  background: #050507;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #desktop-hero-root * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

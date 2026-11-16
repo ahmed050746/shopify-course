@@ -1081,3 +1081,21 @@
   height: 48%;
   opacity: 0.4;
 }
+
+/* Desktop React hero mount (replaces .m-hero) */
+#layout-desktop .d-stage.d-stage--react {
+  min-height: 0;
+  height: auto;
+  overflow: visible;
+  padding: 0;
+  background: #050507;
+}
+
+#layout-desktop .desktop-hero-mount {
+  width: 100%;
+  min-height: 100dvh;
+}
+
+#layout-desktop .d-stage.d-stage--react + .d-main {
+  padding-top: 0;
+}
