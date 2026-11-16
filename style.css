@@ -3466,33 +3466,26 @@ button[type="submit"]:disabled {
   transform: translateX(-50%);
   z-index: 2;
   width: auto;
-  min-width: 88px;
+  min-width: 72px;
   height: 34px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
   padding: 0 16px;
   border-radius: 9999px;
   background: #fff;
   color: var(--color-primary);
-  font-size: 13px;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.02em;
   text-shadow: none;
   box-shadow: 0 10px 24px -8px rgba(0, 0, 0, 0.45);
-}
-
-#layout-mobile .m-testi__media .play-button--pill .play-button__glyph,
-#layout-desktop .d-testi__media .play-button--pill .play-button__glyph {
-  font-size: 10px;
-  padding-left: 2px;
 }
 
 #layout-mobile .m-testi__media .play-button--pill .play-button__text,
 #layout-desktop .d-testi__media .play-button--pill .play-button__text {
   font-family: var(--font-body, inherit);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
 #layout-mobile .m-testi__body {
@@ -3512,29 +3505,25 @@ button[type="submit"]:disabled {
 
 #layout-mobile .m-testi__card:first-child .m-testi__media .play-button--pill {
   bottom: 14px;
-  min-width: 96px;
+  min-width: 80px;
   height: 38px;
-  padding: 0 20px;
-  font-size: 14px;
-  gap: 8px;
+  padding: 0 18px;
 }
 
-#layout-mobile .m-testi__card:first-child .m-testi__media .play-button--pill .play-button__glyph {
-  font-size: 11px;
+#layout-mobile .m-testi__card:first-child .m-testi__media .play-button--pill .play-button__text {
+  font-size: 14px;
 }
 
 #layout-mobile .m-testi__card:not(:first-child) .m-testi__media .play-button--pill {
   bottom: 6px;
-  min-width: 62px;
+  min-width: 58px;
   height: 24px;
-  padding: 0 10px;
-  font-size: 10px;
-  gap: 4px;
+  padding: 0 12px;
   box-shadow: 0 6px 14px -8px rgba(0, 0, 0, 0.45);
 }
 
-#layout-mobile .m-testi__card:not(:first-child) .m-testi__media .play-button--pill .play-button__glyph {
-  font-size: 9px;
+#layout-mobile .m-testi__card:not(:first-child) .m-testi__media .play-button--pill .play-button__text {
+  font-size: 10px;
 }
 
 #layout-mobile .m-testi__card:not(:first-child) .m-testi__quote,
@@ -4357,9 +4346,12 @@ button[type="submit"]:disabled {
 
 #layout-desktop .d-testi__media .play-button--pill {
   bottom: 14px;
-  min-width: 96px;
+  min-width: 80px;
   height: 38px;
   padding: 0 18px;
+}
+
+#layout-desktop .d-testi__media .play-button--pill .play-button__text {
   font-size: 14px;
 }
 
