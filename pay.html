@@ -645,7 +645,7 @@
                   <option value="OM">Oman</option>
                   <option value="GB">United Kingdom</option>
                 </select>
-                <input class="d-field__input pay-phone-number" type="tel" id="c-phone" placeholder="03321319363" inputmode="tel" autocomplete="tel" maxlength="20">
+                <input class="d-field__input pay-phone-number" type="tel" id="c-phone" placeholder="0300 XXXXXXX" inputmode="tel" autocomplete="tel" maxlength="12" aria-describedby="err-phone">
               </div>
               <p class="form-error" id="err-phone" hidden>Enter a valid number for the selected country (not another country’s format).</p>
             </div>
@@ -797,13 +797,14 @@
 
   <script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKuSLup7ht_lXCrxbvFyNqeNgPZ8VI0FAdMW1BL1eh53nUi3nTl3ogqcBobf5Xa-OV/exec";
+    const MAKE_WEBHOOK_URL = "https://hook.us2.make.com/8vws4r79t8pohflk1pmyx9a6emten7ep";
     const PAYMENT_VALUE_PKR = 4500;
     let selectedFile = null;
     let screenshotBase64 = null;
     const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     const PHONE_COUNTRY_CONFIG = {
-      PK: { dial: '92', placeholder: '03321319363' },
+      PK: { dial: '92', placeholder: '0300 XXXXXXX' },
       SA: { dial: '966', placeholder: '512345678' },
       AE: { dial: '971', placeholder: '501234567' },
       QA: { dial: '974', placeholder: '33123456' },
@@ -924,7 +925,20 @@
       const country = getPhoneCountry();
       const phoneEl = document.getElementById('c-phone');
       const cfg = PHONE_COUNTRY_CONFIG[country];
-      if (phoneEl && cfg) phoneEl.placeholder = cfg.placeholder;
+      if (phoneEl && cfg) {
+        phoneEl.placeholder = cfg.placeholder;
+        phoneEl.maxLength = country === 'PK' ? 12 : 20;
+      }
+    }
+
+    /** Pakistan mobile: show as 03XX XXXXXXX while typing (digits-only for validation). */
+    function formatPkPhoneInput(el) {
+      const digits = phoneDigitsOnly(el.value).slice(0, 11);
+      if (digits.length <= 4) {
+        el.value = digits;
+      } else {
+        el.value = digits.slice(0, 4) + ' ' + digits.slice(4);
+      }
     }
 
     function getFullNameFromFields() {
@@ -1123,16 +1137,45 @@
       formData.append('order_id', orderId);
       if (screenshotBase64) formData.append('screenshot', screenshotBase64);
 
+      const webhookPayload = {
+        customer_name: name,
+        first_name: fn,
+        last_name: ln,
+        phone: cleanPhone,
+        phone_e164: phoneE164,
+        phone_country: getPhoneCountry(),
+        email,
+        city,
+        order_id: orderId,
+        order_details: {
+          product: 'E-Commerce Mentorship',
+          value_pkr: PAYMENT_VALUE_PKR,
+          currency: 'PKR',
+          quantity: 1
+        },
+        has_payment_screenshot: Boolean(screenshotBase64),
+        submitted_at: new Date().toISOString()
+      };
+
       try {
         const controller = new AbortController();
         const timeout = setTimeout(() => controller.abort(), 30000);
-        await fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: formData,
-          signal: controller.signal
-        });
+        const signal = controller.signal;
+        await Promise.allSettled([
+          fetch(SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData,
+            signal
+          }),
+          fetch(MAKE_WEBHOOK_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(webhookPayload),
+            signal
+          })
+        ]);
         clearTimeout(timeout);
       } catch (err) {
         console.log('Submit ping did not complete (continuing anyway):', err);
@@ -1184,7 +1227,8 @@
       clearPayErr('err-ln');
       document.getElementById('c-ln').removeAttribute('aria-invalid');
     });
-    document.getElementById('c-phone').addEventListener('input', () => {
+    document.getElementById('c-phone').addEventListener('input', (e) => {
+      if (getPhoneCountry() === 'PK') formatPkPhoneInput(e.target);
       clearPayErr('err-phone');
       document.getElementById('c-phone').removeAttribute('aria-invalid');
     });
