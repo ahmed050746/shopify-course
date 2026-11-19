@@ -1,0 +1,7 @@
+{
+  "name": "aiwebcrafts-site",
+  "private": true,
+  "scripts": {
+    "build:perf": "node tools/build-perf-assets.mjs && node tools/patch-index-perf.mjs"
+  }
+}
