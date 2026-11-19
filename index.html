@@ -8,40 +8,23 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Plus+Jakarta+Sans:wght@700;800&display=swap"></noscript>
   <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
+  <link rel="preload" as="image" href="img/hero-mentor.png?v=20261113restore" fetchpriority="high">
   <link rel="stylesheet" href="design-tokens.css?v=20261110ds1">
   <link rel="stylesheet" href="style.css?v=20261116mTestiName">
   <link rel="stylesheet" href="design-system.css?v=20261110heroOrange">
-  <link rel="stylesheet" href="style-desktop-hero.css?v=20261113stripeGap">
-  <link rel="stylesheet" href="assets/desktop-hero/hero.css?v=20261116navSwitch">
+  <link rel="stylesheet" href="style-desktop-hero.css?v=20261113stripeGap" media="(min-width: 900px)">
+  <link rel="stylesheet" href="assets/desktop-hero/hero.css?v=20261119perf" media="(min-width: 900px)">
 
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    var pageViewUniqueId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
-    
-    window.dataLayer.push({
-      'pageViewId': pageViewUniqueId
-    });
-  </script>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16499475514"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'AW-16499475514');
+    var pageViewUniqueId = 'pv_' + Date.now() + '_' + Math.floor(Math.random() * 1000);
+    window.dataLayer.push({ pageViewId: pageViewUniqueId });
   </script>
-
-  <!-- Google Tag Manager -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-PZ2P9PPL');</script>
-  <!-- End Google Tag Manager -->
+  <script src="js/awc-analytics-defer.js?v=20261119perf" defer></script>
 
   <!-- Schema -->
   <script type="application/ld+json">
@@ -671,7 +654,7 @@
         <section class="m-hero" aria-labelledby="m-hero-title">
           <div class="m-hero__decor" aria-hidden="true">
             <span class="m-hero__grid" aria-hidden="true"></span>
-            <img class="m-hero__photo" src="img/hero-mentor.png?v=20261113restore" alt="" width="390" height="260" loading="lazy" decoding="async">
+            <img class="m-hero__photo" src="img/hero-mentor.png?v=20261113restore" alt="" width="390" height="260" decoding="async" fetchpriority="high">
             <span class="m-hero__shade"></span>
           </div>
 
@@ -1907,7 +1890,7 @@
             autoplay: autoplay ? "true" : "false",
             loop: "false",
             muted: muted ? "true" : "false",
-            preload: "true",
+            preload: autoplay ? "true" : "false",
             responsive: "true",
         });
         return `https://player.mediadelivery.net/embed/${libraryId}/${videoId}?${params}`;
@@ -2051,7 +2034,7 @@
                 autoplay: autoplay ? "true" : "false",
                 loop: "false",
                 muted: "false",
-                preload: "true",
+                preload: autoplay ? "true" : "false",
                 responsive: "true",
             });
             return `https://player.mediadelivery.net/embed/${libraryId}/${videoId}?${params}`;
@@ -2332,6 +2315,6 @@
     })();
 
   </script>
-  <script type="module" src="assets/desktop-hero/hero.js?v=20261116navSwitch"></script>
+  <script src="js/awc-desktop-hero-loader.js?v=20261119perf" defer></script>
 </body>
 </html>
